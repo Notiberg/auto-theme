@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYM App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="logo-container">
+                <span class="logo">Get Wash</span>
+            </div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Поиск...">
+            </div>
+            <div class="filter-buttons">
+                <div class="dropdown">
+                    <button class="filter-btn">
+                        Стоимость <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div>До 1000</div>
+                        <div>До 3000</div>
+                        <div>До 5000</div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="filter-btn">
+                        Длительность <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div>До 30 мин</div>
+                        <div>До 45 минут</div>
+                        <div>До 1 часа</div>
+                    </div>
+                </div>
+                <button class="filter-btn active">
+                    Фильтры <i class="fas fa-sliders-h"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="service-card">
+                <h3>БЕСКОНТАКТНАЯ МОЙКА КУЗОВА (БЕЗ СУШКИ)</h3>
+                <p class="price">Стоимость: от 650 ₽</p>
+                <p class="description"><b>Описание:</b><br>Бесконтактная мойка кузова щелочной эмульсией (экспресс, без сушки кузова), мойка водительского коврика ...</p>
+            </div>
+
+            <div class="service-card">
+                <h3>2D (ДВУХФАЗНАЯ МОЙКА КУЗОВА)</h3>
+                <p class="price">Стоимость: от 1150 ₽</p>
+                <p class="description"><b>Описание:</b><br>Мойка ковриков и порогов, мойка колесных арок, чистка выхлопных труб спец. химией, продувка воздухом ...</p>
+            </div>
+
+            <div class="service-card">
+                <h3>2D COMPLEX (КОМПЛЕКСНАЯ МОЙКА КУЗОВА)</h3>
+                <p class="price">Стоимость: от 1700 ₽</p>
+                <p class="description"><b>Описание:</b><br>Ручная мойка нано-шампунем с нейтральным PH, чистка выхлопных труб спец. химией</p>
+            </div>
+
+            <div class="service-card">
+                <h3>3D DETAILING</h3>
+                <p class="price">Стоимость: от 2500 ₽</p>
+                <p class="description"><b>Описание:</b><br>Полный комплекс услуг по уходу за экстерьером и интерьером автомобиля.</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="glass-footer">
+            <div class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Карта</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Профиль</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Example -->
+    <div class="modal" id="exampleModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Пример всплывающего окна</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
