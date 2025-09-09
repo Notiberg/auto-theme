@@ -2,7 +2,7 @@
 class TelegramBot {
     constructor() {
         // В реальном приложении токен бота должен храниться в переменных окружения
-        this.botToken = '8286473030:AAEW3Q53TSLPVSC7KzcTS_U8hcM2yRkhqFQ'; // Замените на реальный токен бота
+        this.botToken = 'Your_bot_token'; // Замените на реальный токен бота
         this.apiUrl = `https://api.telegram.org/bot${this.botToken}`;
         
         // Получаем данные пользователя Telegram WebApp
