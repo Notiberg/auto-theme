@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap');
+
+:root {
+    --background-color: #6A7BAF;
+    --glass-background: rgba(255, 255, 255, 0.15);
+    /* Более тёмный синий для шапки и футера на странице карты */
+    --header-footer-bg: rgba(30, 50, 80, 0.55);
+    --text-primary: #FFFFFF;
+    --text-secondary: #D1E1FF;
+    --accent-color: #EF4B4C;
+    --button-active-bg: #FFFFFF;
+    --button-active-text: #3D619B;
+    --button-inactive-bg: transparent;
+    --button-inactive-text: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--background-color);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.mobile-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+/* Header */
+.glass-header {
+    width: 100%;
+    background: var(--header-footer-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: calc(25px + env(safe-area-inset-top)) 20px 10px;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+/* Добавляем дополнительный отступ для устройств с камерой */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .glass-header {
+        padding-top: calc(45px + env(safe-area-inset-top));
+    }
+}
+
+/* Для устройств без поддержки safe-area-inset-top */
+@supports not (padding-top: env(safe-area-inset-top)) {
+    .glass-header {
+        padding-top: 70px;
+    }
+}
+.logo-container { margin-bottom: 25px; }
+.logo { font-size: 24px; font-weight: bold; color: var(--text-primary); }
+
+/* Main content */
+.content { 
+    position: relative; 
+    height: 100%; 
+    width: 100%; 
+    padding: calc(100px + env(safe-area-inset-top)) 15px 100px; 
+    overflow-y: auto; 
+}
+.content::-webkit-scrollbar { display: none; }
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    background: var(--glass-background);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Footer */
+.glass-footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 320px;
+    height: 50px;
+    background: var(--header-footer-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    z-index: 20;
+    border: 1px solid var(--border-color);
+}
+.nav-item { position: relative; display: flex; flex-direction: column; align-items: center; color: var(--button-inactive-text); cursor: pointer; width: 50px; padding: 4px 0; border-radius: 10px; transition: all 0.3s ease; }
+.nav-item.active { color: var(--accent-color); background: var(--glass-background); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .glass-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+    
+    .content {
+        padding-top: calc(170px + env(safe-area-inset-top));
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .glass-header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .content {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: calc(150px + env(safe-area-inset-top));
+    }
+}
+
+/* Специфичные стили модального окна для страницы карт */
+#map-services-modal.modal {
+    background-color: rgba(30, 50, 80, 0.85);
+}
+
+#map-services-modal .modal-content h3 {
+    padding-right: 56px; /* место под крестик */
+}
