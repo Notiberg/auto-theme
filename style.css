@@ -365,10 +365,12 @@ body {
         flex-shrink: 1;
     }
     
-    /* Кнопка "Все" такого же размера как остальные */
+    /* Кнопка "Все" - такая же высота, но меньше ширина */
     #all-btn {
-        padding: 6px 10px;
+        padding: 6px 8px; /* Уменьшаем горизонтальный padding */
         font-size: 12px;
+        width: auto;
+        min-width: auto;
     }
     
     .filter-btn .label {
@@ -1825,7 +1827,7 @@ body {
 
 @media (max-width: 480px) {
     .content {
-        padding: calc(280px + env(safe-area-inset-top)) 12px 80px;
+        padding: calc(350px + env(safe-area-inset-top)) 12px 80px;
     }
     
     .modal-content {

@@ -131,6 +131,13 @@
     flex: 1;
 }
 
+/* Опускаем фото, имя и email на 1/4 от высоты фото (80px / 4 = 20px) */
+@media (max-width: 480px) {
+    .user-info {
+        transform: translateY(20px);
+    }
+}
+
 .user-avatar {
     width: 80px;
     height: 80px;
@@ -196,7 +203,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(280px + env(safe-area-inset-top)) 20px 100px; /* Устанавливаем базовый отступ */
+    padding: calc(280px + env(safe-area-inset-top) + 10px) 20px 100px; /* Добавляем 10px между хедером и контентом */
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -204,7 +211,7 @@
 /* Mobile responsive design for profile */
 @media (max-width: 768px) {
     .profile-content {
-        padding: calc(220px + env(safe-area-inset-top)) 15px 80px; /* Уменьшаем отступ */
+        padding: calc(220px + env(safe-area-inset-top) + 10px) 15px 80px; /* Добавляем 10px */
     }
     
     .profile-card {
@@ -223,7 +230,7 @@
 
 @media (max-width: 480px) {
     .profile-content {
-        padding: calc(200px + env(safe-area-inset-top)) 12px 70px; /* Уменьшаем отступ от хедера */
+        padding: calc(200px + env(safe-area-inset-top) + 10px) 12px 70px; /* Добавляем 10px между хедером и контентом */
         transform: translateY(18px); /* Опускаем содержимое как кнопку назад на сервисах */
     }
     

@@ -422,19 +422,22 @@
         padding: calc(170px + env(safe-area-inset-top)) 12px 80px; /* Уменьшаем отступ */
     }
     
-    /* Кнопки фильтров для мобильных - уменьшаем для одной строки */
+    /* Кнопки фильтров для мобильных - такая же высота как на главной, но меньше ширина */
     .filter-btn {
-        padding: 6px 10px;
+        padding: 6px 8px; /* Уменьшаем горизонтальный padding */
         font-size: 12px;
         gap: 4px;
         min-width: auto;
         flex-shrink: 1;
+        width: auto;
     }
     
-    /* Кнопка "Все" такого же размера как остальные */
+    /* Кнопка "Все" - такая же высота, но меньше ширина */
     #all-btn {
-        padding: 6px 10px;
+        padding: 6px 8px; /* Уменьшаем горизонтальный padding */
         font-size: 12px;
+        width: auto;
+        min-width: auto;
     }
     
     .filter-btn .label {
