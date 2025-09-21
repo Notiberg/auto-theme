@@ -797,8 +797,10 @@
     }
     
     .modal-content {
-        width: 95%;
-        margin: 20px;
+        width: calc(100% - 32px);
+        margin: 16px;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     
     .modal-actions {

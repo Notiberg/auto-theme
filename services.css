@@ -66,12 +66,22 @@
 @media (max-width: 480px) {
     .back-navigation {
         gap: 8px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 16px;
     }
     
     .back-btn-header {
         min-width: 36px;
         height: 36px;
-        margin-right: 8px;
+        margin-right: 0;
+        margin-bottom: 12px;
+        align-self: flex-start;
+    }
+    
+    .header-title {
+        width: 100%;
+        text-align: center;
     }
     
     .header-title .logo {
@@ -79,7 +89,7 @@
     }
     
     .logo-subtitle {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
