@@ -196,7 +196,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(0px + env(safe-area-inset-top) + 20px) 20px 100px;
+    padding: calc(280px + env(safe-area-inset-top)) 20px 100px; /* Устанавливаем базовый отступ */
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -204,7 +204,7 @@
 /* Mobile responsive design for profile */
 @media (max-width: 768px) {
     .profile-content {
-        padding: calc(60px + env(safe-area-inset-top) + 15px) 15px 80px;
+        padding: calc(220px + env(safe-area-inset-top)) 15px 80px; /* Уменьшаем отступ */
     }
     
     .profile-card {
@@ -223,7 +223,8 @@
 
 @media (max-width: 480px) {
     .profile-content {
-        padding: calc(50px + env(safe-area-inset-top) + 12px) 12px 70px;
+        padding: calc(200px + env(safe-area-inset-top)) 12px 70px; /* Уменьшаем отступ от хедера */
+        transform: translateY(18px); /* Опускаем содержимое как кнопку назад на сервисах */
     }
     
     .profile-card {

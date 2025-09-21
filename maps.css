@@ -201,7 +201,7 @@ body {
 
 @media (max-width: 480px) {
     .content {
-        padding-top: calc(130px + env(safe-area-inset-top)) !important;
+        padding-top: calc(180px + env(safe-area-inset-top)) !important; /* Увеличиваем отступ */
         padding-left: 15px !important;
         padding-right: 15px !important;
     }

@@ -365,6 +365,12 @@ body {
         flex-shrink: 1;
     }
     
+    /* Кнопка "Все" такого же размера как остальные */
+    #all-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
     .filter-btn .label {
         display: none; /* Hide labels on mobile to save space */
     }
@@ -578,7 +584,7 @@ body {
         top: 12px;
         right: 12px;
         /* Align bottom edge with rating bottom edge */
-        transform: translateY(-8px);
+        transform: translateY(-8px) scale(1.7); /* Увеличиваем в 1.7 раза */
         height: 50px;
         width: 50px;
         font-size: 18px;
@@ -1819,7 +1825,7 @@ body {
 
 @media (max-width: 480px) {
     .content {
-        padding: calc(250px + env(safe-area-inset-top)) 12px 80px;
+        padding: calc(280px + env(safe-area-inset-top)) 12px 80px;
     }
     
     .modal-content {

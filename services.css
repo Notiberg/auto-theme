@@ -66,7 +66,7 @@
 @media (max-width: 480px) {
     .back-navigation {
         gap: 8px;
-        flex-direction: column;
+        flex-direction: row; /* Меняем на row для выравнивания */
         align-items: center;
         margin-bottom: 16px;
     }
@@ -74,13 +74,14 @@
     .back-btn-header {
         min-width: 36px;
         height: 36px;
-        margin-right: 0;
-        margin-bottom: 12px;
-        align-self: flex-start;
+        margin-right: 12px;
+        margin-bottom: 0; /* Убираем отступ снизу */
+        align-self: center; /* Выравниваем по центру */
+        transform: none; /* Убираем transform */
     }
     
     .header-title {
-        width: 100%;
+        flex: 1;
         text-align: center;
     }
     
@@ -117,7 +118,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(280px + env(safe-area-inset-top)) 20px 100px;
+    padding: calc(200px + env(safe-area-inset-top)) 20px 100px; /* Уменьшаем базовый отступ */
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -418,7 +419,7 @@
 
 @media (max-width: 480px) {
     .services-content {
-        padding: calc(200px + env(safe-area-inset-top)) 12px 80px;
+        padding: calc(170px + env(safe-area-inset-top)) 12px 80px; /* Уменьшаем отступ */
     }
     
     /* Кнопки фильтров для мобильных - уменьшаем для одной строки */
@@ -428,6 +429,12 @@
         gap: 4px;
         min-width: auto;
         flex-shrink: 1;
+    }
+    
+    /* Кнопка "Все" такого же размера как остальные */
+    #all-btn {
+        padding: 6px 10px;
+        font-size: 12px;
     }
     
     .filter-btn .label {
@@ -448,23 +455,6 @@
     
     .filter-buttons::-webkit-scrollbar {
         display: none;
-    }
-    
-    .header-title {
-        width: calc(100% - 80px);
-    }
-    
-    .header-title .logo {
-        font-size: 28px; /* Увеличиваем до размера как на главной */
-    }
-    
-    /* Опускаем кнопку назад на половину её размера и задаём остальные параметры */
-    .back-btn-header {
-        min-width: 36px;
-        height: 36px;
-        padding: 6px;
-        margin-right: 8px;
-        transform: translateY(18px); /* Половина от высоты кнопки (36px) */
     }
     
     .back-btn-header i {
