@@ -117,7 +117,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(0px + env(safe-area-inset-top) + 20px) 20px 100px;
+    padding: calc(280px + env(safe-area-inset-top)) 20px 100px;
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -386,7 +386,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .services-content {
-        padding: calc(60px + env(safe-area-inset-top) + 20px) 15px 100px;
+        padding: calc(200px + env(safe-area-inset-top)) 15px 100px;
     }
     
     .services-grid {
@@ -418,7 +418,36 @@
 
 @media (max-width: 480px) {
     .services-content {
-        padding: calc(50px + env(safe-area-inset-top) + 15px) 12px 80px;
+        padding: calc(200px + env(safe-area-inset-top)) 12px 80px;
+    }
+    
+    /* Кнопки фильтров для мобильных - уменьшаем для одной строки */
+    .filter-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        gap: 4px;
+        min-width: auto;
+        flex-shrink: 1;
+    }
+    
+    .filter-btn .label {
+        display: none; /* Скрываем метки на мобильных */
+    }
+    
+    .filter-btn i {
+        font-size: 12px;
+    }
+    
+    .filter-buttons {
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 2px;
+    }
+    
+    .filter-buttons::-webkit-scrollbar {
+        display: none;
     }
     
     .header-title {
@@ -426,14 +455,16 @@
     }
     
     .header-title .logo {
-        font-size: 18px;
+        font-size: 28px; /* Увеличиваем до размера как на главной */
     }
     
+    /* Опускаем кнопку назад на половину её размера и задаём остальные параметры */
     .back-btn-header {
         min-width: 36px;
         height: 36px;
         padding: 6px;
         margin-right: 8px;
+        transform: translateY(18px); /* Половина от высоты кнопки (36px) */
     }
     
     .back-btn-header i {
@@ -464,5 +495,103 @@
 @media (max-width: 380px) {
     .services-page-card {
         padding: 16px;
+    }
+}
+
+/* Стили для модального окна выбора даты и времени на странице сервисов */
+@media (max-width: 480px) {
+    /* Опускаем верхний край модального окна */
+    #booking-modal .modal-content {
+        margin-top: 60px; /* Увеличиваем отступ сверху */
+        max-height: calc(100vh - 100px); /* Уменьшаем максимальную высоту */
+    }
+    
+    /* Уменьшаем элементы в модальном окне */
+    #booking-modal .fixed-header {
+        padding: 20px 15px 12px;
+    }
+    
+    #booking-modal .modal-logo {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    #booking-modal .service-name-overlay {
+        padding: 8px 16px;
+        margin-top: 6px;
+    }
+    
+    #booking-modal .service-name-overlay h3 {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    
+    #booking-modal .service-name-overlay .price {
+        font-size: 13px;
+    }
+    
+    #booking-modal .booking-section {
+        padding: 16px;
+    }
+    
+    #booking-modal .date-selection,
+    #booking-modal .time-selection,
+    #booking-modal .address-selection {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+    
+    #booking-modal .date-header {
+        margin-bottom: 12px;
+    }
+    
+    #booking-modal .current-month {
+        font-size: 16px;
+        min-width: 120px;
+    }
+    
+    #booking-modal .date-nav .arrow {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+    
+    #booking-modal .date-item {
+        min-width: 50px;
+        padding: 8px 6px;
+    }
+    
+    #booking-modal .date-item .number {
+        font-size: 14px;
+    }
+    
+    #booking-modal .date-item .day {
+        font-size: 11px;
+    }
+    
+    #booking-modal .time-category h5 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    #booking-modal .time-slot {
+        padding: 8px 10px;
+        font-size: 13px;
+        min-width: 60px;
+    }
+    
+    #booking-modal .address-selection h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    #booking-modal .address-select {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+    
+    #booking-modal .confirm-booking-btn {
+        font-size: 14px;
+        padding: 12px 20px;
+        margin-top: 16px;
     }
 }
