@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap');
+
+:root {
+    --background-color: #0A0A0A;
+    --glass-background: rgba(255, 255, 255, 0.03);
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --accent-color: #FF3F02;
+    --accent-light: #FF6B35;
+    --accent-dark: #CC3300;
+    --accent-subtle: rgba(255, 63, 2, 0.12);
+    --accent-medium: rgba(255, 63, 2, 0.25);
+    --accent-strong: rgba(255, 63, 2, 0.4);
+    --button-active-bg: #FF3F02;
+    --button-active-text: #FFFFFF;
+    --button-inactive-bg: transparent;
+    --button-inactive-text: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --card-background: rgba(255, 255, 255, 0.04);
+    --card-text: #FFFFFF;
+    --star-color: #FFD700;
+    --star-empty: rgba(255, 255, 255, 0.3);
+    --divider-color: rgba(255, 255, 255, 0.1);
+    --light-blue-bg: var(--accent-subtle);
+    --glass-background-light: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --modal-background: var(--background-color);
+    --text-tertiary: #B0B0B0;
+    --text-on-blue: #FFFFFF;
+    --ios-radius-small: 8px;
+    --ios-radius-medium: 12px;
+    --ios-radius-large: 16px;
+    --ios-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --ios-shadow-light: 0 4px 16px rgba(0, 0, 0, 0.25);
+    --ios-shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --footer-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.5);
+    --footer-glow: 0 0 40px rgba(255, 63, 2, 0.15);
+    --frosted-glass: rgba(255, 255, 255, 0.08);
+    --frosted-border: rgba(255, 255, 255, 0.15);
+    --frosted-highlight: rgba(255, 255, 255, 0.2);
+    --card-frosted-glass: rgba(255, 255, 255, 0.12);
+    --glass-shine: rgba(255, 255, 255, 0.1);
+    --glass-border-shine: rgba(255, 255, 255, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--background-color);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.mobile-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+/* Header */
+.glass-header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(60px) saturate(200%);
+    -webkit-backdrop-filter: blur(60px) saturate(200%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: calc(45px + env(safe-area-inset-top)) 24px 16px;
+    z-index: 10;
+    border-bottom: 1px solid var(--frosted-border);
+    border-radius: 0 0 var(--ios-radius-large) var(--ios-radius-large);
+    box-shadow: var(--ios-shadow-light), inset 0 1px 0 var(--frosted-highlight);
+    position: relative;
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+    .glass-header {
+        padding-top: calc(65px + env(safe-area-inset-top));
+    }
+}
+
+@supports not (padding-top: env(safe-area-inset-top)) {
+    .glass-header {
+        padding-top: 85px;
+    }
+}
+
+/* Responsive header padding for small screens */
+@media (max-height: 700px) {
+    .glass-header {
+        padding: calc(35px + env(safe-area-inset-top)) 20px 12px;
+    }
+    
+    @supports (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: calc(50px + env(safe-area-inset-top));
+        }
+    }
+    
+    @supports not (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: 70px;
+        }
+    }
+}
+
+@media (max-height: 600px) {
+    .glass-header {
+        padding: calc(25px + env(safe-area-inset-top)) 18px 10px;
+    }
+    
+    @supports (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: calc(40px + env(safe-area-inset-top));
+        }
+    }
+    
+    @supports not (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: 60px;
+        }
+    }
+}
+
+@media (max-height: 500px) {
+    .glass-header {
+        padding: calc(20px + env(safe-area-inset-top)) 16px 8px;
+    }
+    
+    @supports (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: calc(35px + env(safe-area-inset-top));
+        }
+    }
+    
+    @supports not (padding-top: env(safe-area-inset-top)) {
+        .glass-header {
+            padding-top: 50px;
+        }
+    }
+}
+.logo-container { 
+    text-align: center; 
+    margin-bottom: 22px; 
+}
+.logo { 
+    font-size: 32px; 
+    font-weight: 800; 
+    color: var(--text-primary); 
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.logo-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    opacity: 0.95;
+    text-shadow: 0 2px 4px var(--accent-medium);
+}
+
+/* Переопределение отступов для страницы карт */
+.content { 
+    padding-top: calc(200px + env(safe-area-inset-top)) !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* Переопределение стилей карты с высокой специфичностью */
+.content #map.map-container,
+.content #map,
+#map.map-container {
+    width: 100% !important;
+    height: calc(60vh - env(safe-area-inset-top)) !important;
+    background: var(--glass-background) !important;
+    backdrop-filter: blur(15px);
+    border-radius: 20px !important;
+    position: relative;
+    margin: 0px auto;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Mobile responsive design for maps */
+@media (max-width: 768px) {
+    .content {
+        padding-top: calc(140px + env(safe-area-inset-top)) !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    
+    .content #map.map-container,
+    .content #map,
+    #map.map-container {
+        width: 100% !important;
+        height: calc(65vh - env(safe-area-inset-top)) !important;
+        margin: 0px auto;
+        border-radius: 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding-top: calc(130px + env(safe-area-inset-top)) !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .logo {
+        font-size: 28px;
+    }
+    
+    .logo-subtitle {
+        font-size: 14px;
+    }
+    
+    .content #map.map-container,
+    .content #map,
+    #map.map-container {
+        width: 100% !important;
+        height: calc(55vh - env(safe-area-inset-top)) !important;
+        margin: 0px auto;
+        border-radius: 14px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 24px;
+    }
+    
+    .logo-subtitle {
+        font-size: 13px;
+    }
+}
+
+/* Footer */
+.glass-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 360px;
+    height: 65px;
+    background: var(--frosted-glass);
+    backdrop-filter: blur(60px) saturate(200%);
+    -webkit-backdrop-filter: blur(60px) saturate(200%);
+    border-radius: 32px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 1000;
+    border: none;
+    box-shadow: var(--footer-shadow), inset 0 1px 0 var(--frosted-highlight);
+}
+.nav-item { 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7); 
+    cursor: pointer; 
+    width: 55px; 
+    height: 45px;
+    padding: 6px 4px; 
+    border-radius: 18px; 
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    overflow: hidden;
+}
+.nav-item.active {
+    color: var(--accent-color);
+    background: var(--frosted-glass);
+    margin: 6px 4px;
+    border-radius: 16px;
+    padding: 8px 12px;
+    transform: scale(1.05);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: inset 0 1px 0 var(--frosted-highlight);
+}
+.nav-item i { 
+    font-size: 18px; 
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.nav-item span { 
+    font-size: 9px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.1px;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1;
+}
+
+
+/* Специфичные стили модального окна для страницы карт */
+#map-services-modal.modal {
+    background-color: rgba(10, 10, 10, 0.85);
+}
+
+#map-services-modal .modal-content h3 {
+    padding-right: 56px; /* место под крестик */
+}

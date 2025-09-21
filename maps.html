@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ру">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Wash - Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="maps.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="glass-header">
+            <div class="logo-container">
+                <div class="logo">Slot My Car</div>
+                <div class="logo-subtitle">Паспорт обслуживания вашего автомобиля</div>
+            </div>
+        </header>
+        <main class="content">
+            <div id="map" class="map-container"></div>
+        </main>
+        <footer class="glass-footer">
+            <div class="nav-item" data-page="index">
+                <i class="fas fa-car"></i>
+                <span>Главная</span>
+            </div>
+            <div class="nav-item active" data-page="map">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Карта</span>
+            </div>
+            <div class="nav-item" data-page="profile">
+                <i class="fas fa-user"></i>
+                <span>Профиль</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Модальное окно выбора услуг для карты -->
+    <div id="map-services-modal" class="modal">
+        <div class="modal-content">
+            <div class="fixed-header">
+                <span class="close">&times;</span>
+                <h3 id="map-modal-title">Адрес</h3>
+            </div>
+            <div class="service-info">
+                <div id="map-modal-services" style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно выбора даты и времени для карты -->
+    <div id="map-booking-modal" class="modal">
+        <div class="modal-content">
+            <div class="fixed-header">
+                <span class="close">&times;</span>
+                <h3 id="map-booking-title">Выбор даты и времени</h3>
+                <div class="price" id="map-booking-price"></div>
+                <div class="address-display" id="map-booking-address"></div>
+            </div>
+            
+            <div class="booking-section">
+                <div class="date-time-header">
+                    <h4>Выберите дату и время</h4>
+                </div>
+                
+                <div class="date-selection">
+                    <div class="date-header">
+                        <div class="date-nav">
+                            <span class="arrow prev-month">&lt;</span>
+                            <span class="date-month">Август</span>
+                            <span class="arrow next-month">&gt;</span>
+                        </div>
+                    </div>
+                    <div class="date-scroll">
+                        <div class="date-item">
+                            <div class="day">ПН</div>
+                            <div class="number">25</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">ВТ</div>
+                            <div class="number">26</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">СР</div>
+                            <div class="number">27</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">ЧТ</div>
+                            <div class="number">28</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">ПТ</div>
+                            <div class="number">29</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">СБ</div>
+                            <div class="number">30</div>
+                        </div>
+                        <div class="date-item selected">
+                            <div class="day">ВС</div>
+                            <div class="number">31</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">ПН</div>
+                            <div class="number">1</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="day">ВТ</div>
+                            <div class="number">2</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="time-selection">
+                    <div class="time-categories">
+                        <div class="time-category">
+                            <h5>Утро</h5>
+                            <div class="time-slots">
+                                <div class="time-slot">10:00</div>
+                                <div class="time-slot">10:30</div>
+                                <div class="time-slot">11:00</div>
+                                <div class="time-slot">11:30</div>
+                            </div>
+                        </div>
+                        <div class="time-category">
+                            <h5>День</h5>
+                            <div class="time-slots">
+                                <div class="time-slot">12:00</div>
+                                <div class="time-slot">12:30</div>
+                                <div class="time-slot">13:00</div>
+                                <div class="time-slot">13:30</div>
+                                <div class="time-slot">14:00</div>
+                                <div class="time-slot">14:30</div>
+                                <div class="time-slot">15:00</div>
+                                <div class="time-slot">15:30</div>
+                                <div class="time-slot">16:00</div>
+                                <div class="time-slot">16:30</div>
+                                <div class="time-slot">17:00</div>
+                                <div class="time-slot">17:30</div>
+                            </div>
+                        </div>
+                        <div class="time-category">
+                            <h5>Вечер</h5>
+                            <div class="time-slots">
+                                <div class="time-slot">18:00</div>
+                                <div class="time-slot">18:30</div>
+                                <div class="time-slot">19:00</div>
+                                <div class="time-slot">19:30</div>
+                                <div class="time-slot">20:00</div>
+                                <div class="time-slot">20:30</div>
+                                <div class="time-slot">21:00</div>
+                                <div class="time-slot">21:30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="address-selection">
+                    <h4>Выберите адрес мойки</h4>
+                    <select class="address-select">
+                        <option value="">Выберите адрес мойки</option>
+                        <option value="presnya">Пресня - 2-я Звенигородская, 13с43</option>
+                        <option value="ileven">Илевен - Звенигородское ш., 11</option>
+                        <option value="freedom">ФРИДОМ - Шелепихинская наб., 42к1</option>
+                        <option value="d1">Д1 - Дмитровский пр-д, 1</option>
+                    </select>
+                </div>
+                
+                <button class="confirm-booking-btn" id="map-confirm-booking">Подтвердить запись</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src="maps.js"></script>
+</body>
+</html>
