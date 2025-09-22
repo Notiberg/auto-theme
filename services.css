@@ -124,7 +124,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(200px + env(safe-area-inset-top)) 20px 100px; /* Уменьшаем базовый отступ */
+    padding: calc(15px + env(safe-area-inset-top)) 15px 100px; /* Уменьшаем базовый отступ */
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -152,7 +152,7 @@
 
 @media (max-height: 500px) {
     .services-content {
-        padding-top: calc(220px + env(safe-area-inset-top) + 5px);
+        padding-top: calc(180px + env(safe-area-inset-top) + 5px);
     }
     
     .services-content.filters-open {

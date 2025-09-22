@@ -203,7 +203,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(280px + env(safe-area-inset-top) + 10px) 20px 100px; /* Добавляем 10px между хедером и контентом */
+    padding: calc(0px + env(safe-area-inset-top) + 10px) 20px 100px; /* Добавляем 10px между хедером и контентом */
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -808,7 +808,6 @@
     .modal-content {
         width: calc(100% - 40px); /* Одинаковые отступы слева и справа по 20px */
         margin: 20px; /* Одинаковые отступы со всех сторон */
-        left: 50%;
         top: 50%;
         transform: translate(-50%, -50%); /* Точное центрирование */
         position: fixed; /* Фиксированное позиционирование */

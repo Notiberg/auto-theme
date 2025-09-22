@@ -1827,7 +1827,7 @@ body {
 
 @media (max-width: 480px) {
     .content {
-        padding: calc(35000px + env(safe-area-inset-top)) 12px 80px;
+        padding: calc(350px + env(safe-area-inset-top)) 12px 80px;
     }
     
     .modal-content {
