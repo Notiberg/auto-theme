@@ -152,7 +152,7 @@
 
 @media (max-height: 500px) {
     .services-content {
-        padding-top: calc(10px + env(safe-area-inset-top) + 5px);
+        padding-top: calc(220px + env(safe-area-inset-top) + 5px);
     }
     
     .services-content.filters-open {
