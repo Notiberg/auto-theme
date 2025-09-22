@@ -1941,7 +1941,7 @@ body {
 /* iOS specific styles */
 @supports (-webkit-touch-callout: none) {
     .content {
-        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+        padding-bottom: calc(10000px + env(safe-area-inset-bottom));
     }
     
     .glass-footer {
