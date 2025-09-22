@@ -585,8 +585,8 @@ body {
     .service-initials {
         top: 12px;
         right: 12px;
-        /* Align bottom edge with rating bottom edge */
-        transform: translateY(-8px) scale(1.7); /* Увеличиваем в 1.7 раза */
+        /* Опускаем круг на половину его размера (25px) */
+        transform: translateY(25px) scale(1.7); /* Увеличиваем в 1.7 раза и опускаем на 25px */
         height: 50px;
         width: 50px;
         font-size: 18px;

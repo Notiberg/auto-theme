@@ -66,23 +66,29 @@
 @media (max-width: 480px) {
     .back-navigation {
         gap: 8px;
-        flex-direction: row; /* Меняем на row для выравнивания */
+        flex-direction: row;
         align-items: center;
         margin-bottom: 16px;
+        position: relative; /* Для абсолютного позиционирования */
     }
     
     .back-btn-header {
         min-width: 36px;
         height: 36px;
         margin-right: 12px;
-        margin-bottom: 0; /* Убираем отступ снизу */
-        align-self: center; /* Выравниваем по центру */
-        transform: none; /* Убираем transform */
+        margin-bottom: 0;
+        align-self: center;
+        transform: none;
+        position: absolute; /* Абсолютное позиционирование */
+        left: 0;
+        z-index: 10;
     }
     
     .header-title {
-        flex: 1;
-        text-align: center;
+        width: 100%; /* Полная ширина */
+        text-align: center; /* Центрирование по всему экрану */
+        position: relative;
+        z-index: 5;
     }
     
     .header-title .logo {
@@ -176,7 +182,7 @@
     border: 1px solid var(--frosted-border);
     border-radius: var(--ios-radius-large);
     padding: 0;
-    margin-bottom: 16px;
+    margin-bottom: 16px; /* Такое же расстояние как на главной странице */
     box-shadow: var(--ios-shadow-light), inset 0 1px 0 var(--frosted-highlight), 0 0 0 1px rgba(255, 255, 255, 0.08);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
@@ -493,10 +499,10 @@
 
 /* Стили для модального окна выбора даты и времени на странице сервисов */
 @media (max-width: 480px) {
-    /* Опускаем верхний край модального окна */
+    /* Опускаем верхний край модального окна на уровень названия хеадера */
     #booking-modal .modal-content {
-        margin-top: 60px; /* Увеличиваем отступ сверху */
-        max-height: calc(100vh - 100px); /* Уменьшаем максимальную высоту */
+        margin-top: 120px; /* Опускаем окно на уровень названия хеадера */
+        max-height: calc(100vh - 140px); /* Уменьшаем максимальную высоту соответственно */
     }
     
     /* Уменьшаем элементы в модальном окне */
