@@ -26,38 +26,71 @@ const mapBookingDesc = document.getElementById('map-booking-desc');
 const mapBookingAddress = document.getElementById('map-booking-address');
 const mapConfirmBooking = document.getElementById('map-confirm-booking');
 
-// Данные об услугах
+// Данные об услугах для разных типов сервисов
 const servicesData = {
-    'мойка-кузова': {
-        title: 'МОЙКА КУЗОВА (КЛАСС 2)',
-        price: '900 ₽',
-        description: '2-х - 3-х фазная мойка Вашего автомобиля. Профессиональная мойка кузова с использованием качественных моющих средств.'
+    'Акваматик': {
+        'мойка-кузова': {
+            title: 'МОЙКА КУЗОВА (КЛАСС 2)',
+            price: '900 ₽',
+            description: '2-х - 3-х фазная мойка Вашего автомобиля. Профессиональная мойка кузова с использованием качественных моющих средств.'
+        },
+        'комплексная-мойка': {
+            title: 'КОМПЛЕКСНАЯ МОЙКА',
+            price: '1200 ₽',
+            description: 'Комплексная мойка кузова с сушкой, мойка колёс и арок, обработка резинок и пластика.'
+        },
+        'химчистка': {
+            title: 'ХИМЧИСТКА САЛОНА',
+            price: '1800 ₽',
+            description: 'Красота и свежий воздух в Вашем автомобиле. Глубокая очистка салона, ковриков и обивки.'
+        }
     },
-    'комплексная-мойка': {
-        title: 'КОМПЛЕКСНАЯ МОЙКА',
-        price: '1200 ₽',
-        description: 'Комплексная мойка кузова с сушкой, мойка колёс и арок, обработка резинок и пластика.'
+    'Koch24': {
+        'детейлинг-базовый': {
+            title: 'ДЕТЕЙЛИНГ БАЗОВЫЙ',
+            price: '1500 ₽',
+            description: 'Базовый комплекс детейлинга включает тщательную мойку, полировку кузова и обработку пластиковых элементов.'
+        },
+        'детейлинг-премиум': {
+            title: 'ДЕТЕЙЛИНГ ПРЕМИУМ',
+            price: '2500 ₽',
+            description: 'Премиальный уход за автомобилем с использованием профессиональных средств.'
+        }
     },
-    'химчистка': {
-        title: 'ХИМЧИСТКА САЛОНА',
-        price: '1800 ₽',
-        description: 'Красота и свежий воздух в Вашем автомобиле. Глубокая очистка салона, ковриков и обивки.'
-    },
-    'полировка': {
-        title: 'ПОЛИРОВКА КУЗОВА',
-        price: '2000 ₽',
-        description: 'Ваш автомобиль будет выглядеть как новый. Профессиональная полировка кузова для восстановления блеска и устранения мелких дефектов.'
-    },
-    'мойка-двигателя': {
-        title: 'МОЙКА ДВИГАТЕЛЯ',
-        price: '800 ₽',
-        description: 'Профессиональная мойка двигателя и подкапотного пространства. Безопасная очистка с использованием специальных средств.'
-    },
-    'мойка-стекол': {
-        title: 'МОЙКА СТЕКОЛ',
-        price: '300 ₽',
-        description: 'Профессиональная мойка всех стёкол автомобиля. Удаление разводов и обеспечение идеальной видимости.'
+    'Chisto': {
+        'премиум-косн': {
+            title: 'Премиум КОСН',
+            price: '980 ₽',
+            description: 'Очистка колесных дисков с чернением резины. Турбосушка и мойка ковриков.'
+        },
+        'евромойка': {
+            title: 'Евромойка',
+            price: '600 ₽',
+            description: 'Мойка ковриков вашего автомобиля.'
+        }
     }
+};
+
+// Данные адресов для разных типов сервисов
+const addressData = {
+    'Акваматик': [
+        {value: "presnya", text: "Пресня - 2-я Звенигородская, 13с43"},
+        {value: "ileven", text: "Илевен - Звенигородское ш., 11"},
+        {value: "freedom", text: "ФРИДОМ - Шелепихинская наб., 42к1"},
+        {value: "d1", text: "Д1 - Дмитровский пр-д, 1"}
+    ],
+    'Koch24': [
+        {value: "detailing_center", text: "Детейлинг Центр - Ленинградский пр-т, 25"},
+        {value: "premium_detail", text: "Премиум Детейл - Садовое кольцо, 15к2"},
+        {value: "auto_spa", text: "Авто СПА - Кутузовский пр-т, 33"},
+        {value: "detail_pro", text: "Детейл Про - Варшавское ш., 42"}
+    ],
+    'Chisto': [
+        {value: "clean_master", text: "Клин Мастер - Профсоюзная ул., 78"},
+        {value: "interior_pro", text: "Интерьер Про - Ломоносовский пр-т, 12"},
+        {value: "salon_clean", text: "Салон Клин - Рублевское ш., 56"},
+        {value: "chem_expert", text: "Хим Эксперт - Каширское ш., 89"}
+    ]
 };
 
 // Карта и метки
@@ -75,47 +108,47 @@ document.addEventListener('DOMContentLoaded', () => {
             controls: ['zoomControl', 'fullscreenControl']
         });
 
-        // Адреса центров GetWash с точными координатами
+        // Центры разных типов сервисов с координатами
         const centers = [
             { 
-                name: 'Центр на Пресне', 
+                name: 'Акваматик - Пресня', 
                 address: 'ул. 2-я Звенигородская 13с43, Москва',
-                coords: [55.7585, 37.5442]
+                coords: [55.7585, 37.5442],
+                type: 'Акваматик'
             },
             { 
-                name: 'Центр в ЖК Илевен', 
+                name: 'Акваматик - Илевен', 
                 address: 'Звенигородское ш., 11, Москва',
-                coords: [55.762110, 37.551993]
+                coords: [55.762110, 37.551993],
+                type: 'Акваматик'
             },
             { 
-                name: 'Центр в ЖК ФРИДОМ', 
-                address: 'Шелепихинская наб., 42к1, Москва',
-                coords: [55.767454, 37.498494]
+                name: 'Koch24 - Детейлинг Центр', 
+                address: 'Ленинградский пр-т, 25, Москва',
+                coords: [55.767454, 37.498494],
+                type: 'Koch24'
             },
             { 
-                name: 'Центр в ЖК Д1', 
-                address: 'Дмитровский пр-д, 1, Москва',
-                coords: [55.808535, 37.578126]
+                name: 'Chisto - Клин Мастер', 
+                address: 'Профсоюзная ул., 78, Москва',
+                coords: [55.808535, 37.578126],
+                type: 'Chisto'
             }
         ];
 
-        const buildServiceCardsHtml = () => {
-            const services = [
-                { key: 'мойка-кузова', title: 'МОЙКА КУЗОВА (КЛАСС 2)', price: '900 ₽', description: '2-х - 3-х фазная мойка Вашего автомобиля.' },
-                { key: 'комплексная-мойка', title: 'КОМПЛЕКСНАЯ МОЙКА', price: '1200 ₽', description: 'Мойка с сушкой, колёса и арки, обработка резинок.' },
-                { key: 'химчистка', title: 'ХИМЧИСТКА САЛОНА', price: '1800 ₽', description: 'Глубокая очистка салона и ковриков.' },
-                { key: 'полировка', title: 'ПОЛИРОВКА КУЗОВА', price: '2000 ₽', description: 'Восстановление блеска, устранение мелких дефектов.' },
-                { key: 'мойка-двигателя', title: 'МОЙКА ДВИГАТЕЛЯ', price: '800 ₽', description: 'Безопасная очистка подкапотного пространства.' },
-                { key: 'мойка-стекол', title: 'МОЙКА СТЕКОЛ', price: '300 ₽', description: 'Чистые стёкла без разводов, идеальная видимость.' }
-            ];
+        const buildServiceCardsHtml = (serviceType) => {
+            const services = servicesData[serviceType] || {};
             
-            return services.map(service => `
-                <div class="service-card" data-service="${service.key}" style="width:100%; cursor: pointer;">
-                    <h3>${service.title}</h3>
-                    <div class="price">Стоимость: ${service.price}</div>
-                    <div class="description">${service.description}</div>
-                </div>
-            `).join('');
+            return Object.keys(services).map(key => {
+                const service = services[key];
+                return `
+                    <div class="service-card" data-service="${key}" data-service-type="${serviceType}" style="width:100%; cursor: pointer;">
+                        <h3>${service.title}</h3>
+                        <div class="price">Стоимость: ${service.price}</div>
+                        <div class="description">${service.description}</div>
+                    </div>
+                `;
+            }).join('');
         };
 
         // Добавляем метки напрямую с координатами
@@ -133,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Предотвращаем показ balloon
                 placemark.balloon.close();
                 
-                // Переходим на страницу сервисов для Акваматика
+                // Переходим на страницу сервисов с услугами Акваматик
                 window.location.href = 'services.html?type=Акваматик&title=Акваматик';
             });
 
@@ -171,7 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const serviceCard = e.target.closest('.service-card');
             if (serviceCard) {
                 const serviceKey = serviceCard.dataset.service;
-                const service = servicesData[serviceKey];
+                const serviceType = serviceCard.dataset.serviceType;
+                const service = servicesData[serviceType] && servicesData[serviceType][serviceKey];
+                
                 if (service) {
                     // Закрываем текущее модальное окно
                     modal.style.display = 'none';
@@ -179,12 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Открываем модальное окно бронирования
                     mapBookingTitle.textContent = service.title;
                     mapBookingPrice.textContent = `Цена: ${service.price}`;
-                    mapBookingDesc.textContent = service.description;
                     
                     // Отображаем адрес мойки в заголовке
-                    // Нужно получить адрес из заголовка модального окна
                     const modalTitle = document.getElementById('map-modal-title');
                     mapBookingAddress.textContent = modalTitle.textContent;
+                    
+                    // Обновляем адреса в селекте (всегда используем Акваматик для карты)
+                    updateAddressOptions('Акваматик');
+                    
+                    // Сохраняем тип сервиса для дальнейшего использования (всегда Акваматик для карты)
+                    mapBookingModal.setAttribute('data-service-type', 'Акваматик');
                     
                     mapBookingModal.style.display = 'block';
                 }
@@ -214,7 +253,18 @@ if (mapConfirmBooking) {
             const dayNumber = selectedDate.querySelector(".number").textContent;
             const monthName = mapBookingModal.querySelector(".date-month").textContent;
             const addressText = selectedAddress.options[selectedAddress.selectedIndex].text;
-            alert(`Запись подтверждена!\nДата: ${dayNumber} ${monthName}\nВремя: ${selectedTime.textContent}\nАдрес: ${addressText}`);
+            const serviceTitle = mapBookingTitle.textContent;
+            const servicePrice = mapBookingPrice.textContent;
+            
+            // Показываем красивое уведомление
+            showBookingNotification({
+                service: serviceTitle,
+                price: servicePrice,
+                date: `${dayNumber} ${monthName}`,
+                time: selectedTime.textContent,
+                address: addressText
+            });
+            
             mapBookingModal.style.display = "none";
         } else {
             let missingFields = [];
@@ -225,6 +275,94 @@ if (mapConfirmBooking) {
             alert(`Пожалуйста, выберите: ${missingFields.join(", ")}`);
         }
     });
+}
+
+// Функция для обновления адресов в селекте
+function updateAddressOptions(serviceType) {
+    const addressSelect = mapBookingModal.querySelector('.address-select');
+    if (!addressSelect) return;
+    
+    addressSelect.innerHTML = '<option value="">Выберите адрес мойки</option>';
+    
+    const addresses = addressData[serviceType] || [];
+    addresses.forEach(address => {
+        const option = document.createElement('option');
+        option.value = address.value;
+        option.textContent = address.text;
+        addressSelect.appendChild(option);
+    });
+}
+
+// Функция для показа красивого уведомления
+function showBookingNotification(bookingData) {
+    // Создаем элемент уведомления
+    const notification = document.createElement('div');
+    notification.className = 'booking-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <div class="notification-header">
+                <div class="success-icon">✅</div>
+                <h3>Запись подтверждена!</h3>
+            </div>
+            <div class="notification-body">
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Услуга:</span>
+                        <span class="detail-value">${bookingData.service}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Цена:</span>
+                        <span class="detail-value">${bookingData.price}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Дата:</span>
+                        <span class="detail-value">${bookingData.date}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Время:</span>
+                        <span class="detail-value">${bookingData.time}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Адрес:</span>
+                        <span class="detail-value">${bookingData.address}</span>
+                    </div>
+                </div>
+                <div class="notification-message">
+                    Ваша запись успешно оформлена! Мы напомним вам за час до визита.
+                </div>
+            </div>
+            <button class="notification-close-btn">Отлично!</button>
+        </div>
+    `;
+    
+    // Добавляем уведомление в DOM
+    document.body.appendChild(notification);
+    
+    // Показываем уведомление с анимацией
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Обработчик закрытия уведомления
+    const closeBtn = notification.querySelector('.notification-close-btn');
+    closeBtn.addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    });
+    
+    // Автоматическое закрытие через 5 секунд
+    setTimeout(() => {
+        if (document.body.contains(notification)) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }
+    }, 5000);
 }
 
 // Обработчики для выбора даты и времени

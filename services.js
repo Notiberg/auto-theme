@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {value: "freedom", text: "ФРИДОМ - Шелепихинская наб., 42к1"},
             {value: "d1", text: "Д1 - Дмитровский пр-д, 1"}
         ],
-        'Koch 24': [
+        'Koch24': [
             {value: "detailing_center", text: "Детейлинг Центр - Ленинградский пр-т, 25"},
             {value: "premium_detail", text: "Премиум Детейл - Садовое кольцо, 15к2"},
             {value: "auto_spa", text: "Авто СПА - Кутузовский пр-т, 33"},
@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         addressSelect.innerHTML = '<option value="">Выберите адрес</option>';
         
         const addresses = addressData[serviceType] || [];
+        
         addresses.forEach(address => {
             const option = document.createElement('option');
             option.value = address.value;
@@ -327,24 +328,89 @@ document.addEventListener('DOMContentLoaded', function() {
             const time = selectedTime.textContent;
             const address = document.querySelector('.address-select option:checked').text;
             
-            // Send Telegram notification
-            const telegramBot = new TelegramBot();
-            telegramBot.sendBookingConfirmation({
+            // Показываем красивое уведомление
+            showBookingNotification({
                 service: document.getElementById('booking-title').textContent,
-                date: date,
-                day: day,
-                month: months[currentMonth],
+                price: document.querySelector('.service-card.services-page-card .price')?.textContent || 'Цена уточняется',
+                date: `${date} ${day}`,
                 time: time,
-                address: address,
-                car: {
-                    brand: 'BMW',
-                    model: 'X5',
-                    regNumber: 'А123БВ777'
-                }
+                address: address
             });
             
             bookingModal.style.display = 'none';
         });
+    }
+
+    // Функция для показа красивого уведомления
+    function showBookingNotification(bookingData) {
+        // Создаем элемент уведомления
+        const notification = document.createElement('div');
+        notification.className = 'booking-notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <div class="notification-header">
+                    <div class="success-icon">✅</div>
+                    <h3>Запись подтверждена!</h3>
+                </div>
+                <div class="notification-body">
+                    <div class="booking-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Услуга:</span>
+                            <span class="detail-value">${bookingData.service}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Цена:</span>
+                            <span class="detail-value">${bookingData.price}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Дата:</span>
+                            <span class="detail-value">${bookingData.date}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Время:</span>
+                            <span class="detail-value">${bookingData.time}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Адрес:</span>
+                            <span class="detail-value">${bookingData.address}</span>
+                        </div>
+                    </div>
+                    <div class="notification-message">
+                        Ваша запись успешно оформлена! Мы напомним вам за час до визита.
+                    </div>
+                </div>
+                <button class="notification-close-btn">Отлично!</button>
+            </div>
+        `;
+        
+        // Добавляем уведомление в DOM
+        document.body.appendChild(notification);
+        
+        // Показываем уведомление с анимацией
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        // Обработчик закрытия уведомления
+        const closeBtn = notification.querySelector('.notification-close-btn');
+        closeBtn.addEventListener('click', () => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        });
+        
+        // Автоматическое закрытие через 5 секунд
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }
+        }, 5000);
     }
 
     // Telegram notification function
