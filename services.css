@@ -62,14 +62,29 @@
     max-width: 100%;
 }
 
-/* Responsive header adjustments */
-@media (max-width: 480px) {
+/* =================================
+   АДАПТИВНАЯ ВЕРСТКА
+   ================================= */
+
+/* ТЕЛЕФОНЫ (до 768px) - учитываем Telegram mini app и вырез камеры */
+@media (max-width: 767px) {
+    /* Основные настройки для телефонов */
+    .services-content {
+        padding: calc(200px + env(safe-area-inset-top)) 16px calc(100px + env(safe-area-inset-bottom)) 16px;
+    }
+    
+    .services-content.filters-open {
+        padding-top: calc(280px + env(safe-area-inset-top));
+    }
+    
+    /* Заголовок и навигация */
     .back-navigation {
         gap: 8px;
         flex-direction: row;
         align-items: center;
         margin-bottom: 16px;
-        position: relative; /* Для абсолютного позиционирования */
+        position: relative;
+        padding-top: env(safe-area-inset-top);
     }
     
     .back-btn-header {
@@ -79,44 +94,280 @@
         margin-bottom: 0;
         align-self: center;
         transform: none;
-        position: absolute; /* Абсолютное позиционирование */
+        position: absolute;
         left: 0;
         z-index: 10;
     }
     
     .header-title {
-        width: 100%; /* Полная ширина */
-        text-align: center; /* Центрирование по всему экрану */
+        width: 100%;
+        text-align: center;
         position: relative;
         z-index: 5;
     }
     
     .header-title .logo {
-        font-size: 28px;
+        font-size: 26px;
+        margin-bottom: 6px;
     }
     
     .logo-subtitle {
         font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    /* Карточки услуг */
+    .services-page-card {
+        margin-bottom: 12px;
+        padding: 0;
+    }
+    
+    .services-page-card .service-content {
+        padding: 18px;
+    }
+    
+    .services-page-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .services-page-card .price {
+        font-size: 18px;
+    }
+    
+    .services-page-card .service-initials {
+        top: 18px;
+        right: 18px;
+        height: calc(100% - 36px);
+        max-height: 80px;
+        font-size: clamp(14px, 2.2vw, 18px);
+    }
+    
+    /* Фильтры */
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 4px;
+        min-width: auto;
+        flex-shrink: 1;
+        width: auto;
+    }
+    
+    #all-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        width: auto;
+        min-width: auto;
+    }
+    
+    .filter-btn .label {
+        display: none;
+    }
+    
+    .filter-btn i {
+        font-size: 12px;
+    }
+    
+    .filter-buttons {
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 2px;
+    }
+    
+    .filter-buttons::-webkit-scrollbar {
+        display: none;
     }
 }
 
-@media (max-width: 360px) {
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) - дополнительные настройки */
+@media (max-width: 479px) {
+    .services-content {
+        padding: calc(180px + env(safe-area-inset-top)) 12px calc(90px + env(safe-area-inset-bottom)) 12px;
+    }
+    
     .header-title .logo {
         font-size: 24px;
     }
     
     .logo-subtitle {
-        font-size: 11px;
+        font-size: 13px;
+    }
+    
+    .services-page-card .service-content {
+        padding: 16px;
+    }
+    
+    .services-page-card h3 {
+        font-size: 15px;
+    }
+    
+    .services-page-card .price {
+        font-size: 17px;
     }
 }
 
-@media (max-height: 600px) {
+/* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 360px) */
+@media (max-width: 359px) {
+    .header-title .logo {
+        font-size: 22px;
+    }
+    
+    .logo-subtitle {
+        font-size: 12px;
+    }
+    
+    .services-page-card {
+        margin-bottom: 10px;
+    }
+    
+    .services-page-card .service-content {
+        padding: 14px;
+    }
+    
+    .services-page-card h3 {
+        font-size: 14px;
+    }
+    
+    .services-page-card .price {
+        font-size: 16px;
+    }
+}
+
+/* НИЗКИЕ ЭКРАНЫ (высота до 700px) - для всех устройств */
+@media (max-height: 700px) {
+    .services-content {
+        padding-top: calc(170px + env(safe-area-inset-top));
+    }
+    
+    .services-content.filters-open {
+        padding-top: calc(250px + env(safe-area-inset-top));
+    }
+    
     .header-title .logo {
         margin-bottom: 4px;
     }
     
     .logo-subtitle {
+        margin-bottom: 6px;
+    }
+}
+
+/* ОЧЕНЬ НИЗКИЕ ЭКРАНЫ (высота до 600px) */
+@media (max-height: 600px) {
+    .services-content {
+        padding-top: calc(150px + env(safe-area-inset-top));
+    }
+    
+    .services-content.filters-open {
+        padding-top: calc(220px + env(safe-area-inset-top));
+    }
+}
+
+/* ЭКСТРЕМАЛЬНО НИЗКИЕ ЭКРАНЫ (высота до 500px) */
+@media (max-height: 500px) {
+    .services-content {
+        padding-top: calc(130px + env(safe-area-inset-top));
+    }
+    
+    .services-content.filters-open {
+        padding-top: calc(200px + env(safe-area-inset-top));
+    }
+}
+
+/* ПЛАНШЕТЫ (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .services-content {
+        padding: calc(140px + env(safe-area-inset-top)) 24px calc(120px + env(safe-area-inset-bottom)) 24px;
+    }
+    
+    .services-content.filters-open {
+        padding-top: calc(200px + env(safe-area-inset-top));
+    }
+    
+    /* Заголовок для планшетов */
+    .header-title .logo {
+        font-size: 30px;
         margin-bottom: 8px;
+    }
+    
+    .logo-subtitle {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    /* Карточки услуг для планшетов */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .services-page-card {
+        margin-bottom: 16px;
+    }
+    
+    .services-page-card .service-content {
+        padding: 20px;
+    }
+    
+    .services-page-card h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+    
+    .services-page-card .price {
+        font-size: 19px;
+    }
+    
+    .services-page-card .service-initials {
+        max-height: 90px;
+        font-size: clamp(16px, 2.8vw, 20px);
+    }
+    
+    /* Фильтры для планшетов */
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+        gap: 6px;
+    }
+    
+    #all-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .filter-btn .label {
+        display: inline;
+    }
+    
+    .filter-btn i {
+        font-size: 14px;
+    }
+    
+    .filter-buttons {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Навигация для планшетов */
+    .back-btn-header {
+        min-width: 38px;
+        height: 38px;
+    }
+    
+    .back-btn-header i {
+        font-size: 15px;
+    }
+}
+
+/* КОМПЬЮТЕРЫ (1024px+) - сохраняем существующие стили без изменений */
+@media (min-width: 1025px) {
+    /* Все стили для компьютеров остаются как есть в базовых стилях */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 24px;
     }
 }
 
@@ -124,44 +375,14 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(15px + env(safe-area-inset-top)) 15px 100px; /* Уменьшаем базовый отступ */
+    padding: calc(20px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
 
-/* Responsive padding for small screens */
-@media (max-height: 700px) {
-    .services-content {
-        padding-top: calc(260px + env(safe-area-inset-top) + 15px);
-    }
-    
-    .services-content.filters-open {
-        padding-top: calc(320px + env(safe-area-inset-top) + 15px);
-    }
-}
-
-@media (max-height: 600px) {
-    .services-content {
-        padding-top: calc(240px + env(safe-area-inset-top) + 10px);
-    }
-    
-    .services-content.filters-open {
-        padding-top: calc(300px + env(safe-area-inset-top) + 10px);
-    }
-}
-
-@media (max-height: 500px) {
-    .services-content {
-        padding-top: calc(220px + env(safe-area-inset-top) + 5px);
-    }
-    
-    .services-content.filters-open {
-        padding-top: calc(280px + env(safe-area-inset-top) + 5px);
-    }
-}
 
 .services-content.filters-open {
-    padding-top: calc(0px + env(safe-area-inset-top) + 20px);
+    padding-top: calc(20px + env(safe-area-inset-top));
 }
 
 .services-content::-webkit-scrollbar {
@@ -390,124 +611,19 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .services-content {
-        padding: calc(200px + env(safe-area-inset-top)) 15px 100px;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .service-card {
-        padding: 18px;
-    }
-    
-    .service-card h3 {
-        font-size: 18px;
-    }
-    
-    .service-card p {
-        font-size: 14px;
-    }
-    
-    .filter-buttons {
-        gap: 10px;
-    }
-    
-    .filter-btn {
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-}
+/* =================================
+   МОДАЛЬНЫЕ ОКНА - АДАПТИВНОСТЬ
+   ================================= */
 
-@media (max-width: 480px) {
-    .services-content {
-        padding: calc(170px + env(safe-area-inset-top)) 12px 80px; /* Уменьшаем отступ */
-    }
-    
-    /* Кнопки фильтров для мобильных - такая же высота как на главной, но меньше ширина */
-    .filter-btn {
-        padding: 6px 8px; /* Уменьшаем горизонтальный padding */
-        font-size: 12px;
-        gap: 4px;
-        min-width: auto;
-        flex-shrink: 1;
-        width: auto;
-    }
-    
-    /* Кнопка "Все" - такая же высота, но меньше ширина */
-    #all-btn {
-        padding: 6px 8px; /* Уменьшаем горизонтальный padding */
-        font-size: 12px;
-        width: auto;
-        min-width: auto;
-    }
-    
-    .filter-btn .label {
-        display: none; /* Скрываем метки на мобильных */
-    }
-    
-    .filter-btn i {
-        font-size: 12px;
-    }
-    
-    .filter-buttons {
-        gap: 6px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 0 2px;
-    }
-    
-    .filter-buttons::-webkit-scrollbar {
-        display: none;
-    }
-    
-    .back-btn-header i {
-        font-size: 14px;
-    }
-    
-    .service-card {
-        padding: 16px;
-    }
-    
-    .service-card h3 {
-        font-size: 16px;
-    }
-    
-    .service-card .price {
-        font-size: 16px;
-    }
-    
-    .services-page-card h3 {
-        font-size: 16px;
-    }
-    
-    .services-page-card .price {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 380px) {
-    .services-page-card {
-        padding: 16px;
-    }
-}
-
-/* Стили для модального окна выбора даты и времени на странице сервисов */
-@media (max-width: 480px) {
-    /* Опускаем верхний край модального окна на уровень названия хеадера */
+/* ТЕЛЕФОНЫ - Модальное окно бронирования */
+@media (max-width: 767px) {
     #booking-modal .modal-content {
-        margin-top: 120px; /* Опускаем окно на уровень названия хеадера */
-        max-height: calc(100vh - 140px); /* Уменьшаем максимальную высоту соответственно */
+        margin-top: calc(120px + env(safe-area-inset-top));
+        max-height: calc(100vh - 140px - env(safe-area-inset-top));
     }
     
-    /* Уменьшаем элементы в модальном окне */
     #booking-modal .fixed-header {
-        padding: 20px 15px 12px;
+        padding: calc(15px + env(safe-area-inset-top)) 15px 12px;
     }
     
     #booking-modal .modal-logo {
@@ -540,18 +656,9 @@
         margin-bottom: 16px;
     }
     
-    #booking-modal .date-header {
-        margin-bottom: 12px;
-    }
-    
     #booking-modal .current-month {
         font-size: 16px;
         min-width: 120px;
-    }
-    
-    #booking-modal .date-nav .arrow {
-        font-size: 16px;
-        padding: 8px 10px;
     }
     
     #booking-modal .date-item {
@@ -592,6 +699,105 @@
         font-size: 14px;
         padding: 12px 20px;
         margin-top: 16px;
+    }
+}
+
+/* ПЛАНШЕТЫ - Модальное окно бронирования */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #booking-modal .modal-content {
+        margin-top: calc(100px + env(safe-area-inset-top));
+        max-width: 600px;
+        max-height: calc(100vh - 120px - env(safe-area-inset-top));
+    }
+    
+    #booking-modal .fixed-header {
+        padding: calc(20px + env(safe-area-inset-top)) 20px 15px;
+    }
+    
+    #booking-modal .modal-logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    #booking-modal .service-name-overlay h3 {
+        font-size: 16px;
+    }
+    
+    #booking-modal .service-name-overlay .price {
+        font-size: 15px;
+    }
+    
+    #booking-modal .booking-section {
+        padding: 20px;
+    }
+    
+    #booking-modal .date-selection,
+    #booking-modal .time-selection,
+    #booking-modal .address-selection {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+    
+    #booking-modal .time-slot {
+        padding: 10px 12px;
+        font-size: 14px;
+        min-width: 70px;
+    }
+    
+    #booking-modal .confirm-booking-btn {
+        font-size: 16px;
+        padding: 14px 24px;
+        margin-top: 20px;
+    }
+}
+
+/* УВЕДОМЛЕНИЯ - АДАПТИВНОСТЬ */
+@media (max-width: 767px) {
+    .notification-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .notification-header h3 {
+        font-size: 18px;
+    }
+    
+    .success-icon {
+        font-size: 28px;
+    }
+    
+    .detail-label,
+    .detail-value {
+        font-size: 13px;
+    }
+    
+    .notification-message {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .notification-content {
+        padding: 24px;
+        margin: 40px;
+        max-width: 500px;
+    }
+    
+    .notification-header h3 {
+        font-size: 20px;
+    }
+    
+    .success-icon {
+        font-size: 32px;
+    }
+    
+    .detail-label,
+    .detail-value {
+        font-size: 14px;
+    }
+    
+    .notification-message {
+        font-size: 14px;
     }
 }
 
@@ -742,27 +948,3 @@
     background: var(--accent-dark);
 }
 
-/* Адаптивность для уведомления */
-@media (max-width: 480px) {
-    .notification-content {
-        padding: 20px;
-        margin: 20px;
-    }
-    
-    .notification-header h3 {
-        font-size: 18px;
-    }
-    
-    .success-icon {
-        font-size: 28px;
-    }
-    
-    .detail-label,
-    .detail-value {
-        font-size: 13px;
-    }
-    
-    .notification-message {
-        font-size: 13px;
-    }
-}

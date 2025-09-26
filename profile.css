@@ -10,8 +10,12 @@
     margin-bottom: 16px;
 }
 
-/* Responsive header adjustments for profile */
-@media (max-width: 480px) {
+/* =================================
+   АДАПТИВНАЯ ВЕРСТКА - ПРОФИЛЬ
+   ================================= */
+
+/* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
+@media (max-width: 767px) {
     .profile-header {
         margin-bottom: 12px;
     }
@@ -26,9 +30,22 @@
         height: 36px;
         padding: 10px;
     }
+    
+    .user-info {
+        transform: translateY(20px);
+    }
+    
+    .user-name {
+        font-size: 18px;
+    }
+    
+    .user-email {
+        font-size: 13px;
+    }
 }
 
-@media (max-width: 360px) {
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 479px) */
+@media (max-width: 479px) {
     .car-selector {
         font-size: 13px;
         padding: 8px 32px 8px 12px;
@@ -39,8 +56,43 @@
         height: 32px;
         padding: 8px;
     }
+    
+    .settings-btn i {
+        font-size: 16px;
+    }
 }
 
+/* ПЛАНШЕТЫ (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .profile-header {
+        margin-bottom: 16px;
+    }
+    
+    .car-selector {
+        font-size: 16px;
+        padding: 14px 44px 14px 18px;
+    }
+    
+    .settings-btn {
+        min-width: 48px;
+        height: 48px;
+        padding: 14px;
+    }
+    
+    .settings-btn i {
+        font-size: 20px;
+    }
+    
+    .user-name {
+        font-size: 24px;
+    }
+    
+    .user-email {
+        font-size: 15px;
+    }
+}
+
+/* НИЗКИЕ ЭКРАНЫ (высота до 600px) - для всех устройств */
 @media (max-height: 600px) {
     .profile-header {
         margin-bottom: 8px;
@@ -131,12 +183,6 @@
     flex: 1;
 }
 
-/* Опускаем фото, имя и email на 1/4 от высоты фото (80px / 4 = 20px) */
-@media (max-width: 480px) {
-    .user-info {
-        transform: translateY(20px);
-    }
-}
 
 .user-avatar {
     width: 80px;
@@ -203,35 +249,20 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(0px + env(safe-area-inset-top) + 10px) 20px 100px; /* Добавляем 10px между хедером и контентом */
+    padding: calc(20px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
 
-/* Mobile responsive design for profile */
-@media (max-width: 768px) {
-    .profile-content {
-        padding: calc(220px + env(safe-area-inset-top) + 10px) 15px 80px; /* Добавляем 10px */
-    }
-    
-    .profile-card {
-        padding: 20px;
-        margin-bottom: 15px;
-    }
-    
-    .profile-card h3 {
-        font-size: 18px;
-    }
-    
-    .profile-card p {
-        font-size: 14px;
-    }
-}
+/* =================================
+   АДАПТИВНЫЕ СТИЛИ КОНТЕНТА ПРОФИЛЯ
+   ================================= */
 
-@media (max-width: 480px) {
+/* ТЕЛЕФОНЫ - Контент профиля */
+@media (max-width: 767px) {
     .profile-content {
-        padding: calc(200px + env(safe-area-inset-top) + 10px) 12px 70px; /* Добавляем 10px между хедером и контентом */
-        transform: translateY(18px); /* Опускаем содержимое как кнопку назад на сервисах */
+        padding: calc(200px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
+        transform: translateY(18px);
     }
     
     .profile-card {
@@ -246,24 +277,104 @@
     .profile-card p {
         font-size: 13px;
     }
+    
+    .car-main-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .car-reg-number {
+        align-self: flex-end;
+    }
+    
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px 20px;
+    }
+    
+    .service-info {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .service-price {
+        text-align: left;
+        min-width: auto;
+    }
 }
 
-/* Responsive padding for small screens */
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки */
+@media (max-width: 479px) {
+    .profile-content {
+        padding: calc(180px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
+    }
+    
+    .profile-card {
+        padding: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .profile-card h3 {
+        font-size: 15px;
+    }
+    
+    .profile-card p {
+        font-size: 12px;
+    }
+}
+
+/* ПЛАНШЕТЫ - Контент профиля */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .profile-content {
+        padding: calc(160px + env(safe-area-inset-top)) 24px calc(120px + env(safe-area-inset-bottom)) 24px;
+    }
+    
+    .profile-card {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .profile-card h3 {
+        font-size: 19px;
+    }
+    
+    .profile-card p {
+        font-size: 15px;
+    }
+    
+    .car-brand {
+        font-size: 26px;
+    }
+    
+    .car-model {
+        font-size: 17px;
+    }
+    
+    .car-reg-number {
+        font-size: 19px;
+        padding: 10px 18px;
+    }
+}
+
+/* НИЗКИЕ ЭКРАНЫ - Корректировка отступов */
 @media (max-height: 700px) {
     .profile-content {
-        padding-top: calc(220px + env(safe-area-inset-top) + 15px);
+        padding-top: calc(170px + env(safe-area-inset-top));
     }
 }
 
 @media (max-height: 600px) {
     .profile-content {
-        padding-top: calc(200px + env(safe-area-inset-top) + 10px);
+        padding-top: calc(150px + env(safe-area-inset-top));
     }
 }
 
 @media (max-height: 500px) {
     .profile-content {
-        padding-top: calc(180px + env(safe-area-inset-top) + 5px);
+        padding-top: calc(130px + env(safe-area-inset-top));
     }
 }
 
@@ -545,67 +656,6 @@
     text-align: right;
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
-    .user-name {
-        font-size: 18px;
-    }
-    
-    .user-email {
-        font-size: 13px;
-    }
-    
-    .settings-btn {
-        min-width: 40px;
-        height: 40px;
-        padding: 10px;
-    }
-    
-    .settings-btn i {
-        font-size: 16px;
-    }
-    
-    .car-main-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    
-    .car-reg-number {
-        align-self: flex-end;
-    }
-    
-    .history-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 16px 20px;
-    }
-    
-    .service-info {
-        margin-left: 0;
-        width: 100%;
-    }
-    
-    .service-price {
-        text-align: left;
-        min-width: auto;
-    }
-}
-
-@media (max-width: 380px) {
-    .profile-card {
-        margin-bottom: 16px;
-    }
-    
-    .card-header {
-        padding: 16px;
-    }
-    
-    .car-details {
-        padding: 16px;
-    }
-}
 
 /* Modal Styles */
 .modal {
@@ -783,7 +833,12 @@
     }
 }
 
-@media (max-width: 480px) {
+/* =================================
+   АДАПТИВНЫЕ СТИЛИ МОДАЛЬНЫХ ОКОН - ПРОФИЛЬ
+   ================================= */
+
+/* ТЕЛЕФОНЫ - Модальные окна и дополнительные элементы */
+@media (max-width: 767px) {
     .car-selection {
         flex-direction: column;
         gap: 12px;
@@ -804,13 +859,13 @@
         align-items: center;
     }
     
-    /* Центрируем всплывающие окна по центру экрана */
     .modal-content {
-        width: calc(100% - 40px); /* Одинаковые отступы слева и справа по 20px */
-        margin: 20px; /* Одинаковые отступы со всех сторон */
+        width: calc(100% - 32px);
+        margin: 16px;
         top: 50%;
-        transform: translate(-50%, -50%); /* Точное центрирование */
-        position: fixed; /* Фиксированное позиционирование */
+        transform: translate(-50%, -50%);
+        position: fixed;
+        max-height: calc(100vh - 120px - env(safe-area-inset-top));
     }
     
     .modal-actions {
@@ -821,5 +876,39 @@
     .btn-secondary,
     .btn-danger {
         width: 100%;
+    }
+}
+
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки модальных окон */
+@media (max-width: 479px) {
+    .modal-content {
+        width: calc(100% - 24px);
+        margin: 12px;
+    }
+}
+
+/* ПЛАНШЕТЫ - Модальные окна */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .modal-content {
+        max-width: 600px;
+        margin: 40px auto;
+        border-radius: 20px;
+    }
+    
+    .service-summary {
+        flex-direction: row;
+        gap: 20px;
+        text-align: left;
+    }
+    
+    .modal-actions {
+        flex-direction: row;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        width: auto;
+        flex: 1;
     }
 }
