@@ -77,6 +77,18 @@
         padding-top: calc(280px + env(safe-area-inset-top));
     }
     
+    .dropdown-content {
+        position: fixed !important;
+        top: auto !important;
+        left: 16px !important;
+        right: 16px !important;
+        width: auto !important;
+        min-width: auto !important;
+        z-index: 99999 !important;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
     /* Заголовок и навигация */
     .back-navigation {
         gap: 8px;
@@ -84,7 +96,7 @@
         align-items: center;
         margin-bottom: 16px;
         position: relative;
-        padding-top: env(safe-area-inset-top);
+        padding-top: calc(20px + env(safe-area-inset-top));
     }
     
     .back-btn-header {
@@ -514,16 +526,6 @@
     opacity: 0.5;
 }
 
-.services-header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--frosted-border);
-    pointer-events: none;
-}
 
 .services-page-card .price {
     font-size: 20px;

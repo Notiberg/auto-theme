@@ -284,6 +284,11 @@
         gap: 12px;
     }
     
+    .car-brand-model {
+        align-self: flex-start;
+        text-align: left;
+    }
+    
     .car-reg-number {
         align-self: flex-end;
     }
@@ -309,7 +314,7 @@
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки */
 @media (max-width: 479px) {
     .profile-content {
-        padding: calc(180px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
+        padding: calc(140px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
     }
     
     .profile-card {
@@ -842,6 +847,7 @@
     .car-selection {
         flex-direction: column;
         gap: 12px;
+        margin-top: 20px;
     }
     
     .add-car-btn {
@@ -860,11 +866,11 @@
     }
     
     .modal-content {
-        width: calc(100% - 32px);
-        margin: 16px;
+        width: calc(100% - 40px);
+        margin: 20px;
         top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        position: fixed;
         max-height: calc(100vh - 120px - env(safe-area-inset-top));
     }
     

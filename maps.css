@@ -91,7 +91,7 @@ body {
 /* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
 @media (max-width: 767px) {
     .glass-header {
-        padding: calc(45px + env(safe-area-inset-top)) 20px 16px;
+        padding: calc(55px + env(safe-area-inset-top)) 20px 16px;
     }
     
     .logo {
@@ -111,15 +111,16 @@ body {
     .content #map.map-container,
     .content #map,
     #map.map-container {
-        height: calc(65vh - env(safe-area-inset-top)) !important;
+        height: calc(100vh - 280px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
         border-radius: 16px !important;
+        margin-bottom: 20px !important;
     }
 }
 
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 479px) */
 @media (max-width: 479px) {
     .glass-header {
-        padding: calc(35px + env(safe-area-inset-top)) 16px 12px;
+        padding: calc(45px + env(safe-area-inset-top)) 16px 12px;
     }
     
     .logo {
@@ -139,8 +140,9 @@ body {
     .content #map.map-container,
     .content #map,
     #map.map-container {
-        height: calc(65vh - env(safe-area-inset-top)) !important;
+        height: calc(100vh - 260px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
         border-radius: 14px !important;
+        margin-bottom: 20px !important;
     }
 }
 
@@ -216,13 +218,22 @@ body {
     }
 }
 
-/* КОМПЬЮТЕРЫ (1024px+) - сохраняем существующие стили без изменений */
+/* КОМПЬЮЮТЕРЫ (1024px+) */
 @media (min-width: 1025px) {
-    .content #map.map-container,
-    .content #map,
-    #map.map-container {
-        height: calc(75vh - env(safe-area-inset-top)) !important;
+    .mobile-container .content {
+        position: relative !important;
+        top: auto !important;
+        padding: calc(20px + env(safe-area-inset-top)) 20px 100px 20px !important;
+        height: auto !important;
+    }
+    
+    .mobile-container .content #map.map-container,
+    .mobile-container .content #map,
+    .mobile-container #map.map-container {
+        height: calc(60vh - env(safe-area-inset-top)) !important;
         border-radius: 20px !important;
+        margin: 0 auto !important;
+        max-width: 1800px !important;
     }
 }
 .logo-container { 
@@ -248,7 +259,7 @@ body {
 
 /* Переопределение отступов для страницы карт */
 .content { 
-    padding-top: calc(160px + env(safe-area-inset-top)) !important;
+    padding-top: calc(225px + env(safe-area-inset-top)) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
 }
