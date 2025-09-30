@@ -318,9 +318,12 @@
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки */
 @media (max-width: 479px) {
     .profile-content {
-        padding: calc(140px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
+        padding: calc(0px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
     }
     
+    .car-selection {
+        margin-top: 10px;
+    }
     .profile-card {
         padding: 14px;
         margin-bottom: 10px;
