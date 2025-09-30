@@ -222,7 +222,7 @@ body {
 /* ПЛАНШЕТЫ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .glass-header {
-        padding: calc(50px + env(safe-area-inset-top)) 24px 18px;
+        padding: calc(55px + env(safe-area-inset-top)) 24px 18px;
     }
     
     .logo {

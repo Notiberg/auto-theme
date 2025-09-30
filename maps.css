@@ -91,7 +91,7 @@ body {
 /* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
 @media (max-width: 767px) {
     .glass-header {
-        padding: calc(55px + env(safe-area-inset-top)) 20px 16px;
+        padding: calc(70px + env(safe-area-inset-top)) 20px 16px;
     }
     
     .logo {
@@ -103,7 +103,7 @@ body {
     }
     
     .content {
-        padding-top: calc(180px + env(safe-area-inset-top)) !important;
+        padding-top: calc(160px + env(safe-area-inset-top)) !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
     }
@@ -142,7 +142,7 @@ body {
     #map.map-container {
         height: calc(100vh - 260px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
         border-radius: 14px !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 5px !important;
     }
 }
 
