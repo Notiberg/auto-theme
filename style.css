@@ -159,7 +159,7 @@ body {
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 479px) */
 @media (max-width: 479px) {
     .glass-header {
-        padding: calc(45px + env(safe-area-inset-top)) 16px 12px;
+        padding: calc(70px + env(safe-area-inset-top)) 16px 12px;
     }
     
     .logo {
