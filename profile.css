@@ -65,7 +65,7 @@
     }
     
     .car-selection {
-        margin-top: 100px;
+        margin-top: 6px;
         padding: 0 2px;
     }
     
@@ -267,7 +267,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(45px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
+    padding: calc(25px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -279,7 +279,7 @@
 /* ТЕЛЕФОНЫ - Контент профиля */
 @media (max-width: 767px) {
     .profile-content {
-        padding: calc(180px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
+        padding: calc(20px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
         transform: translateY(0);
     }
     
