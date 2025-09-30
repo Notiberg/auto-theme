@@ -48,7 +48,7 @@
 @media (max-width: 479px) {
     .car-selector {
         font-size: 13px;
-        padding: 80px 32px 8px 12px;
+        padding: 8px 32px 8px 12px;
     }
     
     .settings-btn {
@@ -105,6 +105,7 @@
     align-items: center;
     gap: 12px;
     width: 100%;
+    margin-top: 16px;
 }
 
 .car-selector-wrapper {
@@ -249,7 +250,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding: calc(20px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
+    padding: calc(45px + env(safe-area-inset-top)) 20px calc(100px + env(safe-area-inset-bottom));
     overflow-y: auto;
     transition: padding-top 0.3s ease;
 }
@@ -261,8 +262,8 @@
 /* ТЕЛЕФОНЫ - Контент профиля */
 @media (max-width: 767px) {
     .profile-content {
-        padding: calc(200px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
-        transform: translateY(18px);
+        padding: calc(180px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
+        transform: translateY(0);
     }
     
     .profile-card {
@@ -279,8 +280,11 @@
     }
     
     .car-main-info {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
         gap: 12px;
     }
     
@@ -290,7 +294,7 @@
     }
     
     .car-reg-number {
-        align-self: flex-end;
+        margin: 0;
     }
     
     .history-item {
