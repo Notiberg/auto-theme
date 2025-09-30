@@ -128,7 +128,7 @@ body {
 /* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
 @media (max-width: 767px) {
     .glass-header {
-        padding: calc(55px + env(safe-area-inset-top)) 20px 16px;
+        padding: calc(70px + env(safe-area-inset-top)) 20px 16px;
     }
     
     .logo {
@@ -140,7 +140,7 @@ body {
     }
     
     .content {
-        padding: calc(180px + env(safe-area-inset-top)) 16px calc(100px + env(safe-area-inset-bottom)) 16px;
+        padding: calc(160px + env(safe-area-inset-top)) 16px calc(100px + env(safe-area-inset-bottom)) 16px;
     }
     
     .dropdown-content {
