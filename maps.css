@@ -140,9 +140,9 @@ body {
     .content #map.map-container,
     .content #map,
     #map.map-container {
-        height: calc(100vh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+        height: calc(100vh - 260px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
         border-radius: 14px !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 20px !important;
     }
 }
 

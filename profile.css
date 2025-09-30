@@ -48,7 +48,7 @@
 @media (max-width: 479px) {
     .car-selector {
         font-size: 13px;
-        padding: 8px 32px 8px 12px;
+        padding: 80px 32px 8px 12px;
     }
     
     .settings-btn {
