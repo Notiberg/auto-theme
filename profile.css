@@ -10,75 +10,6 @@
     margin-bottom: 16px;
 }
 
-/* =================================
-   АДАПТИВНАЯ ВЕРСТКА - ПРОФИЛЬ
-   ================================= */
-
-/* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
-@media (max-width: 767px) {
-    .profile-header {
-        margin-bottom: 0;
-        padding-bottom: 12px;
-    }
-    
-    .car-selector {
-        font-size: 14px;
-        padding: 10px 36px 10px 14px;
-    }
-    
-    .settings-btn {
-        min-width: 36px;
-        height: 36px;
-        padding: 10px;
-    }
-    
-    .user-info {
-        transform: none;
-        margin-top: 10px;
-    }
-    
-    .user-name {
-        font-size: 18px;
-    }
-    
-    .user-email {
-        font-size: 13px;
-    }
-}
-
-/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 479px) */
-@media (max-width: 479px) {
-    .car-selector {
-        font-size: 13px;
-        padding: 8px 32px 8px 12px;
-    }
-    
-    .settings-btn {
-        min-width: 32px;
-        height: 32px;
-        padding: 8px;
-        margin-top: 8px;
-    }
-    
-    .settings-btn i {
-        font-size: 16px;
-    }
-    
-    .car-selection {
-        margin-top: 6px;
-        padding: 0 2px;
-    }
-    
-    .car-selector {
-        padding: 8px 28px 8px 10px;
-        font-size: 13px;
-    }
-    
-    .user-info {
-        margin-bottom: 0px;
-    }
-}
-
 /* ПЛАНШЕТЫ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .profile-header {
@@ -276,8 +207,60 @@
    АДАПТИВНЫЕ СТИЛИ КОНТЕНТА ПРОФИЛЯ
    ================================= */
 
-/* ТЕЛЕФОНЫ - Контент профиля */
+/* ТЕЛЕФОНЫ - Полная адаптация (до 767px) */
 @media (max-width: 767px) {
+    /* Header стили */
+    .profile-header {
+        margin-bottom: 0;
+        padding-bottom: 10px;
+    }
+    
+    .user-info {
+        transform: none;
+        margin-top: 10px;
+    }
+    
+    .user-name {
+        font-size: 18px;
+    }
+    
+    .user-email {
+        font-size: 13px;
+    }
+    
+    .settings-btn {
+        min-width: 36px;
+        height: 36px;
+        padding: 10px;
+        margin-top: 0;
+    }
+    
+    /* Car Selection стили */
+    .car-selection {
+        margin-top: 0px;
+        padding: 0 4px;
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .add-car-btn {
+        min-width: 28px;
+        height: 36px;
+        padding: 10px 6px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+    
+    .add-car-btn i {
+        font-size: 14px;
+    }
+    
+    .car-selector {
+        font-size: 14px;
+        padding: 10px 36px 10px 14px;
+    }
+    
+    /* Content стили */
     .profile-content {
         padding: calc(20px + env(safe-area-inset-top)) 16px calc(90px + env(safe-area-inset-bottom)) 16px;
         transform: translateY(0);
@@ -332,8 +315,50 @@
     }
 }
 
-/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки */
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ - Дополнительные настройки (до 479px) */
 @media (max-width: 479px) {
+    /* Header стили */
+    .settings-btn {
+        min-width: 32px;
+        height: 32px;
+        padding: 8px;
+        margin-top: 0;
+    }
+    
+    .settings-btn i {
+        font-size: 16px;
+    }
+    
+    .user-info {
+        margin-bottom: 0px;
+    }
+    
+    /* Car Selection стили */
+    .car-selection {
+        margin-top: 0px;
+        padding: 0 2px;
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .add-car-btn {
+        min-width: 24px;
+        height: 28px;
+        padding: 6px 4px;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+    
+    .add-car-btn i {
+        font-size: 12px;
+    }
+    
+    .car-selector {
+        padding: 8px 28px 8px 10px;
+        font-size: 13px;
+    }
+    
+    /* Content стили */
     .profile-content {
         padding: calc(15px + env(safe-area-inset-top)) 12px calc(80px + env(safe-area-inset-bottom)) 12px;
     }
@@ -350,26 +375,12 @@
     .profile-card p {
         font-size: 12px;
     }
-
-    .settings-btn {
-        margin-top: 10px;
-    }
-    
-    .car-selection {
-        margin-top: 12px;
-        padding: 0 4px;
-    }
-    
-    .car-selector {
-        padding: 10px 36px 10px 14px;
-        font-size: 14px;
-    }
 }
 
 /* ПЛАНШЕТЫ - Контент профиля */
 @media (min-width: 768px) and (max-width: 1024px) {
     .profile-content {
-        padding: calc(160px + env(safe-area-inset-top)) 24px calc(120px + env(safe-area-inset-bottom)) 24px;
+        padding: calc(20px + env(safe-area-inset-top)) 24px calc(120px + env(safe-area-inset-bottom)) 24px;
     }
     
     .profile-card {
@@ -879,11 +890,7 @@
 
 /* ТЕЛЕФОНЫ - Модальные окна и дополнительные элементы */
 @media (max-width: 767px) {
-    .car-selection {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 20px;
-    }
+    /* Удален конфликтующий стиль car-selection */
     
     .add-car-btn {
         width: 100%;
