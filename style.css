@@ -159,7 +159,7 @@ body {
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 479px) */
 @media (max-width: 479px) {
     .glass-header {
-        padding: calc(70px + env(safe-area-inset-top)) 16px 12px;
+        padding: calc(80px + env(safe-area-inset-top)) 16px 12px;
     }
     
     .logo {
@@ -171,7 +171,7 @@ body {
     }
     
     .content {
-        padding: calc(160px + env(safe-area-inset-top)) 12px calc(90px + env(safe-area-inset-bottom)) 12px;
+        padding: calc(170px + env(safe-area-inset-top)) 12px calc(90px + env(safe-area-inset-bottom)) 12px;
     }
 }
 
@@ -189,33 +189,33 @@ body {
 /* НИЗКИЕ ЭКРАНЫ (высота до 700px) - для всех устройств */
 @media (max-height: 700px) {
     .glass-header {
-        padding: calc(35px + env(safe-area-inset-top)) 20px 12px;
+        padding: calc(80px + env(safe-area-inset-top)) 20px 12px;
     }
     
     .content {
-        padding-top: calc(150px + env(safe-area-inset-top));
+        padding-top: calc(170px + env(safe-area-inset-top));
     }
 }
 
 /* ОЧЕНЬ НИЗКИЕ ЭКРАНЫ (высота до 600px) */
 @media (max-height: 600px) {
     .glass-header {
-        padding: calc(25px + env(safe-area-inset-top)) 18px 10px;
+        padding: calc(80px + env(safe-area-inset-top)) 18px 10px;
     }
     
     .content {
-        padding-top: calc(130px + env(safe-area-inset-top));
+        padding-top: calc(170px + env(safe-area-inset-top));
     }
 }
 
 /* ЭКСТРЕМАЛЬНО НИЗКИЕ ЭКРАНЫ (высота до 500px) */
 @media (max-height: 500px) {
     .glass-header {
-        padding: calc(20px + env(safe-area-inset-top)) 16px 8px;
+        padding: calc(80px + env(safe-area-inset-top)) 16px 8px;
     }
     
     .content {
-        padding-top: calc(110px + env(safe-area-inset-top));
+        padding-top: calc(170px + env(safe-area-inset-top));
     }
 }
 
