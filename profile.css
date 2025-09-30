@@ -17,7 +17,8 @@
 /* ТЕЛЕФОНЫ (до 767px) - учитываем Telegram mini app и вырез камеры */
 @media (max-width: 767px) {
     .profile-header {
-        margin-bottom: 12px;
+        margin-bottom: 0;
+        padding-bottom: 12px;
     }
     
     .car-selector {
@@ -32,7 +33,8 @@
     }
     
     .user-info {
-        transform: translateY(20px);
+        transform: none;
+        margin-top: 10px;
     }
     
     .user-name {
@@ -55,10 +57,25 @@
         min-width: 32px;
         height: 32px;
         padding: 8px;
+        margin-top: 8px;
     }
     
     .settings-btn i {
         font-size: 16px;
+    }
+    
+    .car-selection {
+        margin-top: 10px;
+        padding: 0 2px;
+    }
+    
+    .car-selector {
+        padding: 8px 28px 8px 10px;
+        font-size: 13px;
+    }
+    
+    .user-info {
+        margin-top: 8px;
     }
 }
 
@@ -336,6 +353,16 @@
 
     .settings-btn {
         margin-top: 10px;
+    }
+    
+    .car-selection {
+        margin-top: 12px;
+        padding: 0 4px;
+    }
+    
+    .car-selector {
+        padding: 10px 36px 10px 14px;
+        font-size: 14px;
     }
 }
 
