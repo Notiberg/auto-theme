@@ -419,19 +419,19 @@
 /* НИЗКИЕ ЭКРАНЫ - Корректировка отступов */
 @media (max-height: 700px) {
     .profile-content {
-        padding-top: calc(170px + env(safe-area-inset-top));
+        padding-top: calc(10px + env(safe-area-inset-top));
     }
 }
 
 @media (max-height: 600px) {
     .profile-content {
-        padding-top: calc(150px + env(safe-area-inset-top));
+        padding-top: calc(10px + env(safe-area-inset-top));
     }
 }
 
 @media (max-height: 500px) {
     .profile-content {
-        padding-top: calc(130px + env(safe-area-inset-top));
+        padding-top: calc(10px + env(safe-area-inset-top));
     }
 }
 

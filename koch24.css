@@ -1,0 +1,620 @@
+/* Персонализированные стили для Koch24 - красная тема */
+
+/* CSS переменные для темы Koch24 */
+[data-service="koch24"] {
+    --service-primary: #8B0000;
+    --service-secondary: #DC143C;
+    --service-accent: #FFD700;
+    --service-background: #0A0A0A;
+    --service-text: #FFFFFF;
+    --service-gradient: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+    --service-shadow: 0 8px 32px rgba(139, 0, 0, 0.4);
+}
+
+/* Однотонный красный фон для всей страницы Koch24 */
+body[data-service="koch24"] {
+    background: rgba(30, 10, 10, 1) !important;
+}
+
+body[data-service="koch24"] .mobile-container {
+    background: rgba(30, 10, 10, 1) !important;
+}
+
+/* Хедер с персонализированными цветами - матовое стекло с красным акцентом */
+[data-service="koch24"] .glass-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(139, 0, 0, 0.02) !important;
+    backdrop-filter: blur(60px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(60px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15) !important;
+    border-radius: 0 0 16px 16px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(139, 0, 0, 0.2) !important;
+}
+
+[data-service="koch24"] .glass-header::before {
+    background: rgba(139, 0, 0, 0.1) !important;
+    border-radius: 0 0 16px 16px !important;
+    opacity: 0.5;
+}
+
+/* Логотип с градиентом Koch24 */
+[data-service="koch24"] .logo {
+    background: var(--service-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+/* Базовые стили для контента */
+[data-service="koch24"] .services-content {
+    padding-top: calc(320px + env(safe-area-inset-top)) !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-bottom: calc(100px + env(safe-area-inset-bottom)) !important;
+}
+
+/* Отступ при открытых фильтрах */
+[data-service="koch24"] .services-content.filters-open {
+    padding-top: calc(400px + env(safe-area-inset-top)) !important;
+}
+
+/* Рейтинг в хедере */
+[data-service="koch24"] .header-title .rating-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+[data-service="koch24"] .header-title .rating-info .stars {
+    display: flex;
+    gap: 2px;
+}
+
+[data-service="koch24"] .header-title .rating-info .star {
+    color: #FFD700;
+    font-size: 14px;
+}
+
+[data-service="koch24"] .header-title .rating-info .star.filled {
+    color: #FFD700;
+}
+
+[data-service="koch24"] .header-title .rating-info .rating-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Ограничиваем ширину подзаголовка с переносом целых слов */
+[data-service="koch24"] .logo-subtitle {
+    max-width: calc(100vw - 120px);
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    line-height: 1.3;
+    white-space: normal;
+}
+
+/* Сетка услуг */
+[data-service="koch24"] .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Баннер информации о сервисе */
+[data-service="koch24"] .service-info-banner {
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+[data-service="koch24"] .service-logo-large {
+    width: 60px;
+    height: 60px;
+    background: var(--service-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    box-shadow: var(--service-shadow);
+}
+
+[data-service="koch24"] .service-details {
+    flex: 1;
+}
+
+[data-service="koch24"] .working-hours {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--service-secondary);
+    margin-bottom: 8px;
+}
+
+[data-service="koch24"] .rating-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+[data-service="koch24"] .service-tags-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+[data-service="koch24"] .service-tags-banner .tag {
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--service-secondary);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+/* Карточки услуг */
+[data-service="koch24"] .service-item {
+    background: rgba(139, 0, 0, 0.08);
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+[data-service="koch24"] .service-item:hover {
+    background: rgba(139, 0, 0, 0.15);
+    box-shadow: var(--service-shadow);
+    transform: translateY(-2px);
+}
+
+[data-service="koch24"] .service-item h3 {
+    color: var(--service-primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+[data-service="koch24"] .service-item .service-price-inline {
+    color: var(--service-accent);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+[data-service="koch24"] .service-item .service-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+[data-service="koch24"] .service-item .price-duration-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+[data-service="koch24"] .service-item .service-price {
+    color: var(--service-accent);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+[data-service="koch24"] .service-item .service-duration {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin: 0;
+}
+
+[data-service="koch24"] .service-item .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+[data-service="koch24"] .service-item .service-tags .tag {
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--service-secondary);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+}
+
+[data-service="koch24"] .service-item .book-btn {
+    background: var(--service-gradient);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+[data-service="koch24"] .service-item .book-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--service-shadow);
+}
+
+/* Активные фильтры */
+[data-service="koch24"] .filter-btn.active {
+    background: var(--service-gradient);
+    color: white;
+    border-color: var(--service-primary);
+}
+
+/* Модальное окно */
+[data-service="koch24"] .modal-content {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-service="koch24"] .fixed-header {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+    z-index: -1 !important;
+}
+
+[data-service="koch24"] .modal-logo {
+    background: var(--service-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-service="koch24"] .confirm-booking-btn {
+    background: var(--service-gradient);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 24px;
+}
+
+[data-service="koch24"] .confirm-booking-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--service-shadow);
+}
+
+[data-service="koch24"] .time-slot.selected {
+    background: var(--service-primary);
+    color: white;
+}
+
+[data-service="koch24"] .address-select {
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    background: rgba(139, 0, 0, 0.05);
+}
+
+[data-service="koch24"] .address-select:focus {
+    border-color: var(--service-primary);
+    box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2);
+}
+
+/* Фильтры и выпадающие меню */
+[data-service="koch24"] .filter-buttons {
+    justify-content: center;
+}
+
+[data-service="koch24"] .dropdown {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Базовые стили для всех устройств */
+[data-service="koch24"] .dropdown-content {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(15, 20, 25, 0.95) !important;
+    border: 1px solid rgba(139, 0, 0, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 8px 0 !important;
+    min-width: 120px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(20px) !important;
+    z-index: 9999 !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Показываем при клике на всех устройствах */
+[data-service="koch24"] .dropdown.show .dropdown-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+[data-service="koch24"] .dropdown-content div {
+    padding: 8px 16px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+}
+
+[data-service="koch24"] .dropdown-content div:hover {
+    background: rgba(139, 0, 0, 0.2) !important;
+    color: var(--service-primary) !important;
+}
+
+/* Активные фильтры */
+[data-service="koch24"] .filter-btn.active {
+    background: var(--service-gradient);
+    color: white;
+    border-color: var(--service-primary);
+}
+
+/* Премиум эффекты для Koch24 */
+[data-service="koch24"] .service-item.premium {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    position: relative;
+}
+
+[data-service="koch24"] .service-item.premium::before {
+    content: "ПРЕМИУМ";
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: var(--service-accent);
+    color: var(--service-primary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+[data-service="koch24"] .service-item.premium {
+    position: relative;
+}
+
+/* Единая система breakpoints для Koch24 */
+
+/* ТЕЛЕФОНЫ (до 767px) - учитывает Telegram mini app и вырез камеры */
+@media (max-width: 767px) {
+    [data-service="koch24"] .glass-header {
+        padding: calc(45px + env(safe-area-inset-top)) 16px 12px;
+    }
+    
+    [data-service="koch24"] .logo {
+        font-size: 26px;
+    }
+    
+    [data-service="koch24"] .logo-subtitle {
+        font-size: 13px;
+    }
+    
+    [data-service="koch24"] .services-content {
+        padding-top: var(--header-content-gap);
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    [data-service="koch24"] .services-content.filters-open {
+        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+    }
+    
+    [data-service="koch24"] .service-info-banner {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+    
+    [data-service="koch24"] .service-logo-large {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    [data-service="koch24"] .working-hours {
+        font-size: 14px;
+    }
+    
+    [data-service="koch24"] .service-item {
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+    
+    /* Специальные настройки для низких экранов */
+    @media (max-height: 700px) {
+        [data-service="koch24"] .glass-header {
+            padding: calc(35px + env(safe-area-inset-top)) 16px 10px;
+        }
+        
+        [data-service="koch24"] .service-info-banner {
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+    }
+    
+    @media (max-height: 600px) {
+        [data-service="koch24"] .glass-header {
+            padding: calc(30px + env(safe-area-inset-top)) 16px 8px;
+        }
+        
+        [data-service="koch24"] .logo {
+            font-size: 24px;
+        }
+    }
+    
+    @media (max-height: 500px) {
+        [data-service="koch24"] .glass-header {
+            padding: calc(25px + env(safe-area-inset-top)) 16px 6px;
+        }
+        
+        [data-service="koch24"] .logo {
+            font-size: 22px;
+        }
+        
+        [data-service="koch24"] .logo-subtitle {
+            font-size: 12px;
+        }
+    }
+}
+
+/* ПЛАНШЕТЫ (768px-1024px) - оптимизирован для планшетов */
+@media (min-width: 768px) and (max-width: 1024px) {
+    [data-service="koch24"] .glass-header {
+        padding: calc(45px + env(safe-area-inset-top)) 24px 16px;
+    }
+    
+    [data-service="koch24"] .logo {
+        font-size: 30px;
+    }
+    
+    [data-service="koch24"] .logo-subtitle {
+        font-size: 15px;
+    }
+    
+    [data-service="koch24"] .services-content {
+        padding-top: var(--header-content-gap);
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    [data-service="koch24"] .services-content.filters-open {
+        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+    }
+    
+    [data-service="koch24"] .service-info-banner {
+        padding: 24px;
+        margin-bottom: 28px;
+    }
+    
+    [data-service="koch24"] .service-logo-large {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+    }
+    
+    [data-service="koch24"] .working-hours {
+        font-size: 16px;
+    }
+    
+    [data-service="koch24"] .service-item {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    
+    /* Сетка 2 колонки для планшетов */
+    [data-service="koch24"] .services-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+/* КОМПЬЮТЕРЫ (1024px+) - сохранены существующие стили без изменений */
+@media (min-width: 1024px) {
+    [data-service="koch24"] .services-content {
+        padding-top: var(--header-content-gap);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    [data-service="koch24"] .services-content.filters-open {
+        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+    }
+    
+    [data-service="koch24"] .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Модальное окно - увеличенное и по центру */
+[data-service="koch24"] .modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-service="koch24"] .modal.show {
+    display: block !important;
+}
+
+[data-service="koch24"] .modal-content {
+    background: var(--service-background) !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: calc(100% - 80px) !important;
+    margin-top: 80px !important;
+    border-radius: 20px 20px 0 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-service="koch24"] .booking-section {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 20px !important;
+}
+
+[data-service="koch24"] .fixed-header {
+    background: rgba(15, 20, 25, 0.85) !important;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.2) !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+
+[data-service="koch24"] .fixed-header::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(220, 20, 60, 0.05) 100%) !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+

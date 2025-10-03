@@ -160,40 +160,40 @@ body {
 /* НИЗКИЕ ЭКРАНЫ (высота до 700px) - для всех устройств */
 @media (max-height: 700px) {
     .glass-header {
-        padding: calc(35px + env(safe-area-inset-top)) 20px 12px;
+        padding: calc(70px + env(safe-area-inset-top)) 20px 12px;
     }
     
     .content {
-        padding-top: calc(150px + env(safe-area-inset-top)) !important;
+        padding-top: calc(160px + env(safe-area-inset-top)) !important;
     }
 }
 
 /* ОЧЕНЬ НИЗКИЕ ЭКРАНЫ (высота до 600px) */
 @media (max-height: 600px) {
     .glass-header {
-        padding: calc(25px + env(safe-area-inset-top)) 18px 10px;
+        padding: calc(70px + env(safe-area-inset-top)) 18px 10px;
     }
     
     .content {
-        padding-top: calc(130px + env(safe-area-inset-top)) !important;
+        padding-top: calc(160px + env(safe-area-inset-top)) !important;
     }
 }
 
 /* ЭКСТРЕМАЛЬНО НИЗКИЕ ЭКРАНЫ (высота до 500px) */
 @media (max-height: 500px) {
     .glass-header {
-        padding: calc(20px + env(safe-area-inset-top)) 16px 8px;
+        padding: calc(70px + env(safe-area-inset-top)) 16px 8px;
     }
     
     .content {
-        padding-top: calc(110px + env(safe-area-inset-top)) !important;
+        padding-top: calc(160px + env(safe-area-inset-top)) !important;
     }
 }
 
 /* ПЛАНШЕТЫ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .glass-header {
-        padding: calc(50px + env(safe-area-inset-top)) 24px 18px;
+        padding: calc(70px + env(safe-area-inset-top)) 24px 18px;
     }
     
     .logo {
@@ -205,7 +205,7 @@ body {
     }
     
     .content {
-        padding-top: calc(140px + env(safe-area-inset-top)) !important;
+        padding-top: calc(160px + env(safe-area-inset-top)) !important;
         padding-left: 24px !important;
         padding-right: 24px !important;
     }

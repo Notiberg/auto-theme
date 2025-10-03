@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Navigate to services page when service card is clicked
+    // Navigate to personalized service pages when service card is clicked
     serviceCards.forEach(card => {
         card.addEventListener('click', function(e) {
             // Don't navigate if clicking on a tag
@@ -223,8 +223,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const serviceType = this.classList[1];
             const title = this.getAttribute('data-title');
             
-            // Navigate to services page with parameters
-            window.location.href = `services.html?type=${encodeURIComponent(serviceType)}&title=${encodeURIComponent(title)}`;
+            // Map service names to their personalized pages
+            const servicePageMap = {
+                'Акваматик': 'akvamatik.html',
+                'Koch24': 'koch24.html',
+                'Chisto': 'chisto.html'
+            };
+            
+            // Navigate to personalized service page or fallback to general services page
+            const targetPage = servicePageMap[title] || `services.html?type=${encodeURIComponent(serviceType)}&title=${encodeURIComponent(title)}`;
+            window.location.href = targetPage;
         });
     });
     
