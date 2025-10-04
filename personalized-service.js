@@ -110,19 +110,46 @@ function createServiceElement(service, config) {
     serviceDiv.setAttribute('data-price', service.price);
     serviceDiv.setAttribute('data-duration', service.duration);
     
-    // Добавляем специальные классы для некоторых услуг
-    if (service.price > 5000) {
-        serviceDiv.classList.add('premium');
-    }
-    if (service.category === 'interior' && config.id === 'chisto') {
-        serviceDiv.classList.add('eco-friendly');
+    // Добавляем специальные классы для категорий услуг
+    if (config.id === 'meatwash') {
+        // Логика для MeatWash
+        if (service.category === 'detailing' && service.price > 7000) {
+            serviceDiv.classList.add('premium');
+        }
+    } else {
+        // Логика для других сервисов
+        if (service.price > 5000) {
+            serviceDiv.classList.add('premium');
+        }
+        if (service.category === 'interior' && config.id === 'chisto') {
+            serviceDiv.classList.add('eco-friendly');
+        }
     }
     
+    // Функция для форматирования описания с поддержкой списков
+    function formatDescription(description) {
+        // Разделяем описание по точке с запятой и создаем список
+        if (description.includes(';')) {
+            const parts = description.split(';').map(part => part.trim()).filter(part => part.length > 0);
+            if (parts.length > 1) {
+                const intro = parts[0];
+                const listItems = parts.slice(1);
+                return `
+                    <div class="description-intro">${intro}:</div>
+                    <ul class="description-list">
+                        ${listItems.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                `;
+            }
+        }
+        return description;
+    }
+
     serviceDiv.innerHTML = `
         <h3>${service.name}</h3>
-        <div class="service-description">${service.description}</div>
+        <div class="service-description">${formatDescription(service.description)}</div>
         <div class="price-duration-row">
-            <div class="service-price">от ${service.price} ₽</div>
+            <div class="service-price">${service.price} ₽</div>
             <div class="service-duration">${service.duration} минут</div>
         </div>
         <div class="service-tags">
@@ -314,7 +341,7 @@ function openBookingModal(serviceName, price, duration) {
     
     if (modal && bookingTitle && bookingPrice) {
         bookingTitle.textContent = serviceName;
-        bookingPrice.textContent = `от ${price} ₽`;
+        bookingPrice.textContent = `${price} ₽`;
         
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';

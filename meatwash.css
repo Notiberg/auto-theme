@@ -1,7 +1,7 @@
 /* Персонализированные стили для Акваматик - синяя тема */
 
 /* CSS переменные для темы Акваматик */
-[data-service="akvamatik"] {
+[data-service="meatwash"] {
     --service-primary: rgba(11, 4, 0, 0.82);
     --service-secondary: rgb(203, 208, 204);
     --service-accent: rgb(255, 235, 0);
@@ -17,16 +17,16 @@
 }
 
 /* Основной фон для всей страницы Akvamatik */
-body[data-service="akvamatik"] {
+body[data-service="meatwash"] {
     background: var(--service-background) !important;
 }
 
-body[data-service="akvamatik"] .mobile-container {
+body[data-service="meatwash"] .mobile-container {
     background: var(--service-background) !important;
 }
 
 /* Хедер с персонализированными цветами - матовое стекло */
-[data-service="akvamatik"] .glass-header {
+[data-service="meatwash"] .glass-header {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -41,7 +41,7 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Стили для изображения логотипа */
-[data-service="akvamatik"] .logo-image {
+[data-service="meatwash"] .logo-image {
     height: 48px;
     width: auto;
     max-width: 240px;
@@ -55,7 +55,7 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Стили для fallback текста логотипа */
-[data-service="akvamatik"] .logo-text-fallback {
+[data-service="meatwash"] .logo-text-fallback {
     font-size: 32px;
     font-weight: 800;
     text-align: center;
@@ -65,67 +65,67 @@ body[data-service="akvamatik"] .mobile-container {
 
 /* ТЕЛЕФОНЫ (до 767px) */
 @media (max-width: 767px) {
-    [data-service="akvamatik"] .logo-image {
+    [data-service="meatwash"] .logo-image {
         height: 38px;
         max-width: 190px;
     }
-    [data-service="akvamatik"] .logo-text-fallback {
+    [data-service="meatwash"] .logo-text-fallback {
         font-size: 26px;
     }
 }
 
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) */
 @media (max-width: 480px) {
-    [data-service="akvamatik"] .logo-image {
+    [data-service="meatwash"] .logo-image {
         height: 34px;
         max-width: 170px;
     }
-    [data-service="akvamatik"] .logo-text-fallback {
+    [data-service="meatwash"] .logo-text-fallback {
         font-size: 24px;
     }
 }
 
 /* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 360px) */
 @media (max-width: 360px) {
-    [data-service="akvamatik"] .logo-image {
+    [data-service="meatwash"] .logo-image {
         height: 30px;
         max-width: 150px;
     }
-    [data-service="akvamatik"] .logo-text-fallback {
+    [data-service="meatwash"] .logo-text-fallback {
         font-size: 22px;
     }
 }
 
 /* ПЛАНШЕТЫ (768px-1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-    [data-service="akvamatik"] .logo-image {
+    [data-service="meatwash"] .logo-image {
         height: 52px;
         max-width: 260px;
     }
-    [data-service="akvamatik"] .logo-text-fallback {
+    [data-service="meatwash"] .logo-text-fallback {
         font-size: 36px;
     }
 }
 
 /* КОМПЬЮТЕРЫ (1024px+) */
 @media (min-width: 1025px) {
-    [data-service="akvamatik"] .logo-image {
+    [data-service="meatwash"] .logo-image {
         height: 56px;
         max-width: 280px;
     }
-    [data-service="akvamatik"] .logo-text-fallback {
+    [data-service="meatwash"] .logo-text-fallback {
         font-size: 40px;
     }
 }
 
-[data-service="akvamatik"] .glass-header::before {
+[data-service="meatwash"] .glass-header::before {
     background: rgba(11, 4, 0, 0.3) !important;
     border-radius: 0 0 16px 16px !important;
     opacity: 0.5;
 }
 
 /* Логотип с градиентом Акваматик - только для fallback текста */
-[data-service="akvamatik"] .logo-text-fallback {
+[data-service="meatwash"] .logo-text-fallback {
     background: var(--service-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -134,7 +134,7 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Убираем градиентные эффекты с контейнера логотипа когда есть изображение */
-[data-service="akvamatik"] .logo {
+[data-service="meatwash"] .logo {
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
@@ -142,7 +142,7 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Базовые стили для контента */
-[data-service="akvamatik"] .services-content {
+[data-service="meatwash"] .services-content {
     padding-top: calc(320px + env(safe-area-inset-top)) !important;
     padding-left: 24px !important;
     padding-right: 24px !important;
@@ -150,12 +150,12 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Отступ при открытых фильтрах */
-[data-service="akvamatik"] .services-content.filters-open {
+[data-service="meatwash"] .services-content.filters-open {
     padding-top: calc(400px + env(safe-area-inset-top)) !important;
 }
 
 /* Рейтинг в хедере */
-[data-service="akvamatik"] .header-title .rating-info {
+[data-service="meatwash"] .header-title .rating-info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,28 +163,28 @@ body[data-service="akvamatik"] .mobile-container {
     margin-top: 8px;
 }
 
-[data-service="akvamatik"] .header-title .rating-info .stars {
+[data-service="meatwash"] .header-title .rating-info .stars {
     display: flex;
     gap: 2px;
 }
 
-[data-service="akvamatik"] .header-title .rating-info .star {
+[data-service="meatwash"] .header-title .rating-info .star {
     color: #FFD700;
     font-size: 14px;
 }
 
-[data-service="akvamatik"] .header-title .rating-info .star.filled {
+[data-service="meatwash"] .header-title .rating-info .star.filled {
     color: #FFD700;
 }
 
-[data-service="akvamatik"] .header-title .rating-info .rating-text {
+[data-service="meatwash"] .header-title .rating-info .rating-text {
     color: rgba(255, 255, 255, 0.8);
     font-size: 13px;
     font-weight: 500;
 }
 
 /* Ограничиваем ширину подзаголовка с переносом целых слов */
-[data-service="akvamatik"] .logo-subtitle {
+[data-service="meatwash"] .logo-subtitle {
     max-width: calc(100vw - 120px);
     word-break: normal;
     overflow-wrap: normal;
@@ -194,14 +194,14 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Сетка услуг */
-[data-service="akvamatik"] .services-grid {
+[data-service="meatwash"] .services-grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
 /* Карточки услуг */
-[data-service="akvamatik"] .service-item {
+[data-service="meatwash"] .service-item {
     background: var(--service-card-background);
     border: 1px solid rgba(203, 208, 204, 0.4);
     border-radius: 16px;
@@ -209,9 +209,10 @@ body[data-service="akvamatik"] .mobile-container {
     margin-bottom: 16px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-[data-service="akvamatik"] .service-item:hover {
+[data-service="meatwash"] .service-item:hover {
     background: linear-gradient(135deg, rgba(183, 188, 184, 1) 0%, rgba(193, 198, 194, 1) 100%);
     border-color: var(--service-hover-border);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--service-hover-border);
@@ -219,7 +220,7 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 
-[data-service="akvamatik"] .service-item h3 {
+[data-service="meatwash"] .service-item h3 {
     color: var(--service-primary);
     font-size: 18px;
     font-weight: 700;
@@ -227,7 +228,7 @@ body[data-service="akvamatik"] .mobile-container {
     text-align: center;
 }
 
-[data-service="akvamatik"] .service-item .service-price-inline {
+[data-service="meatwash"] .service-item .service-price-inline {
     color: var(--service-accent);
     font-size: 16px;
     font-weight: 700;
@@ -239,14 +240,107 @@ body[data-service="akvamatik"] .mobile-container {
     border: 1px solid var(--service-accent);
 }
 
-[data-service="akvamatik"] .service-item .service-description {
+[data-service="meatwash"] .service-item .service-description {
     color: var(--service-text);
     font-size: 14px;
     margin-bottom: 12px;
     line-height: 1.4;
 }
 
-[data-service="akvamatik"] .service-item .price-duration-row {
+/* Стили для форматированного описания с списками */
+[data-service="meatwash"] .service-item .description-intro {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--service-text);
+}
+
+[data-service="meatwash"] .service-item .description-list {
+    margin: 0;
+    padding-left: 16px;
+    list-style-type: none;
+}
+
+[data-service="meatwash"] .service-item .description-list li {
+    position: relative;
+    margin-bottom: 4px;
+    padding-left: 12px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--service-text);
+}
+
+[data-service="meatwash"] .service-item .description-list li:before {
+    content: "•";
+    color: var(--service-accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Надписи сверху карточек услуг */
+[data-service="meatwash"] .service-item.standard::before {
+    content: "СТАНДАРТ";
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: var(--service-accent);
+    color: rgba(11, 4, 0, 0.9);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+[data-service="meatwash"] .service-item.detailing::before {
+    content: "ДЕТЕЙЛИНГ";
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+[data-service="meatwash"] .service-item.premium::before {
+    content: "ПРЕМИУМ";
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: rgba(11, 4, 0, 0.9);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+[data-service="meatwash"] .service-item.interior::before {
+    content: "САЛОН";
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    background: linear-gradient(135deg, #8A2BE2, #9932CC);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+[data-service="meatwash"] .service-item .price-duration-row {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,7 +348,7 @@ body[data-service="akvamatik"] .mobile-container {
     margin-bottom: 12px;
 }
 
-[data-service="akvamatik"] .service-item .service-price {
+[data-service="meatwash"] .service-item .service-price {
     color: var(--service-accent);
     font-size: 18px;
     font-weight: 700;
@@ -265,14 +359,14 @@ body[data-service="akvamatik"] .mobile-container {
     border: 1px solid var(--service-accent);
 }
 
-[data-service="akvamatik"] .service-item .service-duration {
+[data-service="meatwash"] .service-item .service-duration {
     color: var(--service-text);
     font-size: 13px;
     margin: 0;
     opacity: 0.8;
 }
 
-[data-service="akvamatik"] .service-item .service-tags {
+[data-service="meatwash"] .service-item .service-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -280,7 +374,7 @@ body[data-service="akvamatik"] .mobile-container {
     justify-content: center;
 }
 
-[data-service="akvamatik"] .service-item .service-tags .tag {
+[data-service="meatwash"] .service-item .service-tags .tag {
     background: var(--service-button);
     color: var(--service-primary);
     border: 1px solid var(--service-bright-border);
@@ -290,7 +384,7 @@ body[data-service="akvamatik"] .mobile-container {
     padding: 6px 12px;
 }
 
-[data-service="akvamatik"] .service-item .book-btn {
+[data-service="meatwash"] .service-item .book-btn {
     background: var(--service-button);
     color: var(--service-text);
     border: 1px solid var(--service-bright-border);
@@ -305,31 +399,49 @@ body[data-service="akvamatik"] .mobile-container {
     box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
-[data-service="akvamatik"] .service-item .book-btn:hover {
+[data-service="meatwash"] .service-item .book-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
     background: rgba(204, 227, 241, 0.9);
 }
 
 /* Активные фильтры */
-[data-service="akvamatik"] .filter-btn.active {
+[data-service="meatwash"] .filter-btn.active {
     background: var(--service-accent);
     color: var(--service-text);
     border-color: var(--service-accent);
-    box-shadow: 0 2px 8px rgba(234, 240, 68, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 235, 0, 0.3);
+}
+
+/* Кнопка фильтров желтая с темным значком */
+[data-service="meatwash"] .filter-toggle-btn {
+    background: var(--service-accent) !important;
+    color: rgba(11, 4, 0, 0.9) !important;
+    border: 1px solid var(--service-accent) !important;
+    box-shadow: 0 2px 8px rgba(255, 235, 0, 0.3) !important;
+}
+
+[data-service="meatwash"] .filter-toggle-btn:hover {
+    background: rgba(255, 235, 0, 0.9) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 235, 0, 0.4) !important;
+}
+
+[data-service="meatwash"] .filter-toggle-btn i {
+    color: rgba(11, 4, 0, 0.9) !important;
 }
 
 /* Фильтры и выпадающие меню */
-[data-service="akvamatik"] .filter-buttons {
+[data-service="meatwash"] .filter-buttons {
     justify-content: center;
 }
 
-[data-service="akvamatik"] .dropdown {
+[data-service="meatwash"] .dropdown {
     position: relative !important;
     z-index: 1000 !important;
 }
 
-[data-service="akvamatik"] .dropdown-content {
+[data-service="meatwash"] .dropdown-content {
     position: absolute !important;
     top: 100% !important;
     left: 50% !important;
@@ -349,8 +461,8 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Показываем выпадающие меню только при клике (класс .show) */
-[data-service="akvamatik"] .dropdown.show .dropdown-content,
-[data-service="akvamatik"] .dropdown.active .dropdown-content {
+[data-service="meatwash"] .dropdown.show .dropdown-content,
+[data-service="meatwash"] .dropdown.active .dropdown-content {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -359,17 +471,17 @@ body[data-service="akvamatik"] .mobile-container {
 /* Убираем hover эффекты - только клик для всех устройств */
 
 /* Базовые стили для всех устройств */
-[data-service="akvamatik"] .dropdown-content {
+[data-service="meatwash"] .dropdown-content {
     position: absolute !important;
     top: 100% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    background: rgba(15, 20, 25, 0.95) !important;
-    border: 1px solid rgba(30, 144, 255, 0.3) !important;
+    background: rgba(255, 235, 0, 0.98) !important;
+    border: none !important;
     border-radius: 12px !important;
-    padding: 8px 0 !important;
+    padding: 6px !important;
     min-width: 120px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(20px) !important;
     z-index: 9999 !important;
     display: none !important;
@@ -379,28 +491,32 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Показываем при клике на всех устройствах */
-[data-service="akvamatik"] .dropdown.show .dropdown-content {
+[data-service="meatwash"] .dropdown.show .dropdown-content {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
 }
 
-[data-service="akvamatik"] .dropdown-content div {
+[data-service="meatwash"] .dropdown-content div {
     padding: 8px 16px !important;
-    color: var(--service-text) !important;
+    color: rgba(11, 4, 0, 0.9) !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     font-size: 14px !important;
     border-radius: 8px !important;
+    margin: 2px 4px !important;
 }
 
-[data-service="akvamatik"] .dropdown-content div:hover {
-    background: rgba(234, 240, 68, 0.15) !important;
-    color: var(--service-text) !important;
+[data-service="meatwash"] .dropdown-content div:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(11, 4, 0, 0.95) !important;
+    font-weight: 600 !important;
+    transform: scale(1.02) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4) !important;
 }
 
 /* Модальное окно - унифицированное как у Chisto */
-[data-service="akvamatik"] .modal {
+[data-service="meatwash"] .modal {
     display: none;
     position: fixed;
     z-index: 10000;
@@ -411,11 +527,11 @@ body[data-service="akvamatik"] .mobile-container {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-[data-service="akvamatik"] .modal.show {
+[data-service="meatwash"] .modal.show {
     display: block !important;
 }
 
-[data-service="akvamatik"] .modal-content {
+[data-service="meatwash"] .modal-content {
     background: var(--service-background) !important;
     margin: 0 !important;
     width: 100% !important;
@@ -430,26 +546,26 @@ body[data-service="akvamatik"] .mobile-container {
 
 
 
-[data-service="akvamatik"] .fixed-header::before {
+[data-service="meatwash"] .fixed-header::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(135, 206, 235, 0.05) 100%) !important;
+    background: none !important;
     pointer-events: none !important;
     z-index: -1 !important;
 }
 
-[data-service="akvamatik"] .modal-logo {
+[data-service="meatwash"] .modal-logo {
     background: var(--service-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-[data-service="akvamatik"] .confirm-booking-btn {
+[data-service="meatwash"] .confirm-booking-btn {
     background: var(--service-button);
     color: var(--service-text);
     border: none;
@@ -464,24 +580,24 @@ body[data-service="akvamatik"] .mobile-container {
     box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
-[data-service="akvamatik"] .confirm-booking-btn:hover {
+[data-service="meatwash"] .confirm-booking-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
     background: rgba(204, 227, 241, 0.9);
 }
 
-[data-service="akvamatik"] .time-slot.selected {
+[data-service="meatwash"] .time-slot.selected {
     background: var(--service-primary);
     color: var(--service-button);
 }
 
-[data-service="akvamatik"] .address-select {
+[data-service="meatwash"] .address-select {
     border: 1px solid rgba(30, 144, 255, 0.3);
     background: rgba(30, 144, 255, 0.05);
 }
 
 /* Горизонтальная карусель дат */
-[data-service="akvamatik"] .date-scroll {
+[data-service="meatwash"] .date-scroll {
     display: flex !important;
     overflow-x: auto;
     gap: 12px;
@@ -490,11 +606,11 @@ body[data-service="akvamatik"] .mobile-container {
     -webkit-overflow-scrolling: touch;
 }
 
-[data-service="akvamatik"] .date-scroll::-webkit-scrollbar {
+[data-service="meatwash"] .date-scroll::-webkit-scrollbar {
     display: none;
 }
 
-[data-service="akvamatik"] .date-item {
+[data-service="meatwash"] .date-item {
     min-width: 60px;
     padding: 12px 8px;
     background: rgba(255, 255, 255, 0.05);
@@ -507,44 +623,44 @@ body[data-service="akvamatik"] .mobile-container {
     color: var(--service-text);
 }
 
-[data-service="akvamatik"] .date-item:hover {
+[data-service="meatwash"] .date-item:hover {
     background: rgba(11, 4, 0, 0.1);
     border-color: rgba(11, 4, 0, 0.3);
 }
 
-[data-service="akvamatik"] .date-item.selected {
+[data-service="meatwash"] .date-item.selected {
     background: var(--service-gradient);
     border-color: var(--service-primary);
     color: var(--service-button);
 }
 
-[data-service="akvamatik"] .date-item .day-name {
+[data-service="meatwash"] .date-item .day-name {
     font-size: 11px;
     font-weight: 500;
     margin-bottom: 4px;
     opacity: 0.8;
 }
 
-[data-service="akvamatik"] .date-item .day-number {
+[data-service="meatwash"] .date-item .day-number {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 2px;
 }
 
-[data-service="akvamatik"] .date-item .month-name {
+[data-service="meatwash"] .date-item .month-name {
     font-size: 10px;
     font-weight: 500;
     opacity: 0.7;
 }
 
-[data-service="akvamatik"] .modal-logo {
+[data-service="meatwash"] .modal-logo {
     background: var(--service-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-[data-service="akvamatik"] .confirm-booking-btn {
+[data-service="meatwash"] .confirm-booking-btn {
     background: var(--service-button);
     color: var(--service-text);
     border: none;
@@ -559,23 +675,23 @@ body[data-service="akvamatik"] .mobile-container {
     box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
-[data-service="akvamatik"] .confirm-booking-btn:hover {
+[data-service="meatwash"] .confirm-booking-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
     background: rgba(204, 227, 241, 0.9);
 }
 
-[data-service="akvamatik"] .time-slot.selected {
+[data-service="meatwash"] .time-slot.selected {
     background: var(--service-primary);
     color: var(--service-button);
 }
 
-[data-service="akvamatik"] .address-select {
+[data-service="meatwash"] .address-select {
     border: 1px solid rgba(30, 144, 255, 0.3);
     background: rgba(30, 144, 255, 0.05);
 }
 
-[data-service="akvamatik"] .address-select:focus {
+[data-service="meatwash"] .address-select:focus {
     border-color: var(--service-primary);
     box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
 }
@@ -584,57 +700,57 @@ body[data-service="akvamatik"] .mobile-container {
 
 /* ТЕЛЕФОНЫ (до 767px) - учитывает Telegram mini app и вырез камеры */
 @media (max-width: 767px) {
-    [data-service="akvamatik"] .glass-header {
+    [data-service="meatwash"] .glass-header {
         padding: calc(60px + env(safe-area-inset-top)) 16px 12px;
     }
     
-    [data-service="akvamatik"] .logo {
+    [data-service="meatwash"] .logo {
         font-size: 26px;
     }
     
-    [data-service="akvamatik"] .logo-subtitle {
+    [data-service="meatwash"] .logo-subtitle {
         font-size: 13px;
     }
     
-    [data-service="akvamatik"] .services-content {
+    [data-service="meatwash"] .services-content {
         padding-top: calc(320px + env(safe-area-inset-top)) !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
     }
     
-    [data-service="akvamatik"] .services-content.filters-open {
+    [data-service="meatwash"] .services-content.filters-open {
         padding-top: calc(400px + env(safe-area-inset-top)) !important;
     }
     
     
-    [data-service="akvamatik"] .working-hours {
+    [data-service="meatwash"] .working-hours {
         font-size: 14px;
     }
     
-    [data-service="akvamatik"] .service-item {
+    [data-service="meatwash"] .service-item {
         padding: 16px;
         margin-bottom: 12px;
     }
     
     /* Адаптивные размеры для телефонов */
-    [data-service="akvamatik"] .dropdown-content {
+    [data-service="meatwash"] .dropdown-content {
         min-width: 100px !important;
         max-width: 150px !important;
         font-size: 12px !important;
     }
     
-    [data-service="akvamatik"] .dropdown-content div {
+    [data-service="meatwash"] .dropdown-content div {
         padding: 6px 12px !important;
         font-size: 12px !important;
     }
     
     /* Специальные настройки для низких экранов */
     @media (max-height: 700px) {
-        [data-service="akvamatik"] .glass-header {
+        [data-service="meatwash"] .glass-header {
             padding: calc(60px + env(safe-area-inset-top)) 16px 10px;
         }
 
-        [data-service="akvamatik"] .services-content {
+        [data-service="meatwash"] .services-content {
             padding-top: calc(320px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
@@ -642,37 +758,37 @@ body[data-service="akvamatik"] .mobile-container {
     }
     
     @media (max-height: 600px) {
-        [data-service="akvamatik"] .glass-header {
+        [data-service="meatwash"] .glass-header {
             padding: calc(60px + env(safe-area-inset-top)) 16px 8px;
         }
 
-        [data-service="akvamatik"] .services-content {
+        [data-service="meatwash"] .services-content {
             padding-top: calc(320px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
         }
         
-        [data-service="akvamatik"] .logo {
+        [data-service="meatwash"] .logo {
             font-size: 24px;
         }
     }
     
     @media (max-height: 500px) {
-        [data-service="akvamatik"] .glass-header {
+        [data-service="meatwash"] .glass-header {
             padding: calc(60px + env(safe-area-inset-top)) 16px 6px;
         }
         
-        [data-service="akvamatik"] .logo {
+        [data-service="meatwash"] .logo {
             font-size: 22px;
         }
 
-        [data-service="akvamatik"] .services-content {
+        [data-service="meatwash"] .services-content {
             padding-top: calc(320px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
         }
         
-        [data-service="akvamatik"] .logo-subtitle {
+        [data-service="meatwash"] .logo-subtitle {
             font-size: 12px;
         }
     }
@@ -680,52 +796,52 @@ body[data-service="akvamatik"] .mobile-container {
 
 /* ПЛАНШЕТЫ (768px-1024px) - оптимизирован для планшетов */
 @media (min-width: 768px) and (max-width: 1024px) {
-    [data-service="akvamatik"] .glass-header {
+    [data-service="meatwash"] .glass-header {
         padding: calc(60px + env(safe-area-inset-top)) 24px 16px;
     }
     
-    [data-service="akvamatik"] .logo {
+    [data-service="meatwash"] .logo {
         font-size: 30px;
     }
     
-    [data-service="akvamatik"] .logo-subtitle {
+    [data-service="meatwash"] .logo-subtitle {
         font-size: 15px;
     }
     
-    [data-service="akvamatik"] .services-content {
+    [data-service="meatwash"] .services-content {
         padding-top: calc(320px + env(safe-area-inset-top)) !important;
         padding-left: 24px !important;
         padding-right: 24px !important;
     }
     
-    [data-service="akvamatik"] .services-content.filters-open {
+    [data-service="meatwash"] .services-content.filters-open {
         padding-top: calc(400px + env(safe-area-inset-top)) !important;
     }
     
-    [data-service="akvamatik"] .working-hours {
+    [data-service="meatwash"] .working-hours {
         font-size: 16px;
     }
     
-    [data-service="akvamatik"] .service-item {
+    [data-service="meatwash"] .service-item {
         padding: 20px;
         margin-bottom: 16px;
     }
     
     /* Сетка 2 колонки для планшетов */
-    [data-service="akvamatik"] .services-grid {
+    [data-service="meatwash"] .services-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
     
     /* Адаптивные размеры для планшетов */
-    [data-service="akvamatik"] .dropdown-content {
+    [data-service="meatwash"] .dropdown-content {
         min-width: 130px !important;
         max-width: 180px !important;
         font-size: 14px !important;
     }
     
-    [data-service="akvamatik"] .dropdown-content div {
+    [data-service="meatwash"] .dropdown-content div {
         padding: 8px 14px !important;
         font-size: 14px !important;
     }
@@ -733,7 +849,7 @@ body[data-service="akvamatik"] .mobile-container {
 
 /* КОМПЬЮТЕРЫ (1024px+) - сохранены существующие стили без изменений */
 @media (min-width: 1024px) {
-    [data-service="akvamatik"] .services-content {
+    [data-service="meatwash"] .services-content {
         padding-top: calc(320px + env(safe-area-inset-top)) !important;
         max-width: 1200px;
         margin: 0 auto;
@@ -741,11 +857,11 @@ body[data-service="akvamatik"] .mobile-container {
         padding-right: 24px;
     }
     
-    [data-service="akvamatik"] .services-content.filters-open {
+    [data-service="meatwash"] .services-content.filters-open {
         padding-top: calc(400px + env(safe-area-inset-top)) !important;
     }
     
-    [data-service="akvamatik"] .services-grid {
+    [data-service="meatwash"] .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
@@ -753,80 +869,80 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 /* Адаптация модального окна под текущие цвета */
-[data-service="akvamatik"] #booking-modal {
+[data-service="meatwash"] #booking-modal {
     background-color: rgba(11, 4, 0, 0.82) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .modal-content {
+[data-service="meatwash"] #booking-modal .modal-content {
     background: rgba(11, 4, 0, 0.82) !important;
     border: none !important;
 }
 
-[data-service="akvamatik"] #booking-modal .booking-section {
+[data-service="meatwash"] #booking-modal .booking-section {
     background: rgba(11, 4, 0, 0.82) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .fixed-header {
+[data-service="meatwash"] #booking-modal .fixed-header {
     background: rgba(11, 4, 0, 0.82) !important;
     border-bottom: none !important;
 }
 
-[data-service="akvamatik"] #booking-modal .time-slot {
+[data-service="meatwash"] #booking-modal .time-slot {
     background: rgba(204, 227, 241, 0.2) !important;
     border: 1px solid rgba(204, 227, 241, 0.3) !important;
     color: var(--service-primary) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .time-slot:hover {
+[data-service="meatwash"] #booking-modal .time-slot:hover {
     background: rgba(204, 227, 241, 0.4) !important;
     border: 1px solid rgba(204, 227, 241, 0.5) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .time-slot.selected {
+[data-service="meatwash"] #booking-modal .time-slot.selected {
     background: var(--service-button) !important;
     border: none !important;
     color: var(--service-text) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .btn-primary {
+[data-service="meatwash"] #booking-modal .btn-primary {
     background: var(--service-button) !important;
     color: var(--service-text) !important;
     border: none !important;
 }
 
-[data-service="akvamatik"] #booking-modal .form-control {
+[data-service="meatwash"] #booking-modal .form-control {
     background: rgba(11, 4, 0, 0.82) !important;
     border: none !important;
     color: rgb(204, 227, 241) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .form-control:focus {
+[data-service="meatwash"] #booking-modal .form-control:focus {
     border: none !important;
     box-shadow: none !important;
 }
 
-[data-service="akvamatik"] #booking-modal .date-item {
+[data-service="meatwash"] #booking-modal .date-item {
     background: rgba(204, 227, 241, 0.2) !important;
     border: 1px solid rgba(204, 227, 241, 0.3) !important;
     color: var(--service-primary) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .date-item:hover {
+[data-service="meatwash"] #booking-modal .date-item:hover {
     background: rgba(204, 227, 241, 0.4) !important;
     border: 1px solid rgba(204, 227, 241, 0.5) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .date-item.selected {
+[data-service="meatwash"] #booking-modal .date-item.selected {
     background: var(--service-button) !important;
     border: none !important;
     color: var(--service-text) !important;
 }
 
-[data-service="akvamatik"] #booking-modal label {
+[data-service="meatwash"] #booking-modal label {
     color: rgb(204, 227, 241) !important;
 }
 
-[data-service="akvamatik"] #booking-modal .date-time-header h4 {
+[data-service="meatwash"] #booking-modal .date-time-header h4 {
     color: rgb(204, 227, 241) !important;
 }
 

@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Map service names to their personalized pages
             const servicePageMap = {
-                'Акваматик': 'akvamatik.html',
+                'Акваматик': 'meatwash.html',
                 'Koch24': 'koch24.html',
                 'Chisto': 'chisto.html'
             };
