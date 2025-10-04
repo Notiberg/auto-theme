@@ -62,7 +62,12 @@
             <div class="service-card Акваматик" data-title="Акваматик" data-price="от 950 ₽" data-desc="Профессиональная мойка автомобиля" data-price-num="950" data-duration="30">
                 <div class="service-content">
                     <h3>АКВАМАТИК</h3>
-                    <div class="service-initials">А</div>
+                    <div class="service-initials">
+                        <img src="Meat_Wash_logo_mini.png" alt="Meat Wash" class="service-logo-mini" 
+                             onerror="console.log('Mini logo failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';"
+                             onload="console.log('Mini logo loaded successfully:', this.src);">
+                        <span class="service-initial-text" style="display: none;">MW</span>
+                    </div>
                     <div class="price-duration">
                         <span class="price">от 950 ₽</span>
                         <span class="duration">9:00 - 23:00</span>

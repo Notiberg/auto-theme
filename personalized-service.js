@@ -52,7 +52,7 @@ function initializeServicePage(config) {
     const serviceRating = document.getElementById('service-rating');
     const serviceTags = document.getElementById('service-tags');
     
-    if (serviceTitle) serviceTitle.textContent = config.title;
+    if (serviceTitle && !serviceTitle.querySelector('.logo-image')) serviceTitle.textContent = config.title;
     if (serviceSubtitle) serviceSubtitle.textContent = config.subtitle;
     if (serviceLogo) serviceLogo.textContent = config.logo;
     if (workingHours) workingHours.textContent = config.workingHours;

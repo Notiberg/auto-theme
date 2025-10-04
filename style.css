@@ -672,8 +672,29 @@ body {
     font-size: clamp(16px, 2.5vw, 22px); /* Responsive font size */
     font-weight: bold;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* Стили для мини логотипа в service-initials */
+.service-logo-mini {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Стили для fallback текста */
+.service-initial-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
 }
 
 /* =================================

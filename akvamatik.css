@@ -2,52 +2,143 @@
 
 /* CSS переменные для темы Акваматик */
 [data-service="akvamatik"] {
-    --service-primary: #1E90FF;
-    --service-secondary: #87CEEB;
-    --service-accent: #FF6B35;
-    --service-background: #0F1419;
-    --service-text: #FFFFFF;
-    --service-gradient: linear-gradient(135deg, #1E90FF 0%, #87CEEB 100%);
-    --service-shadow: 0 8px 32px rgba(30, 144, 255, 0.3);
+    --service-primary: rgba(11, 4, 0, 0.82);
+    --service-secondary: rgb(203, 208, 204);
+    --service-accent: rgb(255, 235, 0);
+    --service-background: rgba(11, 4, 0, 0.82);
+    --service-card-background: linear-gradient(135deg, rgba(193, 198, 194, 1) 0%, rgb(203, 208, 204) 100%);
+    --service-text: rgba(11, 4, 0, 0.82);
+    --service-button: rgb(204, 227, 241);
+    --service-hover-border: rgb(204, 227, 241);
+    --service-bright-border: rgb(100, 180, 255);
+    --service-shadow-color: rgb(203, 208, 204);
+    --service-gradient: linear-gradient(135deg, rgb(204, 227, 241) 0%, rgba(203, 208, 204, 0.3) 100%);
+    --service-shadow: 0 8px 32px rgba(203, 208, 204, 0.3);
 }
 
-/* Однотонный синий фон для всей страницы Akvamatik */
+/* Основной фон для всей страницы Akvamatik */
 body[data-service="akvamatik"] {
-    background: rgba(15, 30, 45, 1) !important;
+    background: var(--service-background) !important;
 }
 
 body[data-service="akvamatik"] .mobile-container {
-    background: rgba(15, 30, 45, 1) !important;
+    background: var(--service-background) !important;
 }
 
-/* Хедер с персонализированными цветами - матовое стекло с синим акцентом */
+/* Хедер с персонализированными цветами - матовое стекло */
 [data-service="akvamatik"] .glass-header {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     z-index: 1001 !important;
-    background: rgba(30, 144, 255, 0.02) !important;
+    background: rgba(11, 4, 0, 0.6) !important;
     backdrop-filter: blur(60px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(60px) saturate(200%) !important;
-    border-bottom: 1px solid rgba(30, 144, 255, 0.15) !important;
+    border-bottom: 1px solid rgba(203, 208, 204, 0.3) !important;
     border-radius: 0 0 16px 16px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(30, 144, 255, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Стили для изображения логотипа */
+[data-service="akvamatik"] .logo-image {
+    height: 48px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block !important;
+    margin: 0 auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+/* Стили для fallback текста логотипа */
+[data-service="akvamatik"] .logo-text-fallback {
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Адаптивные размеры логотипа */
+
+/* ТЕЛЕФОНЫ (до 767px) */
+@media (max-width: 767px) {
+    [data-service="akvamatik"] .logo-image {
+        height: 38px;
+        max-width: 190px;
+    }
+    [data-service="akvamatik"] .logo-text-fallback {
+        font-size: 26px;
+    }
+}
+
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) */
+@media (max-width: 480px) {
+    [data-service="akvamatik"] .logo-image {
+        height: 34px;
+        max-width: 170px;
+    }
+    [data-service="akvamatik"] .logo-text-fallback {
+        font-size: 24px;
+    }
+}
+
+/* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 360px) */
+@media (max-width: 360px) {
+    [data-service="akvamatik"] .logo-image {
+        height: 30px;
+        max-width: 150px;
+    }
+    [data-service="akvamatik"] .logo-text-fallback {
+        font-size: 22px;
+    }
+}
+
+/* ПЛАНШЕТЫ (768px-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    [data-service="akvamatik"] .logo-image {
+        height: 52px;
+        max-width: 260px;
+    }
+    [data-service="akvamatik"] .logo-text-fallback {
+        font-size: 36px;
+    }
+}
+
+/* КОМПЬЮТЕРЫ (1024px+) */
+@media (min-width: 1025px) {
+    [data-service="akvamatik"] .logo-image {
+        height: 56px;
+        max-width: 280px;
+    }
+    [data-service="akvamatik"] .logo-text-fallback {
+        font-size: 40px;
+    }
 }
 
 [data-service="akvamatik"] .glass-header::before {
-    background: rgba(30, 144, 255, 0.1) !important;
+    background: rgba(11, 4, 0, 0.3) !important;
     border-radius: 0 0 16px 16px !important;
     opacity: 0.5;
 }
 
-/* Логотип с градиентом Акваматик */
-[data-service="akvamatik"] .logo {
+/* Логотип с градиентом Акваматик - только для fallback текста */
+[data-service="akvamatik"] .logo-text-fallback {
     background: var(--service-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: none;
+}
+
+/* Убираем градиентные эффекты с контейнера логотипа когда есть изображение */
+[data-service="akvamatik"] .logo {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
 }
 
 /* Базовые стили для контента */
@@ -111,18 +202,19 @@ body[data-service="akvamatik"] .mobile-container {
 
 /* Карточки услуг */
 [data-service="akvamatik"] .service-item {
-    background: rgba(30, 144, 255, 0.05);
-    border: 1px solid rgba(30, 144, 255, 0.15);
+    background: var(--service-card-background);
+    border: 1px solid rgba(203, 208, 204, 0.4);
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 16px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 [data-service="akvamatik"] .service-item:hover {
-    background: rgba(30, 144, 255, 0.1);
-    border-color: rgba(30, 144, 255, 0.3);
-    box-shadow: var(--service-shadow);
+    background: linear-gradient(135deg, rgba(183, 188, 184, 1) 0%, rgba(193, 198, 194, 1) 100%);
+    border-color: var(--service-hover-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--service-hover-border);
     transform: translateY(-2px);
 }
 
@@ -137,14 +229,18 @@ body[data-service="akvamatik"] .mobile-container {
 
 [data-service="akvamatik"] .service-item .service-price-inline {
     color: var(--service-accent);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin: 0;
     flex-shrink: 0;
+    background: rgba(255, 235, 0, 0.15);
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--service-accent);
 }
 
 [data-service="akvamatik"] .service-item .service-description {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--service-text);
     font-size: 14px;
     margin-bottom: 12px;
     line-height: 1.4;
@@ -160,15 +256,20 @@ body[data-service="akvamatik"] .mobile-container {
 
 [data-service="akvamatik"] .service-item .service-price {
     color: var(--service-accent);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin: 0;
+    background: rgba(255, 235, 0, 0.15);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--service-accent);
 }
 
 [data-service="akvamatik"] .service-item .service-duration {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--service-text);
     font-size: 13px;
     margin: 0;
+    opacity: 0.8;
 }
 
 [data-service="akvamatik"] .service-item .service-tags {
@@ -180,18 +281,19 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 [data-service="akvamatik"] .service-item .service-tags .tag {
-    background: rgba(30, 144, 255, 0.2);
+    background: var(--service-button);
     color: var(--service-primary);
-    border: 1px solid rgba(30, 144, 255, 0.3);
-    padding: 4px 8px;
+    border: 1px solid var(--service-bright-border);
     border-radius: 12px;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
 }
 
 [data-service="akvamatik"] .service-item .book-btn {
-    background: var(--service-gradient);
-    color: white;
-    border: none;
+    background: var(--service-button);
+    color: var(--service-text);
+    border: 1px solid var(--service-bright-border);
     padding: 12px 24px;
     border-radius: 12px;
     font-weight: 600;
@@ -199,18 +301,22 @@ body[data-service="akvamatik"] .mobile-container {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    margin-top: 16px;
+    box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
 [data-service="akvamatik"] .service-item .book-btn:hover {
     transform: translateY(-1px);
-    box-shadow: var(--service-shadow);
+    box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
+    background: rgba(204, 227, 241, 0.9);
 }
 
 /* Активные фильтры */
 [data-service="akvamatik"] .filter-btn.active {
-    background: var(--service-gradient);
-    color: white;
-    border-color: var(--service-primary);
+    background: var(--service-accent);
+    color: var(--service-text);
+    border-color: var(--service-accent);
+    box-shadow: 0 2px 8px rgba(234, 240, 68, 0.3);
 }
 
 /* Фильтры и выпадающие меню */
@@ -281,16 +387,16 @@ body[data-service="akvamatik"] .mobile-container {
 
 [data-service="akvamatik"] .dropdown-content div {
     padding: 8px 16px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: var(--service-text) !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     font-size: 14px !important;
-    white-space: nowrap !important;
+    border-radius: 8px !important;
 }
 
 [data-service="akvamatik"] .dropdown-content div:hover {
-    background: rgba(30, 144, 255, 0.2) !important;
-    color: var(--service-primary) !important;
+    background: rgba(234, 240, 68, 0.15) !important;
+    color: var(--service-text) !important;
 }
 
 /* Модальное окно - унифицированное как у Chisto */
@@ -344,8 +450,8 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 [data-service="akvamatik"] .confirm-booking-btn {
-    background: var(--service-gradient);
-    color: white;
+    background: var(--service-button);
+    color: var(--service-text);
     border: none;
     padding: 16px 32px;
     border-radius: 12px;
@@ -355,16 +461,18 @@ body[data-service="akvamatik"] .mobile-container {
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 24px;
+    box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
 [data-service="akvamatik"] .confirm-booking-btn:hover {
     transform: translateY(-1px);
-    box-shadow: var(--service-shadow);
+    box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
+    background: rgba(204, 227, 241, 0.9);
 }
 
 [data-service="akvamatik"] .time-slot.selected {
     background: var(--service-primary);
-    color: white;
+    color: var(--service-button);
 }
 
 [data-service="akvamatik"] .address-select {
@@ -396,18 +504,18 @@ body[data-service="akvamatik"] .mobile-container {
     cursor: pointer;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    color: white;
+    color: var(--service-text);
 }
 
 [data-service="akvamatik"] .date-item:hover {
-    background: rgba(30, 144, 255, 0.1);
-    border-color: rgba(30, 144, 255, 0.3);
+    background: rgba(11, 4, 0, 0.1);
+    border-color: rgba(11, 4, 0, 0.3);
 }
 
 [data-service="akvamatik"] .date-item.selected {
     background: var(--service-gradient);
     border-color: var(--service-primary);
-    color: white;
+    color: var(--service-button);
 }
 
 [data-service="akvamatik"] .date-item .day-name {
@@ -437,8 +545,8 @@ body[data-service="akvamatik"] .mobile-container {
 }
 
 [data-service="akvamatik"] .confirm-booking-btn {
-    background: var(--service-gradient);
-    color: white;
+    background: var(--service-button);
+    color: var(--service-text);
     border: none;
     padding: 16px 32px;
     border-radius: 12px;
@@ -448,16 +556,18 @@ body[data-service="akvamatik"] .mobile-container {
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 24px;
+    box-shadow: 0 2px 8px rgba(204, 227, 241, 0.3);
 }
 
 [data-service="akvamatik"] .confirm-booking-btn:hover {
     transform: translateY(-1px);
-    box-shadow: var(--service-shadow);
+    box-shadow: 0 4px 16px rgba(204, 227, 241, 0.5);
+    background: rgba(204, 227, 241, 0.9);
 }
 
 [data-service="akvamatik"] .time-slot.selected {
     background: var(--service-primary);
-    color: white;
+    color: var(--service-button);
 }
 
 [data-service="akvamatik"] .address-select {
@@ -640,5 +750,83 @@ body[data-service="akvamatik"] .mobile-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
     }
+}
+
+/* Адаптация модального окна под текущие цвета */
+[data-service="akvamatik"] #booking-modal {
+    background-color: rgba(11, 4, 0, 0.82) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .modal-content {
+    background: rgba(11, 4, 0, 0.82) !important;
+    border: none !important;
+}
+
+[data-service="akvamatik"] #booking-modal .booking-section {
+    background: rgba(11, 4, 0, 0.82) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .fixed-header {
+    background: rgba(11, 4, 0, 0.82) !important;
+    border-bottom: none !important;
+}
+
+[data-service="akvamatik"] #booking-modal .time-slot {
+    background: rgba(204, 227, 241, 0.2) !important;
+    border: 1px solid rgba(204, 227, 241, 0.3) !important;
+    color: var(--service-primary) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .time-slot:hover {
+    background: rgba(204, 227, 241, 0.4) !important;
+    border: 1px solid rgba(204, 227, 241, 0.5) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .time-slot.selected {
+    background: var(--service-button) !important;
+    border: none !important;
+    color: var(--service-text) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .btn-primary {
+    background: var(--service-button) !important;
+    color: var(--service-text) !important;
+    border: none !important;
+}
+
+[data-service="akvamatik"] #booking-modal .form-control {
+    background: rgba(11, 4, 0, 0.82) !important;
+    border: none !important;
+    color: rgb(204, 227, 241) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .form-control:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[data-service="akvamatik"] #booking-modal .date-item {
+    background: rgba(204, 227, 241, 0.2) !important;
+    border: 1px solid rgba(204, 227, 241, 0.3) !important;
+    color: var(--service-primary) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .date-item:hover {
+    background: rgba(204, 227, 241, 0.4) !important;
+    border: 1px solid rgba(204, 227, 241, 0.5) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .date-item.selected {
+    background: var(--service-button) !important;
+    border: none !important;
+    color: var(--service-text) !important;
+}
+
+[data-service="akvamatik"] #booking-modal label {
+    color: rgb(204, 227, 241) !important;
+}
+
+[data-service="akvamatik"] #booking-modal .date-time-header h4 {
+    color: rgb(204, 227, 241) !important;
 }
 
