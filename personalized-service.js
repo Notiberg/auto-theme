@@ -198,10 +198,20 @@ function createServiceElement(service, config) {
         <div class="service-tags">
             ${service.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
         </div>
-        <button class="book-btn" onclick="openBookingModal(\`${service.name}\`, ${service.price}, ${service.duration})">
+        <button class="book-btn">
             Записаться
         </button>
     `;
+    
+    // Добавляем обработчик события после создания элемента
+    const bookBtn = serviceDiv.querySelector('.book-btn');
+    if (bookBtn) {
+        bookBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Book button clicked for service:', service.name);
+            openBookingModal(service.name, service.price, service.duration);
+        });
+    }
     
     return serviceDiv;
 }
@@ -412,22 +422,31 @@ function initializeSearch() {
 }
 
 // Открытие модального окна бронирования
-function openBookingModal(serviceName, price, duration) {
+window.openBookingModal = function openBookingModal(serviceName, price, duration) {
+    console.log('openBookingModal called with:', { serviceName, price, duration });
+    
     const modal = document.getElementById('booking-modal');
     const bookingTitle = document.getElementById('booking-title');
     const bookingPrice = document.getElementById('booking-price');
+    
+    console.log('Modal elements found:', { modal: !!modal, bookingTitle: !!bookingTitle, bookingPrice: !!bookingPrice });
     
     if (modal && bookingTitle && bookingPrice) {
         bookingTitle.textContent = serviceName;
         bookingPrice.textContent = `${price} ₽`;
         
         modal.style.display = 'block';
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+        
+        console.log('Modal opened successfully');
         
         // Generate dates with small delay to ensure modal is rendered
         setTimeout(() => {
             generateDates();
         }, 100);
+    } else {
+        console.error('Modal elements not found!', { modal, bookingTitle, bookingPrice });
     }
 }
 
@@ -492,7 +511,9 @@ function closeBookingModal() {
     const modal = document.getElementById('booking-modal');
     if (modal) {
         modal.style.display = 'none';
+        modal.classList.remove('show');
         document.body.style.overflow = 'auto';
+        console.log('Modal closed');
     }
 }
 

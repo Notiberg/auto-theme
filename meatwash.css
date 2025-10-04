@@ -584,6 +584,23 @@ body[data-service="meatwash"] .mobile-container {
 
 
 
+[data-service="meatwash"] .fixed-header {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1001 !important;
+    background: rgba(15, 20, 25, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 235, 0, 0.2) !important;
+    padding: calc(45px + env(safe-area-inset-top)) 24px 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
 [data-service="meatwash"] .fixed-header::before {
     content: '' !important;
     position: absolute !important;
@@ -591,7 +608,7 @@ body[data-service="meatwash"] .mobile-container {
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    background: none !important;
+    background: linear-gradient(135deg, rgba(255, 235, 0, 0.1) 0%, rgba(255, 235, 0, 0.05) 100%) !important;
     pointer-events: none !important;
     z-index: -1 !important;
 }
@@ -1139,5 +1156,70 @@ body[data-service="meatwash"] .mobile-container {
     [data-service="meatwash"] .confirmation-footer p {
         font-size: 13px;
     }
+}
+
+/* Стили для секции бронирования в модальном окне */
+[data-service="meatwash"] .booking-section {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 20px !important;
+    background: var(--service-background) !important;
+}
+
+/* Стили для кнопок назад и закрытия в модальном окне */
+[data-service="meatwash"] .back-btn,
+[data-service="meatwash"] .close {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 18px !important;
+    text-decoration: none !important;
+}
+
+[data-service="meatwash"] .back-btn:hover,
+[data-service="meatwash"] .close:hover {
+    background: rgba(255, 235, 0, 0.2) !important;
+    border-color: var(--service-accent) !important;
+    color: var(--service-accent) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Центрирование контента хедера модального окна */
+[data-service="meatwash"] .header-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+[data-service="meatwash"] .header-content .modal-logo {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+}
+
+[data-service="meatwash"] .service-name-overlay h3 {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin: 0 0 4px 0 !important;
+}
+
+[data-service="meatwash"] .service-name-overlay .price {
+    color: var(--service-accent) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
 }
 
