@@ -143,7 +143,7 @@ body[data-service="meatwash"] .mobile-container {
 
 /* Базовые стили для контента */
 [data-service="meatwash"] .services-content {
-    padding-top: calc(320px + env(safe-area-inset-top)) !important;
+    padding-top: calc(290px + env(safe-area-inset-top)) !important;
     padding-left: 24px !important;
     padding-right: 24px !important;
     padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
@@ -151,7 +151,7 @@ body[data-service="meatwash"] .mobile-container {
 
 /* Отступ при открытых фильтрах */
 [data-service="meatwash"] .services-content.filters-open {
-    padding-top: calc(400px + env(safe-area-inset-top)) !important;
+    padding-top: calc(370px + env(safe-area-inset-top)) !important;
 }
 
 /* Рейтинг в хедере */
@@ -696,13 +696,13 @@ body[data-service="meatwash"] .mobile-container {
     }
     
     [data-service="meatwash"] .services-content {
-        padding-top: calc(320px + env(safe-area-inset-top)) !important;
+        padding-top: calc(290px + env(safe-area-inset-top)) !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
     }
     
     [data-service="meatwash"] .services-content.filters-open {
-        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+        padding-top: calc(370px + env(safe-area-inset-top)) !important;
     }
     
     
@@ -739,7 +739,7 @@ body[data-service="meatwash"] .mobile-container {
         }
 
         [data-service="meatwash"] .services-content {
-            padding-top: calc(320px + env(safe-area-inset-top)) !important;
+            padding-top: calc(290px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
         }
@@ -751,7 +751,7 @@ body[data-service="meatwash"] .mobile-container {
         }
 
         [data-service="meatwash"] .services-content {
-            padding-top: calc(320px + env(safe-area-inset-top)) !important;
+            padding-top: calc(290px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
         }
@@ -771,7 +771,7 @@ body[data-service="meatwash"] .mobile-container {
         }
 
         [data-service="meatwash"] .services-content {
-            padding-top: calc(320px + env(safe-area-inset-top)) !important;
+            padding-top: calc(290px + env(safe-area-inset-top)) !important;
             padding-left: 24px !important;
             padding-right: 24px !important;
         }
@@ -797,13 +797,13 @@ body[data-service="meatwash"] .mobile-container {
     }
     
     [data-service="meatwash"] .services-content {
-        padding-top: calc(320px + env(safe-area-inset-top)) !important;
+        padding-top: calc(290px + env(safe-area-inset-top)) !important;
         padding-left: 24px !important;
         padding-right: 24px !important;
     }
     
     [data-service="meatwash"] .services-content.filters-open {
-        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+        padding-top: calc(370px + env(safe-area-inset-top)) !important;
     }
     
     [data-service="meatwash"] .working-hours {
@@ -838,7 +838,7 @@ body[data-service="meatwash"] .mobile-container {
 /* КОМПЬЮТЕРЫ (1024px+) - сохранены существующие стили без изменений */
 @media (min-width: 1024px) {
     [data-service="meatwash"] .services-content {
-        padding-top: calc(320px + env(safe-area-inset-top)) !important;
+        padding-top: calc(290px + env(safe-area-inset-top)) !important;
         max-width: 1200px;
         margin: 0 auto;
         padding-left: 24px;
@@ -846,7 +846,7 @@ body[data-service="meatwash"] .mobile-container {
     }
     
     [data-service="meatwash"] .services-content.filters-open {
-        padding-top: calc(400px + env(safe-area-inset-top)) !important;
+        padding-top: calc(370px + env(safe-area-inset-top)) !important;
     }
     
     [data-service="meatwash"] .services-grid {
