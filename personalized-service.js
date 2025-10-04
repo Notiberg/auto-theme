@@ -155,7 +155,7 @@ function createServiceElement(service, config) {
         <div class="service-tags">
             ${service.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
         </div>
-        <button class="book-btn" onclick="openBookingModal('${service.name}', ${service.price}, ${service.duration})">
+        <button class="book-btn" onclick="openBookingModal(\`${service.name}\`, ${service.price}, ${service.duration})">
             Записаться
         </button>
     `;

@@ -441,24 +441,7 @@ body[data-service="meatwash"] .mobile-container {
     z-index: 1000 !important;
 }
 
-[data-service="meatwash"] .dropdown-content {
-    position: absolute !important;
-    top: 100% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: rgba(15, 20, 25, 0.95) !important;
-    border: 1px solid rgba(30, 144, 255, 0.3) !important;
-    border-radius: 12px !important;
-    padding: 8px 0 !important;
-    min-width: 120px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-    backdrop-filter: blur(20px) !important;
-    z-index: 9999 !important;
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    transition: all 0.3s ease !important;
-}
+/* Удален дублирующий стиль - используется единый стиль ниже */
 
 /* Показываем выпадающие меню только при клике (класс .show) */
 [data-service="meatwash"] .dropdown.show .dropdown-content,
@@ -473,7 +456,7 @@ body[data-service="meatwash"] .mobile-container {
 /* Базовые стили для всех устройств */
 [data-service="meatwash"] .dropdown-content {
     position: absolute !important;
-    top: 100% !important;
+    top: calc(100% + 5px) !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     background: rgba(255, 235, 0, 0.98) !important;
@@ -483,7 +466,7 @@ body[data-service="meatwash"] .mobile-container {
     min-width: 120px !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(20px) !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -737,6 +720,11 @@ body[data-service="meatwash"] .mobile-container {
         min-width: 100px !important;
         max-width: 150px !important;
         font-size: 12px !important;
+        position: fixed !important;
+        top: 200px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 999999 !important;
     }
     
     [data-service="meatwash"] .dropdown-content div {
