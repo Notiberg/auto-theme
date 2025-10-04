@@ -3,16 +3,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterToggleBtn = document.querySelector('.filter-toggle-btn');
     const filterButtons = document.querySelector('.filter-buttons');
     
-    filterToggleBtn.addEventListener('click', function() {
+    if (filterToggleBtn && filterButtons) {
+        filterToggleBtn.addEventListener('click', function() {
         filterButtons.classList.toggle('show-filters');
-        document.querySelector('.content').classList.toggle('filters-open');
+        
+        // Добавляем класс к хедеру для показа фильтров
+        const headerElement = document.querySelector('.glass-header');
+        if (headerElement) {
+            headerElement.classList.toggle('filters-open');
+        }
+        
+        const contentElement = document.querySelector('.content') || document.querySelector('.services-content');
+        if (contentElement) {
+            contentElement.classList.toggle('filters-open');
+        }
         
         if (filterButtons.classList.contains('show-filters')) {
             this.classList.add('active');
         } else {
             this.classList.remove('active');
         }
-    });
+        });
+    }
     
     // Dropdown functionality
     const dropdowns = document.querySelectorAll('.dropdown');
@@ -29,6 +41,49 @@ document.addEventListener('DOMContentLoaded', function() {
                     d.classList.remove('show');
                 }
             });
+            
+            // Позиционируем выпадающее меню под конкретной кнопкой
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            if (dropdownContent) {
+                const btnRect = btn.getBoundingClientRect();
+                const screenWidth = window.innerWidth;
+                
+                console.log('Button position:', btnRect, 'Screen width:', screenWidth);
+                
+                dropdownContent.style.position = 'fixed';
+                dropdownContent.style.top = (btnRect.bottom + 2) + 'px';
+                
+                // Для мобильных устройств центрируем меню под кнопкой
+                if (screenWidth <= 767) {
+                    const menuWidth = 120; // Фиксированная ширина для мобильных
+                    const centerPosition = btnRect.left + (btnRect.width / 2) - (menuWidth / 2);
+                    const rightEdge = centerPosition + menuWidth;
+                    
+                    // Проверяем, не выходит ли меню за правый край экрана
+                    let finalLeft;
+                    if (rightEdge > screenWidth - 10) {
+                        finalLeft = screenWidth - menuWidth - 10;
+                    } else if (centerPosition < 10) {
+                        finalLeft = 10;
+                    } else {
+                        finalLeft = centerPosition;
+                    }
+                    
+                    // Принудительно устанавливаем стили с !important через CSS
+                    dropdownContent.style.setProperty('left', finalLeft + 'px', 'important');
+                    dropdownContent.style.setProperty('width', menuWidth + 'px', 'important');
+                    dropdownContent.style.setProperty('min-width', 'auto', 'important');
+                    dropdownContent.style.setProperty('max-width', 'none', 'important');
+                } else {
+                    // Для больших экранов выравниваем по левому краю кнопки
+                    dropdownContent.style.setProperty('left', btnRect.left + 'px', 'important');
+                    dropdownContent.style.setProperty('min-width', btnRect.width + 'px', 'important');
+                    dropdownContent.style.setProperty('width', 'auto', 'important');
+                }
+                
+                dropdownContent.style.transform = 'none';
+                console.log('Dropdown positioned at:', dropdownContent.style.top, dropdownContent.style.left);
+            }
             
             dropdown.classList.toggle('show');
         });

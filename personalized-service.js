@@ -5,31 +5,42 @@ document.addEventListener('DOMContentLoaded', function() {
         initializePersonalizedService(serviceType);
     }
     
-    // Глобальная инициализация фильтров как запасной вариант
-    setTimeout(() => {
-        console.log('Global filter initialization...');
-        const filterToggleBtn = document.querySelector('.filter-toggle-btn');
-        const filterButtons = document.querySelector('.filter-buttons');
-        
-        if (filterToggleBtn && filterButtons && !filterToggleBtn.hasAttribute('data-initialized')) {
-            console.log('Adding global filter listener');
-            filterToggleBtn.setAttribute('data-initialized', 'true');
-            
-            filterToggleBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Global filter toggle clicked!');
-                
-                filterButtons.classList.toggle('show-filters');
-                
-                if (filterButtons.classList.contains('show-filters')) {
-                    this.classList.add('active');
-                } else {
-                    this.classList.remove('active');
-                }
-            });
-        }
-    }, 1000);
+    // Глобальная инициализация фильтров отключена - используется script.js
+    // setTimeout(() => {
+    //     console.log('Global filter initialization...');
+    //     const filterToggleBtn = document.querySelector('.filter-toggle-btn');
+    //     const filterButtons = document.querySelector('.filter-buttons');
+    //     
+    //     if (filterToggleBtn && filterButtons && !filterToggleBtn.hasAttribute('data-initialized')) {
+    //         console.log('Adding global filter listener');
+    //         filterToggleBtn.setAttribute('data-initialized', 'true');
+    //         
+    //         filterToggleBtn.addEventListener('click', function(e) {
+    //             e.preventDefault();
+    //             e.stopPropagation();
+    //             console.log('Global filter toggle clicked!');
+    //             
+    //             filterButtons.classList.toggle('show-filters');
+    //             
+    //             // Добавляем класс к хедеру для показа фильтров
+    //             const headerElement = document.querySelector('.glass-header');
+    //             if (headerElement) {
+    //                 headerElement.classList.toggle('filters-open');
+    //             }
+    //             
+    //             const contentElement = document.querySelector('.content') || document.querySelector('.services-content');
+    //             if (contentElement) {
+    //                 contentElement.classList.toggle('filters-open');
+    //             }
+    //             
+    //             if (filterButtons.classList.contains('show-filters')) {
+    //                 this.classList.add('active');
+    //             } else {
+    //                 this.classList.remove('active');
+    //             }
+    //         });
+    //     }
+    // }, 1000);
 });
 
 // Функция для получения ключа сервиса
@@ -69,14 +80,14 @@ function initializePersonalizedService(serviceType) {
     // Загружаем услуги
     loadServices(config);
     
-    // Инициализируем фильтры
-    initializeFilters();
+    // Инициализация фильтров отключена - используется script.js
+    // initializeFilters();
     
-    // Принудительная инициализация через задержку
-    setTimeout(() => {
-        console.log('Re-initializing filters after delay...');
-        initializeFilters();
-    }, 500);
+    // Принудительная инициализация через задержку отключена
+    // setTimeout(() => {
+    //     console.log('Re-initializing filters after delay...');
+    //     initializeFilters();
+    // }, 500);
     
     // Инициализируем поиск
     initializeSearch();
@@ -241,6 +252,13 @@ function initializeFilters() {
             filterButtons.classList.toggle('show-filters');
             console.log('Filter buttons classes:', filterButtons.className);
             
+            // Добавляем класс к хедеру для показа фильтров
+            const headerElement = document.querySelector('.glass-header');
+            if (headerElement) {
+                headerElement.classList.toggle('filters-open');
+                console.log('Header element classes:', headerElement.className);
+            }
+            
             const contentElement = document.querySelector('.content') || document.querySelector('.services-content');
             if (contentElement) {
                 contentElement.classList.toggle('filters-open');
@@ -275,6 +293,49 @@ function initializeFilters() {
                         d.classList.remove('show');
                     }
                 });
+                
+                // Позиционируем выпадающее меню под конкретной кнопкой
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                if (dropdownContent) {
+                    const btnRect = btn.getBoundingClientRect();
+                    const screenWidth = window.innerWidth;
+                    
+                    console.log('Personalized button position:', btnRect, 'Screen width:', screenWidth);
+                    
+                    dropdownContent.style.position = 'fixed';
+                    dropdownContent.style.top = (btnRect.bottom + 2) + 'px';
+                    
+                    // Для мобильных устройств центрируем меню под кнопкой
+                    if (screenWidth <= 767) {
+                        const menuWidth = 120; // Фиксированная ширина для мобильных
+                        const centerPosition = btnRect.left + (btnRect.width / 2) - (menuWidth / 2);
+                        const rightEdge = centerPosition + menuWidth;
+                        
+                        // Проверяем, не выходит ли меню за правый край экрана
+                        let finalLeft;
+                        if (rightEdge > screenWidth - 10) {
+                            finalLeft = screenWidth - menuWidth - 10;
+                        } else if (centerPosition < 10) {
+                            finalLeft = 10;
+                        } else {
+                            finalLeft = centerPosition;
+                        }
+                        
+                        // Принудительно устанавливаем стили с !important через CSS
+                        dropdownContent.style.setProperty('left', finalLeft + 'px', 'important');
+                        dropdownContent.style.setProperty('width', menuWidth + 'px', 'important');
+                        dropdownContent.style.setProperty('min-width', 'auto', 'important');
+                        dropdownContent.style.setProperty('max-width', 'none', 'important');
+                    } else {
+                        // Для больших экранов выравниваем по левому краю кнопки
+                        dropdownContent.style.setProperty('left', btnRect.left + 'px', 'important');
+                        dropdownContent.style.setProperty('min-width', btnRect.width + 'px', 'important');
+                        dropdownContent.style.setProperty('width', 'auto', 'important');
+                    }
+                    
+                    dropdownContent.style.transform = 'none';
+                    console.log('Personalized dropdown positioned at:', dropdownContent.style.top, dropdownContent.style.left);
+                }
                 
                 dropdown.classList.toggle('show');
             });
