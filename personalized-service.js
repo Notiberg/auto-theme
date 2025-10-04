@@ -1,18 +1,68 @@
-// JavaScript для персонализированных страниц сервисов
-
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // Получаем тип сервиса из data-service атрибута body
     const serviceType = document.body.getAttribute('data-service');
+    if (serviceType && servicesConfig[getServiceKey(serviceType)]) {
+        initializePersonalizedService(serviceType);
+    }
     
-    if (!serviceType || !servicesConfig[getServiceNameByType(serviceType)]) {
+    // Глобальная инициализация фильтров как запасной вариант
+    setTimeout(() => {
+        console.log('Global filter initialization...');
+        const filterToggleBtn = document.querySelector('.filter-toggle-btn');
+        const filterButtons = document.querySelector('.filter-buttons');
+        
+        if (filterToggleBtn && filterButtons && !filterToggleBtn.hasAttribute('data-initialized')) {
+            console.log('Adding global filter listener');
+            filterToggleBtn.setAttribute('data-initialized', 'true');
+            
+            filterToggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Global filter toggle clicked!');
+                
+                filterButtons.classList.toggle('show-filters');
+                
+                if (filterButtons.classList.contains('show-filters')) {
+                    this.classList.add('active');
+                } else {
+                    this.classList.remove('active');
+                }
+            });
+        }
+    }, 1000);
+});
+
+// Функция для получения ключа сервиса
+function getServiceKey(serviceType) {
+    const mapping = {
+        'meatwash': 'meatwash',
+        'akvamatik': 'Акваматик',
+        'koch24': 'Koch24',
+        'chisto': 'Chisto'
+    };
+    return mapping[serviceType] || serviceType;
+}
+
+// Функция для получения имени сервиса по типу
+function getServiceNameByType(type) {
+    const mapping = {
+        'meatwash': 'meatwash',
+        'akvamatik': 'Акваматик',
+        'koch24': 'Koch24',
+        'chisto': 'Chisto'
+    };
+    return mapping[type] || type;
+}
+
+// Инициализация персонализированного сервиса
+function initializePersonalizedService(serviceType) {
+    const serviceName = getServiceKey(serviceType);
+    const config = servicesConfig[serviceName];
+    
+    if (!config) {
         console.error('Service configuration not found for:', serviceType);
         return;
     }
-    
-    // Получаем конфигурацию сервиса
-    const serviceName = getServiceNameByType(serviceType);
-    const config = servicesConfig[serviceName];
-    
     // Инициализируем страницу
     initializeServicePage(config);
     
@@ -22,24 +72,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализируем фильтры
     initializeFilters();
     
+    // Принудительная инициализация через задержку
+    setTimeout(() => {
+        console.log('Re-initializing filters after delay...');
+        initializeFilters();
+    }, 500);
+    
     // Инициализируем поиск
     initializeSearch();
     
     // Инициализируем модальное окно бронирования
     initializeBookingModal(config);
-    
-    // Инициализируем навигацию
-    initializeNavigation();
-});
-
-// Функция для получения имени сервиса по типу
-function getServiceNameByType(type) {
-    const mapping = {
-        'akvamatik': 'Акваматик',
-        'koch24': 'Koch24',
-        'chisto': 'Chisto'
-    };
-    return mapping[type] || type;
 }
 
 // Инициализация страницы сервиса
@@ -163,23 +206,47 @@ function createServiceElement(service, config) {
     return serviceDiv;
 }
 
-// Инициализация фильтров
+// Инициализация фильтров - точная копия из script.js
 function initializeFilters() {
+    console.log('Initializing filters...');
+    
     // Toggle filter buttons
     const filterToggleBtn = document.querySelector('.filter-toggle-btn');
     const filterButtons = document.querySelector('.filter-buttons');
     
+    console.log('Filter elements:', { filterToggleBtn, filterButtons });
+    
     if (filterToggleBtn && filterButtons) {
-        filterToggleBtn.addEventListener('click', function() {
+        console.log('Adding click listener to filter toggle button');
+        
+        // Убираем все предыдущие обработчики
+        const newBtn = filterToggleBtn.cloneNode(true);
+        filterToggleBtn.parentNode.replaceChild(newBtn, filterToggleBtn);
+        
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Filter toggle clicked!');
+            
             filterButtons.classList.toggle('show-filters');
-            document.querySelector('.services-content').classList.toggle('filters-open');
+            console.log('Filter buttons classes:', filterButtons.className);
+            
+            const contentElement = document.querySelector('.content') || document.querySelector('.services-content');
+            if (contentElement) {
+                contentElement.classList.toggle('filters-open');
+                console.log('Content element classes:', contentElement.className);
+            }
             
             if (filterButtons.classList.contains('show-filters')) {
                 this.classList.add('active');
+                console.log('Filters shown');
             } else {
                 this.classList.remove('active');
+                console.log('Filters hidden');
             }
         });
+    } else {
+        console.error('Filter elements not found!');
     }
     
     // Dropdown functionality
@@ -187,9 +254,8 @@ function initializeFilters() {
     
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.filter-btn');
-        const content = dropdown.querySelector('.dropdown-content');
         
-        if (btn && content) {
+        if (btn) {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 
@@ -202,21 +268,6 @@ function initializeFilters() {
                 
                 dropdown.classList.toggle('show');
             });
-            
-            // Handle dropdown item selection
-            content.addEventListener('click', function(e) {
-                if (e.target.tagName === 'DIV') {
-                    const value = e.target.textContent;
-                    const valueSpan = btn.querySelector('.value');
-                    
-                    if (valueSpan) {
-                        valueSpan.textContent = value === 'Все' ? '' : value;
-                    }
-                    
-                    dropdown.classList.remove('show');
-                    applyFilters();
-                }
-            });
         }
     });
     
@@ -227,11 +278,38 @@ function initializeFilters() {
         });
     });
     
+    // Handle dropdown item selection
+    const dropdowns2 = document.querySelectorAll('.dropdown');
+    dropdowns2.forEach(dropdown => {
+        const content = dropdown.querySelector('.dropdown-content');
+        const btn = dropdown.querySelector('.filter-btn');
+        
+        if (content && btn) {
+            content.addEventListener('click', function(e) {
+                if (e.target.tagName === 'DIV') {
+                    const value = e.target.textContent;
+                    const valueSpan = btn.querySelector('.value');
+                    
+                    if (valueSpan) {
+                        valueSpan.textContent = value === 'Все' ? '' : value;
+                    }
+                    
+                    dropdown.classList.remove('show');
+                    if (typeof applyFilters === 'function') {
+                        applyFilters();
+                    }
+                }
+            });
+        }
+    });
+    
     // All button functionality
     const allBtn = document.getElementById('all-btn');
     if (allBtn) {
         allBtn.addEventListener('click', function() {
-            resetAllFilters();
+            if (typeof resetAllFilters === 'function') {
+                resetAllFilters();
+            }
         });
     }
 }
@@ -371,7 +449,7 @@ function initializeBookingModal(config) {
         });
     }
     
-    // Close modal handlers
+    // Закрытие модального окна при клике на кнопки
     if (closeBtn) {
         closeBtn.addEventListener('click', closeBookingModal);
     }
@@ -380,12 +458,20 @@ function initializeBookingModal(config) {
         backBtn.addEventListener('click', closeBookingModal);
     }
     
+    // Обработчик для кнопки подтверждения записи
+    const confirmBtn = document.querySelector('.confirm-booking-btn');
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', handleBookingConfirmation);
+    }
+    
     // Click outside to close
     if (modal) {
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeBookingModal();
             }
+            // Prevent event propagation
+            e.stopPropagation();
         });
     }
     
@@ -398,22 +484,7 @@ function initializeBookingModal(config) {
         });
     });
     
-    // Confirm booking
-    const confirmBtn = document.querySelector('.confirm-booking-btn');
-    if (confirmBtn) {
-        confirmBtn.addEventListener('click', function() {
-            const selectedTime = document.querySelector('.time-slot.selected');
-            const selectedAddress = addressSelect?.value;
-            const selectedDate = document.querySelector('.date-item.selected');
-            
-            if (selectedTime && selectedAddress && selectedDate) {
-                alert('Запись успешно создана!');
-                closeBookingModal();
-            } else {
-                alert('Пожалуйста, выберите дату, время и адрес');
-            }
-        });
-    }
+    // Старый обработчик удален - используется новый handleBookingConfirmation
 }
 
 // Закрытие модального окна
@@ -423,6 +494,65 @@ function closeBookingModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
+}
+
+// Показать окно подтверждения записи
+function showConfirmationModal(bookingData) {
+    const modal = document.getElementById('confirmation-modal');
+    if (!modal) return;
+
+    // Заполняем данные
+    document.getElementById('conf-date').textContent = bookingData.date || 'Не выбрана';
+    document.getElementById('conf-time').textContent = bookingData.time || 'Не выбрано';
+    document.getElementById('conf-address').textContent = bookingData.address || 'Не выбран';
+    document.getElementById('conf-service-name').textContent = bookingData.serviceName || 'Не указана';
+    document.getElementById('conf-price').textContent = bookingData.price || 'Не указана';
+    
+    // Попытка получить информацию об автомобиле из localStorage
+    const userCar = localStorage.getItem('userCar') || 'Не указан';
+    document.getElementById('conf-car').textContent = userCar;
+
+    // Показываем модальное окно
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    // Автоматически закрываем через 7 секунд
+    setTimeout(() => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }, 7000);
+}
+
+// Обработка подтверждения записи
+function handleBookingConfirmation() {
+    const selectedDate = document.querySelector('.date-item.selected');
+    const selectedTime = document.querySelector('.time-slot.selected');
+    const selectedAddress = document.getElementById('address-select');
+    const serviceName = document.getElementById('booking-title').textContent;
+    const servicePrice = document.getElementById('booking-price').textContent;
+
+    if (!selectedDate || !selectedTime || !selectedAddress.value) {
+        alert('⚠️ Пожалуйста, выберите дату, время и адрес');
+        return;
+    }
+
+    // Собираем данные для подтверждения
+    const bookingData = {
+        date: selectedDate.querySelector('.day-number').textContent + ' ' + 
+              selectedDate.querySelector('.month-name').textContent,
+        time: selectedTime.textContent,
+        address: selectedAddress.options[selectedAddress.selectedIndex].text,
+        serviceName: serviceName,
+        price: servicePrice
+    };
+
+    // Закрываем модальное окно бронирования
+    closeBookingModal();
+
+    // Показываем окно подтверждения
+    setTimeout(() => {
+        showConfirmationModal(bookingData);
+    }, 300);
 }
 
 // Генерация дат

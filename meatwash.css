@@ -154,6 +154,12 @@ body[data-service="meatwash"] .mobile-container {
     padding-top: calc(370px + env(safe-area-inset-top)) !important;
 }
 
+/* Альтернативный селектор для совместимости */
+[data-service="meatwash"] .content.filters-open {
+    padding-top: calc(370px + env(safe-area-inset-top)) !important;
+}
+
+
 /* Рейтинг в хедере */
 [data-service="meatwash"] .header-title .rating-info {
     display: flex;
@@ -431,9 +437,61 @@ body[data-service="meatwash"] .mobile-container {
     color: rgba(11, 4, 0, 0.9) !important;
 }
 
+/* Активная кнопка фильтров */
+[data-service="meatwash"] .filter-toggle-btn.active {
+    background: rgba(255, 235, 0, 1) !important;
+    box-shadow: 0 4px 16px rgba(255, 235, 0, 0.5) !important;
+    transform: translateY(-1px) !important;
+}
+
 /* Фильтры и выпадающие меню */
-[data-service="meatwash"] .filter-buttons {
+[data-service="meatwash"] .filter-buttons { 
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 24px;
     justify-content: center;
+    align-items: center;
+}
+
+[data-service="meatwash"] .filter-buttons.show-filters {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 16px 16px;
+    margin-bottom: 16px;
+}
+
+/* Стили для кнопок фильтров */
+[data-service="meatwash"] .filter-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[data-service="meatwash"] .filter-btn:hover {
+    background: rgba(255, 235, 0, 0.2);
+    border-color: var(--service-accent);
+    color: var(--service-accent);
+}
+
+[data-service="meatwash"] .filter-btn.active {
+    background: var(--service-accent);
+    border-color: var(--service-accent);
+    color: rgba(11, 4, 0, 0.9);
 }
 
 [data-service="meatwash"] .dropdown {
@@ -456,17 +514,17 @@ body[data-service="meatwash"] .mobile-container {
 /* Базовые стили для всех устройств */
 [data-service="meatwash"] .dropdown-content {
     position: absolute !important;
-    top: calc(100% + 5px) !important;
+    top: 100% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    background: rgba(255, 235, 0, 0.98) !important;
-    border: none !important;
+    background: rgba(15, 20, 25, 0.95) !important;
+    border: 1px solid rgba(255, 235, 0, 0.3) !important;
     border-radius: 12px !important;
-    padding: 6px !important;
+    padding: 8px 0 !important;
     min-width: 120px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
     backdrop-filter: blur(20px) !important;
-    z-index: 99999 !important;
+    z-index: 9999 !important;
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -480,22 +538,19 @@ body[data-service="meatwash"] .mobile-container {
     opacity: 1 !important;
 }
 
+
 [data-service="meatwash"] .dropdown-content div {
     padding: 8px 16px !important;
-    color: rgba(11, 4, 0, 0.9) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     font-size: 14px !important;
-    border-radius: 8px !important;
-    margin: 2px 4px !important;
+    white-space: nowrap !important;
 }
 
 [data-service="meatwash"] .dropdown-content div:hover {
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: rgba(11, 4, 0, 0.95) !important;
-    font-weight: 600 !important;
-    transform: scale(1.02) !important;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 235, 0, 0.2) !important;
+    color: var(--service-accent) !important;
 }
 
 /* Модальное окно - унифицированное как у Chisto */
@@ -720,11 +775,6 @@ body[data-service="meatwash"] .mobile-container {
         min-width: 100px !important;
         max-width: 150px !important;
         font-size: 12px !important;
-        position: fixed !important;
-        top: 200px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        z-index: 999999 !important;
     }
     
     [data-service="meatwash"] .dropdown-content div {
@@ -833,6 +883,8 @@ body[data-service="meatwash"] .mobile-container {
         padding: 8px 14px !important;
         font-size: 14px !important;
     }
+    
+    
 }
 
 /* КОМПЬЮТЕРЫ (1024px+) - сохранены существующие стили без изменений */
@@ -932,5 +984,160 @@ body[data-service="meatwash"] .mobile-container {
 
 [data-service="meatwash"] #booking-modal .date-time-header h4 {
     color: rgb(204, 227, 241) !important;
+}
+
+/* Модальное окно подтверждения записи */
+[data-service="meatwash"] .confirmation-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+[data-service="meatwash"] .confirmation-modal.show {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+[data-service="meatwash"] .confirmation-content {
+    background: var(--service-background);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--service-accent);
+    animation: slideUp 0.4s ease-out;
+}
+
+[data-service="meatwash"] .confirmation-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+[data-service="meatwash"] .confirmation-header .success-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    animation: bounce 0.6s ease-in-out;
+}
+
+[data-service="meatwash"] .confirmation-header h3 {
+    color: var(--service-accent);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-service="meatwash"] .confirmation-details {
+    margin-bottom: 25px;
+}
+
+[data-service="meatwash"] .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 235, 0, 0.2);
+}
+
+[data-service="meatwash"] .detail-row:last-child {
+    border-bottom: none;
+}
+
+[data-service="meatwash"] .detail-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+[data-service="meatwash"] .detail-value {
+    color: var(--service-accent);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: right;
+    max-width: 60%;
+}
+
+[data-service="meatwash"] .confirmation-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--service-accent);
+}
+
+[data-service="meatwash"] .confirmation-footer p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+[data-service="meatwash"] .confirmation-footer p:first-child {
+    font-weight: 600;
+    color: var(--service-accent);
+    font-size: 16px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 767px) {
+    [data-service="meatwash"] .confirmation-content {
+        padding: 20px;
+        max-width: 350px;
+    }
+    
+    [data-service="meatwash"] .confirmation-header h3 {
+        font-size: 20px;
+    }
+    
+    [data-service="meatwash"] .confirmation-header .success-icon {
+        font-size: 40px;
+    }
+    
+    [data-service="meatwash"] .detail-label,
+    [data-service="meatwash"] .detail-value {
+        font-size: 13px;
+    }
+    
+    [data-service="meatwash"] .confirmation-footer p {
+        font-size: 13px;
+    }
 }
 
