@@ -269,6 +269,8 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 24px;
     }
+    
+    /* Нижнее меню остается как на мобильных - без изменений */
 }
 
 .logo-container { 
@@ -485,6 +487,7 @@ body {
     .filter-buttons::-webkit-scrollbar {
         display: none;
     }
+}
 
 /* ПЛАНШЕТЫ - Показываем лейблы */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -2125,5 +2128,3 @@ body {
         padding: 14px 18px;
     }
 }
-
-/* Конец файла */

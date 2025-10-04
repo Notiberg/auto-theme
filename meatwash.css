@@ -1363,3 +1363,92 @@ body[data-service="meatwash"] .glass-header.filters-open .filter-buttons,
     margin: 0 4px !important;
 }
 
+/* Темный однотонный фон для всех экранов */
+body[data-service="meatwash"] {
+    background: #0A0A0A !important;
+    background-image: none !important;
+    min-height: 100vh !important;
+}
+
+body[data-service="meatwash"] .mobile-container {
+    background: transparent !important;
+}
+
+/* БОЛЬШИЕ ЭКРАНЫ - Принудительные стили для нижнего меню meatwash */
+@media (min-width: 1025px) {
+    body[data-service="meatwash"] {
+        background: #0A0A0A !important;
+        min-height: 100vh !important;
+    }
+    
+    body[data-service="meatwash"] .mobile-container {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        background: transparent !important;
+        min-height: 100vh !important;
+    }
+    
+    body[data-service="meatwash"] .glass-footer {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 40px) !important;
+        max-width: 360px !important;
+        min-width: 300px !important;
+        height: 65px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        backdrop-filter: blur(60px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(60px) saturate(200%) !important;
+        border-radius: 32px !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 0 15px !important;
+        z-index: 10000 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+        margin: 0 !important;
+    }
+    
+    body[data-service="meatwash"] .glass-footer .nav-item {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        cursor: pointer !important;
+        width: 55px !important;
+        height: 45px !important;
+        padding: 6px 4px !important;
+        border-radius: 18px !important;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        text-decoration: none !important;
+        background: transparent !important;
+        border: none !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    body[data-service="meatwash"] .glass-footer .nav-item i {
+        font-size: 18px !important;
+        margin-bottom: 2px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    body[data-service="meatwash"] .glass-footer .nav-item span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        text-align: center !important;
+    }
+    
+    body[data-service="meatwash"] .content,
+    body[data-service="meatwash"] .services-content {
+        padding-bottom: calc(100px + env(safe-area-inset-bottom)) !important;
+    }
+}
+

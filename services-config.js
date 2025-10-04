@@ -86,7 +86,7 @@ const servicesConfig = {
                 price: 6000,
                 duration: 30,
                 category: 'wash',
-                tags: ['двигаетль', 'мойка']
+                tags: ['двигатель', 'мойка']
             },
         ],
         addresses: [
