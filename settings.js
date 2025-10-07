@@ -550,13 +550,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             closeModal('adminLoginModal');
             
-            // Show success message
-            showNotification('Вы успешно вошли как администратор!', 'success');
-            
-            // Redirect to admin panel after a short delay
-            setTimeout(() => {
-                window.location.href = 'admin-panel.html';
-            }, 1500);
+            // Redirect to admin panel immediately
+            window.location.href = 'admin-panel.html';
         } else {
             alert('Неверный логин или пароль!');
         }

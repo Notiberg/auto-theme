@@ -950,3 +950,16 @@
     background: var(--accent-dark);
 }
 
+/* КОМПЬЮТЕРЫ (больше 1024px) */
+@media (min-width: 1025px) {
+    .back-btn-header {
+        min-width: 32px;
+        height: 32px;
+        padding: 4px;
+    }
+    
+    .back-btn-header i {
+        font-size: 12px;
+    }
+}
+
