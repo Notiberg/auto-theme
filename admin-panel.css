@@ -92,7 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 24px;
+    padding: calc(65px + env(safe-area-inset-top)) 24px 16px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -555,6 +555,13 @@
     }
 }
 
+/* ПЛАНШЕТЫ (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .admin-header {
+        padding: calc(55px + env(safe-area-inset-top)) 24px 18px;
+    }
+}
+
 @media (max-width: 768px) {
     .admin-sidebar {
         width: 0;
@@ -583,6 +590,10 @@
     
     .admin-content {
         padding: 16px;
+    }
+    
+    .admin-header {
+        padding: calc(70px + env(safe-area-inset-top)) 16px 12px;
     }
 }
 
