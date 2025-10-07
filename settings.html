@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки профиля - Slot My Car</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="glass-header">
+            <div class="header-content">
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="header-title">
+                    <h1 class="logo">Настройки</h1>
+                    <p class="subtitle">Управление профилем</p>
+                </div>
+                <div class="header-spacer"></div>
+            </div>
+        </header>
+        
+        <main class="settings-content">
+            <div class="settings-layout">
+                <!-- User Profile Section -->
+                <div class="user-profile-card">
+                    <div class="user-profile-header">
+                        <div class="user-avatar-large">
+                            <img src="pan.jpeg" alt="Аватар пользователя" id="userAvatarImg">
+                        </div>
+                        <div class="user-main-info">
+                            <h2 class="user-name" id="userName">Панарин Ярослав</h2>
+                            <p class="user-email" id="userEmail">PAN.buisnes@yandex.ru</p>
+                            <div class="user-role">
+                                <span class="role-label">Роль:</span>
+                                <span class="role-value" id="userRole">Клиент</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Grid -->
+                <div class="settings-grid">
+                    <!-- Personal Data Section -->
+                    <div class="settings-section">
+                        <h3 class="section-title">Личные данные</h3>
+                        
+                        <div class="settings-item" id="changeNameBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-user"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Имя и фамилия</span>
+                                    <span class="setting-description">Изменить имя и фамилию</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+
+                        <div class="settings-item" id="changeAvatarBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-image"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Фото профиля</span>
+                                    <span class="setting-description">Изменить аватар</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+
+                        <div class="settings-item" id="changePasswordBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-lock"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Пароль</span>
+                                    <span class="setting-description">Изменить пароль</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Additional Settings Section -->
+                    <div class="settings-section">
+                        <h3 class="section-title">Дополнительно</h3>
+                        
+                        <div class="settings-item" id="notificationsBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-bell"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Уведомления</span>
+                                    <span class="setting-description">Настройки уведомлений</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+
+                        <div class="settings-item" id="privacyBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Конфиденциальность</span>
+                                    <span class="setting-description">Настройки приватности</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+
+                        <div class="settings-item" id="helpBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-question-circle"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Помощь</span>
+                                    <span class="setting-description">Поддержка и FAQ</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Logout Section -->
+                    <div class="settings-section">
+                        <h3 class="section-title">Аккаунт</h3>
+                        
+                        <div class="settings-item admin-switch-item" id="switchAdminBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-user-shield"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Войти как администратор</span>
+                                    <span class="setting-description">Поменять роль аккаунта</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="settings-item logout-item" id="logoutBtn">
+                            <div class="setting-info">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <div class="setting-details">
+                                    <span class="setting-title">Выйти из аккаунта</span>
+                                    <span class="setting-description">Завершить сеанс</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Change Name Modal -->
+    <div class="modal" id="nameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Изменить имя и фамилию</h3>
+                <button class="close-btn" id="closeNameModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="nameForm">
+                    <div class="form-group">
+                        <label for="firstNameInput">Имя</label>
+                        <input type="text" id="firstNameInput" placeholder="Введите имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameInput">Фамилия</label>
+                        <input type="text" id="lastNameInput" placeholder="Введите фамилию" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" id="cancelNameBtn">Отмена</button>
+                        <button type="submit" class="btn-primary">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Avatar Modal -->
+    <div class="modal" id="avatarModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Изменить фото профиля</h3>
+                <button class="close-btn" id="closeAvatarModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="avatar-upload-section">
+                    <p class="current-avatar-title">Текущее фото профиля</p>
+                    <div class="current-avatar">
+                        <img src="pan.jpeg" alt="Текущий аватар" id="currentAvatarPreview">
+                    </div>
+                    <div class="upload-options">
+                        <input type="file" id="avatarFileInput" accept="image/*" style="display: none;">
+                        <button type="button" class="btn-primary" id="selectAvatarBtn">
+                            <i class="fas fa-upload"></i>
+                            Выбрать фото
+                        </button>
+                        <p class="upload-hint">Рекомендуемый размер: 200x200px</p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelAvatarBtn">Отмена</button>
+                    <button type="button" class="btn-primary" id="saveAvatarBtn" disabled>Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Изменить пароль</h3>
+                <button class="close-btn" id="closePasswordModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="currentPasswordInput">Текущий пароль</label>
+                        <div class="password-input-group">
+                            <input type="password" id="currentPasswordInput" placeholder="Введите текущий пароль" required>
+                            <button type="button" class="password-toggle" data-target="currentPasswordInput">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPasswordInput">Новый пароль</label>
+                        <div class="password-input-group">
+                            <input type="password" id="newPasswordInput" placeholder="Введите новый пароль" required>
+                            <button type="button" class="password-toggle" data-target="newPasswordInput">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Слабый пароль</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPasswordInput">Подтвердите пароль</label>
+                        <div class="password-input-group">
+                            <input type="password" id="confirmPasswordInput" placeholder="Повторите новый пароль" required>
+                            <button type="button" class="password-toggle" data-target="confirmPasswordInput">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="password-requirements">
+                        <p>Требования к паролю:</p>
+                        <ul>
+                            <li id="req-length">Минимум 8 символов</li>
+                            <li id="req-uppercase">Одна заглавная буква</li>
+                            <li id="req-lowercase">Одна строчная буква</li>
+                            <li id="req-number">Одна цифра</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" id="cancelPasswordBtn">Отмена</button>
+                        <button type="submit" class="btn-primary">Изменить пароль</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Вход в панель администратора</h3>
+                <button class="close-btn" id="closeAdminLoginModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="adminLoginForm" class="admin-login-form">
+                    <div class="form-group">
+                        <label for="adminLogin">Логин администратора</label>
+                        <input type="text" id="adminLogin" name="adminLogin" placeholder="Введите логин" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Пароль</label>
+                        <div class="password-input-group">
+                            <input type="password" id="adminPassword" name="adminPassword" placeholder="Введите пароль" required>
+                            <button type="button" class="toggle-password" id="toggleAdminPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" id="cancelAdminLogin">Отмена</button>
+                        <button type="submit" class="btn-primary">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

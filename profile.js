@@ -327,8 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsBtn = document.querySelector('.settings-btn');
     if (settingsBtn) {
         settingsBtn.addEventListener('click', function() {
-            // Placeholder for settings functionality
-            alert('Настройки профиля (функционал будет добавлен позже)');
+            window.location.href = 'settings.html';
         });
     }
 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора - Slot My Car</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-panel.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="admin-logo">
+                    <h2>ADMIN</h2>
+                    <p>Panel</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>Open Tasks</span>
+                </a>
+                <a href="#" class="nav-item" data-section="events">
+                    <i class="fas fa-calendar"></i>
+                    <span>Events Today</span>
+                </a>
+                <a href="#" class="nav-item" data-section="data">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>PR Data</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutAdmin">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search Here">
+                    </div>
+                    <div class="header-actions">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div class="admin-profile">
+                            <img src="pan.jpeg" alt="Admin" class="admin-avatar">
+                            <span class="admin-name">Admin AI</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="admin-content">
+                <!-- Overview Cards -->
+                <div class="overview-section">
+                    <h2 class="section-title">Overview</h2>
+                    <div class="overview-cards">
+                        <div class="overview-card">
+                            <div class="card-icon blue">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>10.2k</h3>
+                                <p>Followers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <div class="card-icon pink">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>1.2k</h3>
+                                <p>Impressions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <div class="card-icon purple">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>567</h3>
+                                <p>Likes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <div class="card-icon green">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>15%</h3>
+                                <p>Engagements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Open Tasks -->
+                    <div class="dashboard-card tasks-card">
+                        <div class="card-header">
+                            <h3>Open Task</h3>
+                            <button class="refresh-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="tasks-list">
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <div class="task-icon">
+                                        <img src="https://via.placeholder.com/40" alt="Task">
+                                    </div>
+                                    <div class="task-details">
+                                        <h4>Register for Upcoming</h4>
+                                        <span class="task-status in-progress">In Progress</span>
+                                        <span class="task-priority normal">Normal</span>
+                                        <span class="task-date">01/07/2019</span>
+                                        <span class="task-time">11 am Monday</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <div class="task-icon">
+                                        <img src="https://via.placeholder.com/40" alt="Task">
+                                    </div>
+                                    <div class="task-details">
+                                        <h4>Refer CRM Videos</h4>
+                                        <span class="task-status in-progress">In Progress</span>
+                                        <span class="task-priority high">High</span>
+                                        <span class="task-date">01/07/2019</span>
+                                        <span class="task-time">11 am Monday</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item active">
+                                <div class="task-info">
+                                    <div class="task-icon">
+                                        <img src="https://via.placeholder.com/40" alt="Task">
+                                    </div>
+                                    <div class="task-details">
+                                        <h4>Started Steps</h4>
+                                        <span class="task-status in-progress">In Progress</span>
+                                        <span class="task-priority normal">Normal</span>
+                                        <span class="task-date">01/07/2019</span>
+                                        <span class="task-time">11 am Monday</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <div class="task-icon">
+                                        <img src="https://via.placeholder.com/40" alt="Task">
+                                    </div>
+                                    <div class="task-details">
+                                        <h4>Design Discussion</h4>
+                                        <span class="task-status in-progress">In Progress</span>
+                                        <span class="task-priority high">High</span>
+                                        <span class="task-date">01/07/2019</span>
+                                        <span class="task-time">11 am Monday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Events Today -->
+                    <div class="dashboard-card events-card">
+                        <div class="card-header">
+                            <h3>Events Today</h3>
+                            <button class="refresh-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="events-list">
+                            <div class="event-item">
+                                <div class="event-details">
+                                    <h4>Webinar</h4>
+                                    <p>From: Mar 16, 2019</p>
+                                    <p>To: Mar 16, 2019</p>
+                                    <p>Related to: Printing</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <div class="event-details">
+                                    <h4>Demo</h4>
+                                    <p>From: May 16, 2019</p>
+                                    <p>To: Mar 16, 2019</p>
+                                    <p>Related to: Channel</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <div class="event-details">
+                                    <h4>Demo</h4>
+                                    <p>From: May 16, 2019</p>
+                                    <p>To: Mar 16, 2019</p>
+                                    <p>Related to: Channel</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <div class="event-details">
+                                    <h4>Webinar</h4>
+                                    <p>From: Dec 10, 2019</p>
+                                    <p>To: Mar 16, 2019</p>
+                                    <p>Related to: Printing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PR Data Chart -->
+                    <div class="dashboard-card chart-card">
+                        <div class="card-header">
+                            <h3>PR Data</h3>
+                            <div class="chart-filters">
+                                <button class="filter-btn active">Weekly</button>
+                                <button class="filter-btn">Yearly</button>
+                                <button class="filter-btn">Quarterly</button>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-placeholder">
+                                <div class="chart-bars">
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 80%"></div>
+                                    <div class="bar" style="height: 40%"></div>
+                                    <div class="bar" style="height: 90%"></div>
+                                    <div class="bar" style="height: 70%"></div>
+                                    <div class="bar" style="height: 85%"></div>
+                                    <div class="bar" style="height: 65%"></div>
+                                    <div class="bar" style="height: 95%"></div>
+                                    <div class="bar" style="height: 75%"></div>
+                                    <div class="bar" style="height: 55%"></div>
+                                    <div class="bar" style="height: 100%"></div>
+                                    <div class="bar" style="height: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin-panel.js"></script>
+</body>
+</html>
