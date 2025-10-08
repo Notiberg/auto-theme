@@ -14,35 +14,30 @@
         <aside class="admin-sidebar">
             <div class="sidebar-header">
                 <div class="admin-logo">
-                    <h2>ADMIN</h2>
-                    <p>Panel</p>
+                    <h2>Блоки</h2>
                 </div>
             </div>
             
             <nav class="sidebar-nav">
-                <a href="#" class="nav-item active" data-section="dashboard">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                <a href="#" class="nav-item active" data-section="main">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
                 </a>
-                <a href="#" class="nav-item" data-section="tasks">
-                    <i class="fas fa-tasks"></i>
-                    <span>Open Tasks</span>
+                <a href="#" class="nav-item" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Уведомления</span>
                 </a>
-                <a href="#" class="nav-item" data-section="events">
+                <a href="#" class="nav-item" data-section="calendar">
                     <i class="fas fa-calendar"></i>
-                    <span>Events Today</span>
+                    <span>Календарь</span>
                 </a>
-                <a href="#" class="nav-item" data-section="data">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>PR Data</span>
-                </a>
-                <a href="#" class="nav-item" data-section="settings">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
+                <a href="#" class="nav-item" data-section="finance">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Финансы</span>
                 </a>
                 <a href="#" class="nav-item" id="logoutAdmin">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <span>Выход</span>
                 </a>
             </nav>
         </aside>
@@ -55,13 +50,13 @@
                     <button class="menu-toggle" id="menuToggle">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 class="page-title">Dashboard</h1>
+                    <h1 class="page-title">Главная</h1>
                 </div>
                 
                 <div class="header-right">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search Here">
+                        <input type="text" placeholder="Поиск">
                     </div>
                     <div class="header-actions">
                         <button class="notification-btn">
@@ -70,208 +65,308 @@
                         </button>
                         <div class="admin-profile">
                             <img src="pan.jpeg" alt="Admin" class="admin-avatar">
-                            <span class="admin-name">Admin AI</span>
+                            <span class="admin-name">Админ ЯП</span>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <!-- Dashboard Content -->
+            <!-- Content Sections -->
             <div class="admin-content">
-                <!-- Overview Cards -->
-                <div class="overview-section">
-                    <h2 class="section-title">Overview</h2>
-                    <div class="overview-cards">
-                        <div class="overview-card">
-                            <div class="card-icon blue">
-                                <i class="fas fa-users"></i>
+                <!-- Main Section -->
+                <div class="content-section active" id="main-section">
+                    <div class="overview-section">
+                        <h2 class="section-title">Обзор автомойки</h2>
+                        <div class="overview-cards">
+                            <div class="overview-card">
+                                <div class="card-icon blue">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>127</h3>
+                                    <p>Машин сегодня</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h3>10.2k</h3>
-                                <p>Followers</p>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon green">
+                                    <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>45,200₽</h3>
+                                    <p>Доход за день</p>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon purple">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>89</h3>
+                                    <p>Клиентов</p>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon pink">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>15 мин</h3>
+                                    <p>Среднее время</p>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-icon pink">
-                                <i class="fas fa-eye"></i>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Активные заказы</h3>
+                                <button class="refresh-btn">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
                             </div>
-                            <div class="card-content">
-                                <h3>1.2k</h3>
-                                <p>Impressions</p>
+                            <div class="orders-list">
+                                <div class="order-item">
+                                    <div class="order-info">
+                                        <h4>BMW X5 - А123БВ777</h4>
+                                        <p>Комплексная мойка</p>
+                                        <span class="order-status active">В процессе</span>
+                                    </div>
+                                </div>
+                                <div class="order-item">
+                                    <div class="order-info">
+                                        <h4>Mercedes C-Class - В456ГД888</h4>
+                                        <p>Мойка + воск</p>
+                                        <span class="order-status waiting">Ожидание</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-icon purple">
-                                <i class="fas fa-heart"></i>
+
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Статистика по дням</h3>
                             </div>
-                            <div class="card-content">
-                                <h3>567</h3>
-                                <p>Likes</p>
-                            </div>
-                        </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-icon green">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3>15%</h3>
-                                <p>Engagements</p>
+                            <div class="chart-container">
+                                <div class="chart-placeholder">
+                                    <div class="chart-bars">
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 60%"></div>
+                                            <span class="bar-label">Пн</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 80%"></div>
+                                            <span class="bar-label">Вт</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 40%"></div>
+                                            <span class="bar-label">Ср</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 90%"></div>
+                                            <span class="bar-label">Чт</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 70%"></div>
+                                            <span class="bar-label">Пт</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 85%"></div>
+                                            <span class="bar-label">Сб</span>
+                                        </div>
+                                        <div class="bar-container">
+                                            <div class="bar" style="height: 65%"></div>
+                                            <span class="bar-label">Вс</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Dashboard Grid -->
-                <div class="dashboard-grid">
-                    <!-- Open Tasks -->
-                    <div class="dashboard-card tasks-card">
-                        <div class="card-header">
-                            <h3>Open Task</h3>
-                            <button class="refresh-btn">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <!-- Notifications Section -->
+                <div class="content-section" id="notifications-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Уведомления</h2>
+                        <button class="btn-primary">Отметить все как прочитанные</button>
+                    </div>
+                    
+                    <div class="notifications-list">
+                        <div class="notification-item unread">
+                            <div class="notification-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Низкий уровень химии</h4>
+                                <p>Заканчивается автошампунь на посту №2</p>
+                                <span class="notification-time">5 минут назад</span>
+                            </div>
                         </div>
                         
-                        <div class="tasks-list">
-                            <div class="task-item">
-                                <div class="task-info">
-                                    <div class="task-icon">
-                                        <img src="https://via.placeholder.com/40" alt="Task">
-                                    </div>
-                                    <div class="task-details">
-                                        <h4>Register for Upcoming</h4>
-                                        <span class="task-status in-progress">In Progress</span>
-                                        <span class="task-priority normal">Normal</span>
-                                        <span class="task-date">01/07/2019</span>
-                                        <span class="task-time">11 am Monday</span>
-                                    </div>
-                                </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <i class="fas fa-check-circle"></i>
                             </div>
-                            
-                            <div class="task-item">
-                                <div class="task-info">
-                                    <div class="task-icon">
-                                        <img src="https://via.placeholder.com/40" alt="Task">
-                                    </div>
-                                    <div class="task-details">
-                                        <h4>Refer CRM Videos</h4>
-                                        <span class="task-status in-progress">In Progress</span>
-                                        <span class="task-priority high">High</span>
-                                        <span class="task-date">01/07/2019</span>
-                                        <span class="task-time">11 am Monday</span>
-                                    </div>
-                                </div>
+                            <div class="notification-content">
+                                <h4>Заказ завершен</h4>
+                                <p>BMW X3 - К789ЛМ999 успешно обслужен</p>
+                                <span class="notification-time">15 минут назад</span>
                             </div>
-                            
-                            <div class="task-item active">
-                                <div class="task-info">
-                                    <div class="task-icon">
-                                        <img src="https://via.placeholder.com/40" alt="Task">
-                                    </div>
-                                    <div class="task-details">
-                                        <h4>Started Steps</h4>
-                                        <span class="task-status in-progress">In Progress</span>
-                                        <span class="task-priority normal">Normal</span>
-                                        <span class="task-date">01/07/2019</span>
-                                        <span class="task-time">11 am Monday</span>
-                                    </div>
-                                </div>
+                        </div>
+                        
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <i class="fas fa-user-plus"></i>
                             </div>
-                            
-                            <div class="task-item">
-                                <div class="task-info">
-                                    <div class="task-icon">
-                                        <img src="https://via.placeholder.com/40" alt="Task">
-                                    </div>
-                                    <div class="task-details">
-                                        <h4>Design Discussion</h4>
-                                        <span class="task-status in-progress">In Progress</span>
-                                        <span class="task-priority high">High</span>
-                                        <span class="task-date">01/07/2019</span>
-                                        <span class="task-time">11 am Monday</span>
-                                    </div>
-                                </div>
+                            <div class="notification-content">
+                                <h4>Новый клиент</h4>
+                                <p>Зарегистрирован новый клиент: Иванов И.И.</p>
+                                <span class="notification-time">1 час назад</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Events Today -->
-                    <div class="dashboard-card events-card">
-                        <div class="card-header">
-                            <h3>Events Today</h3>
-                            <button class="refresh-btn">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
+                <!-- Calendar Section -->
+                <div class="content-section" id="calendar-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Календарь записей</h2>
+                        <button class="btn-primary">Добавить запись</button>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav">&lt;</button>
+                            <h3>Октябрь 2024</h3>
+                            <button class="calendar-nav">&gt;</button>
                         </div>
                         
-                        <div class="events-list">
-                            <div class="event-item">
-                                <div class="event-details">
-                                    <h4>Webinar</h4>
-                                    <p>From: Mar 16, 2019</p>
-                                    <p>To: Mar 16, 2019</p>
-                                    <p>Related to: Printing</p>
-                                </div>
-                            </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day header">Пн</div>
+                            <div class="calendar-day header">Вт</div>
+                            <div class="calendar-day header">Ср</div>
+                            <div class="calendar-day header">Чт</div>
+                            <div class="calendar-day header">Пт</div>
+                            <div class="calendar-day header">Сб</div>
+                            <div class="calendar-day header">Вс</div>
                             
-                            <div class="event-item">
-                                <div class="event-details">
-                                    <h4>Demo</h4>
-                                    <p>From: May 16, 2019</p>
-                                    <p>To: Mar 16, 2019</p>
-                                    <p>Related to: Channel</p>
-                                </div>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day has-booking">6</div>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-day today">8</div>
+                            <div class="calendar-day has-booking">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day has-booking">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+                        </div>
+                        
+                        <div class="appointments-today">
+                            <h4>Записи на сегодня</h4>
+                            <div class="appointment-item">
+                                <span class="appointment-time">10:00</span>
+                                <span class="appointment-service">Комплексная мойка</span>
+                                <span class="appointment-client">Петров А.В.</span>
                             </div>
-                            
-                            <div class="event-item">
-                                <div class="event-details">
-                                    <h4>Demo</h4>
-                                    <p>From: May 16, 2019</p>
-                                    <p>To: Mar 16, 2019</p>
-                                    <p>Related to: Channel</p>
-                                </div>
-                            </div>
-                            
-                            <div class="event-item">
-                                <div class="event-details">
-                                    <h4>Webinar</h4>
-                                    <p>From: Dec 10, 2019</p>
-                                    <p>To: Mar 16, 2019</p>
-                                    <p>Related to: Printing</p>
-                                </div>
+                            <div class="appointment-item">
+                                <span class="appointment-time">14:30</span>
+                                <span class="appointment-service">Мойка + воск</span>
+                                <span class="appointment-client">Сидоров И.И.</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- PR Data Chart -->
-                    <div class="dashboard-card chart-card">
-                        <div class="card-header">
-                            <h3>PR Data</h3>
-                            <div class="chart-filters">
-                                <button class="filter-btn active">Weekly</button>
-                                <button class="filter-btn">Yearly</button>
-                                <button class="filter-btn">Quarterly</button>
+                <!-- Finance Section -->
+                <div class="content-section" id="finance-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Финансы</h2>
+                        <div class="finance-filters">
+                            <button class="filter-btn active">День</button>
+                            <button class="filter-btn">Неделя</button>
+                            <button class="filter-btn">Месяц</button>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-overview">
+                        <div class="finance-card">
+                            <div class="finance-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="finance-content">
+                                <h3>45,200₽</h3>
+                                <p>Доход за день</p>
+                                <span class="finance-change positive">+12%</span>
                             </div>
                         </div>
                         
+                        <div class="finance-card">
+                            <div class="finance-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="finance-content">
+                                <h3>8,500₽</h3>
+                                <p>Расходы за день</p>
+                                <span class="finance-change negative">+5%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="finance-card">
+                            <div class="finance-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="finance-content">
+                                <h3>36,700₽</h3>
+                                <p>Чистая прибыль</p>
+                                <span class="finance-change positive">+15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-chart">
+                        <div class="card-header">
+                            <h3>Динамика доходов</h3>
+                        </div>
                         <div class="chart-container">
                             <div class="chart-placeholder">
-                                <div class="chart-bars">
-                                    <div class="bar" style="height: 60%"></div>
-                                    <div class="bar" style="height: 80%"></div>
-                                    <div class="bar" style="height: 40%"></div>
-                                    <div class="bar" style="height: 90%"></div>
-                                    <div class="bar" style="height: 70%"></div>
-                                    <div class="bar" style="height: 85%"></div>
-                                    <div class="bar" style="height: 65%"></div>
-                                    <div class="bar" style="height: 95%"></div>
-                                    <div class="bar" style="height: 75%"></div>
-                                    <div class="bar" style="height: 55%"></div>
-                                    <div class="bar" style="height: 100%"></div>
-                                    <div class="bar" style="height: 80%"></div>
+                                <div class="chart-bars" id="financeChartBars">
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 45%"></div>
+                                        <span class="bar-label finance-label">9:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 60%"></div>
+                                        <span class="bar-label finance-label">12:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 80%"></div>
+                                        <span class="bar-label finance-label">15:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 55%"></div>
+                                        <span class="bar-label finance-label">18:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 90%"></div>
+                                        <span class="bar-label finance-label">21:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 75%"></div>
+                                        <span class="bar-label finance-label">24:00</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar" style="height: 100%"></div>
+                                        <span class="bar-label finance-label">3:00</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

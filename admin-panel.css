@@ -20,7 +20,7 @@
 }
 
 .sidebar-header {
-    padding: 24px 20px;
+    padding: calc(65px + env(safe-area-inset-top)) 20px 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -45,16 +45,20 @@
 .sidebar-nav {
     flex: 1;
     padding: 20px 0;
+    overflow: hidden;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     padding: 12px 20px;
     color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
+    box-sizing: border-box;
 }
 
 .nav-item:hover {
@@ -66,6 +70,26 @@
     background: rgba(30, 144, 255, 0.1);
     color: #1E90FF;
     border-left-color: #1E90FF;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    position: relative;
+}
+
+.nav-item.active i,
+.nav-item.active span {
+    color: #1E90FF;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #1E90FF;
+    border-radius: 0 2px 2px 0;
 }
 
 .nav-item i {
@@ -370,114 +394,343 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Tasks Card */
-.tasks-card {
-    grid-row: span 2;
+/* Content Sections */
+.content-section {
+    display: none;
 }
 
-.tasks-list {
+.content-section.active {
+    display: block;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+}
+
+/* Orders List */
+.orders-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.task-item {
-    padding: 12px;
+.order-item {
+    padding: 16px;
     border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.task-item:hover {
+.order-item:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.task-item.active {
-    background: rgba(30, 144, 255, 0.1);
-    border: 1px solid rgba(30, 144, 255, 0.3);
-}
-
-.task-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.task-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.task-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.task-details h4 {
-    font-size: 14px;
+.order-info h4 {
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
     margin: 0 0 8px 0;
 }
 
-.task-status, .task-priority, .task-date, .task-time {
+.order-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.order-status {
     display: inline-block;
     font-size: 12px;
-    padding: 2px 8px;
+    padding: 4px 12px;
     border-radius: 12px;
-    margin-right: 8px;
-    margin-bottom: 4px;
+    font-weight: 500;
 }
 
-.task-status.in-progress {
-    background: rgba(30, 144, 255, 0.2);
-    color: #1E90FF;
+.order-status.active {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22C55E;
 }
 
-.task-priority.normal {
-    background: rgba(128, 128, 128, 0.2);
-    color: #808080;
+.order-status.waiting {
+    background: rgba(251, 191, 36, 0.2);
+    color: #FBBF24;
 }
 
-.task-priority.high {
-    background: rgba(255, 69, 0, 0.2);
-    color: #FF4500;
-}
-
-.task-date, .task-time {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-secondary);
-}
-
-/* Events Card */
-.events-list {
+/* Notifications */
+.notifications-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.event-item {
-    padding: 12px;
-    border-radius: 8px;
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
-.event-details h4 {
-    font-size: 14px;
+.notification-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.notification-item.unread {
+    border-left: 3px solid #1E90FF;
+    background: rgba(30, 144, 255, 0.05);
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 144, 255, 0.2);
+    color: #1E90FF;
+    flex-shrink: 0;
+}
+
+.notification-content h4 {
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
     margin: 0 0 8px 0;
 }
 
-.event-details p {
+.notification-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.notification-time {
     font-size: 12px;
     color: var(--text-secondary);
-    margin: 2px 0;
+}
+
+/* Calendar */
+.calendar-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.calendar-nav {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calendar-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calendar-day.header {
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: default;
+}
+
+.calendar-day:not(.header) {
+    color: var(--text-color);
+}
+
+.calendar-day:not(.header):hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.today {
+    background: rgba(30, 144, 255, 0.2);
+    color: #1E90FF;
+    font-weight: 600;
+}
+
+.calendar-day.has-booking {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22C55E;
+}
+
+.calendar-day.selected {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.appointments-today {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.appointments-today h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 16px 0;
+}
+
+.appointment-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 8px;
+}
+
+.appointment-time {
+    font-weight: 600;
+    color: #1E90FF;
+    min-width: 60px;
+}
+
+.appointment-service {
+    color: var(--text-color);
+    flex: 1;
+}
+
+.appointment-client {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Finance */
+.finance-filters {
+    display: flex;
+    gap: 8px;
+}
+
+.finance-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.finance-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+}
+
+.finance-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.finance-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1E90FF, #00BFFF);
+    color: white;
+    font-size: 20px;
+}
+
+.finance-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+}
+
+.finance-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.finance-change {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.finance-change.positive {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22C55E;
+}
+
+.finance-change.negative {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}
+
+.finance-chart {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
 }
 
 /* Chart Card */
@@ -528,6 +781,14 @@
     height: 100%;
 }
 
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
 .bar {
     width: 20px;
     background: linear-gradient(to top, #1E90FF, #00BFFF);
@@ -538,6 +799,13 @@
 .bar:hover {
     background: linear-gradient(to top, #FF4500, #FF6347);
     transform: scaleY(1.1);
+}
+
+.bar-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 8px;
 }
 
 /* Responsive Design */
@@ -560,16 +828,34 @@
     .admin-header {
         padding: calc(55px + env(safe-area-inset-top)) 24px 18px;
     }
+    
+    .sidebar-header {
+        padding: calc(55px + env(safe-area-inset-top)) 20px 18px;
+    }
 }
 
 @media (max-width: 768px) {
     .admin-sidebar {
-        width: 0;
-        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
     }
     
     .admin-sidebar.open {
-        width: 250px;
+        transform: translateX(0);
+    }
+    
+    .admin-main {
+        margin-left: 0;
+    }
+    
+    .sidebar-header {
+        padding: calc(70px + env(safe-area-inset-top)) 16px 12px;
     }
     
     .menu-toggle {
@@ -606,8 +892,12 @@
         display: none;
     }
     
+    .sidebar-header {
+        padding: calc(75px + env(safe-area-inset-top)) 12px 8px;
+    }
+    
     .admin-header {
-        padding: 12px 16px;
+        padding: calc(75px + env(safe-area-inset-top)) 12px 8px;
     }
     
     .page-title {
