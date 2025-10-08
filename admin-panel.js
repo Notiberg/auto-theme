@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeNotifications();
         initializeCalendar();
         initializeFinance();
+        initializeNotificationModal();
     }
     
     // Navigation functionality
@@ -232,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Notifications functionality
     function initializeNotifications() {
-        const markAllReadBtn = document.querySelector('.btn-primary');
-        if (markAllReadBtn && markAllReadBtn.textContent.includes('прочитанные')) {
+        const markAllReadBtn = document.getElementById('markAllReadBtn');
+        if (markAllReadBtn) {
             markAllReadBtn.addEventListener('click', () => {
                 const unreadItems = document.querySelectorAll('.notification-item.unread');
                 unreadItems.forEach(item => {
@@ -351,5 +352,157 @@ document.addEventListener('DOMContentLoaded', function() {
             // Animate chart bars
             animateChartBars();
         }
+    }
+    
+    // Show success message
+    function showSuccessMessage(message) {
+        const successDiv = document.createElement('div');
+        successDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(34, 197, 94, 0.9);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            z-index: 3000;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        `;
+        successDiv.textContent = message;
+        
+        document.body.appendChild(successDiv);
+        
+        setTimeout(() => {
+            successDiv.remove();
+        }, 3000);
+    }
+    
+    // Notification Modal functionality
+    function initializeNotificationModal() {
+        const createBtn = document.getElementById('createNotificationBtn');
+        const modal = document.getElementById('createNotificationModal');
+        const closeBtn = document.getElementById('closeNotificationModal');
+        const cancelBtn = document.getElementById('cancelNotification');
+        const sendBtn = document.getElementById('sendNotification');
+        const form = document.getElementById('notificationForm');
+        const sendImmediately = document.getElementById('sendImmediately');
+        const scheduleGroup = document.getElementById('scheduleGroup');
+        
+        // Open modal
+        if (createBtn) {
+            createBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Close modal functions
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            form.reset();
+            scheduleGroup.style.display = 'none';
+            sendImmediately.checked = true;
+        }
+        
+        // Close modal events
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+        
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', closeModal);
+        }
+        
+        // Close modal on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Toggle schedule group
+        if (sendImmediately) {
+            sendImmediately.addEventListener('change', () => {
+                if (sendImmediately.checked) {
+                    scheduleGroup.style.display = 'none';
+                } else {
+                    scheduleGroup.style.display = 'block';
+                }
+            });
+        }
+        
+        // Send notification
+        if (sendBtn) {
+            sendBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const notificationData = {
+                    title: formData.get('title'),
+                    message: formData.get('message'),
+                    filters: {
+                        carBrand: formData.get('carBrand'),
+                        carYear: formData.get('carYear'),
+                        clientType: formData.get('clientType'),
+                        serviceType: formData.get('serviceType'),
+                        lastVisit: formData.get('lastVisit'),
+                        location: formData.get('location')
+                    },
+                    sendImmediately: formData.get('sendImmediately') === 'on',
+                    scheduleTime: formData.get('scheduleTime')
+                };
+                
+                // Validate required fields
+                if (!notificationData.title || !notificationData.message) {
+                    alert('Пожалуйста, заполните заголовок и сообщение уведомления');
+                    return;
+                }
+                
+                // Create notification preview
+                createNotificationPreview(notificationData);
+                
+                // Close modal
+                closeModal();
+                
+                console.log('Notification data:', notificationData);
+            });
+        }
+    }
+    
+    // Create notification preview in the list
+    function createNotificationPreview(data) {
+        const notificationsList = document.querySelector('.notifications-list');
+        if (!notificationsList) return;
+        
+        const notificationItem = document.createElement('div');
+        notificationItem.className = 'notification-item unread';
+        
+        const timeString = data.sendImmediately ? 
+            'только что' : 
+            `запланировано на ${new Date(data.scheduleTime).toLocaleString('ru-RU')}`;
+        
+        // Count active filters
+        const activeFilters = Object.values(data.filters).filter(value => value && value !== '').length;
+        const filtersText = activeFilters > 0 ? ` (${activeFilters} фильтров)` : ' (все клиенты)';
+        
+        notificationItem.innerHTML = `
+            <div class="notification-icon">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="notification-content">
+                <h4>${data.title}</h4>
+                <p>${data.message}</p>
+                <p><small>Рассылка${filtersText}</small></p>
+                <span class="notification-time">${timeString}</span>
+            </div>
+        `;
+        
+        // Insert at the beginning of the list
+        notificationsList.insertBefore(notificationItem, notificationsList.firstChild);
+        
+        // Show success message
+        showSuccessMessage('Уведомление создано успешно!');
     }
 });

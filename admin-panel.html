@@ -192,7 +192,10 @@
                 <div class="content-section" id="notifications-section">
                     <div class="section-header">
                         <h2 class="section-title">Уведомления</h2>
-                        <button class="btn-primary">Отметить все как прочитанные</button>
+                        <div class="section-actions">
+                            <button class="btn-primary" id="createNotificationBtn">Создать уведомление</button>
+                            <button class="btn-secondary" id="markAllReadBtn">Отметить все как прочитанные</button>
+                        </div>
                     </div>
                     
                     <div class="notifications-list">
@@ -374,6 +377,127 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Create Notification Modal -->
+    <div class="modal-overlay" id="createNotificationModal">
+        <div class="modal-content notification-modal">
+            <div class="modal-header">
+                <h3>Создать уведомление</h3>
+                <button class="modal-close" id="closeNotificationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="notificationForm">
+                    <div class="form-section">
+                        <h4>Текст уведомления</h4>
+                        <div class="form-group">
+                            <label for="notificationTitle">Заголовок</label>
+                            <input type="text" id="notificationTitle" name="title" placeholder="Введите заголовок уведомления" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notificationMessage">Сообщение</label>
+                            <textarea id="notificationMessage" name="message" placeholder="Введите текст уведомления" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Фильтры рассылки</h4>
+                        <div class="filters-grid">
+                            <div class="form-group">
+                                <label for="carBrand">Автомобиль</label>
+                                <select id="carBrand" name="carBrand">
+                                    <option value="">Все марки</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="volkswagen">Volkswagen</option>
+                                    <option value="hyundai">Hyundai</option>
+                                    <option value="kia">KIA</option>
+                                    <option value="nissan">Nissan</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="carYear">Год выпуска авто</label>
+                                <select id="carYear" name="carYear">
+                                    <option value="">Любой год</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="older">2017 и старше</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clientType">Тип клиента</label>
+                                <select id="clientType" name="clientType">
+                                    <option value="">Все клиенты</option>
+                                    <option value="new">Новые клиенты</option>
+                                    <option value="regular">Постоянные клиенты</option>
+                                    <option value="vip">VIP клиенты</option>
+                                    <option value="inactive">Неактивные клиенты</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="serviceType">Тип услуги</label>
+                                <select id="serviceType" name="serviceType">
+                                    <option value="">Все услуги</option>
+                                    <option value="wash">Мойка</option>
+                                    <option value="detailing">Детейлинг</option>
+                                    <option value="polish">Полировка</option>
+                                    <option value="protection">Защитные покрытия</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastVisit">Последний визит</label>
+                                <select id="lastVisit" name="lastVisit">
+                                    <option value="">Любое время</option>
+                                    <option value="week">За последнюю неделю</option>
+                                    <option value="month">За последний месяц</option>
+                                    <option value="3months">За последние 3 месяца</option>
+                                    <option value="6months">За последние 6 месяцев</option>
+                                    <option value="year">За последний год</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location">Локация</label>
+                                <select id="location" name="location">
+                                    <option value="">Все локации</option>
+                                    <option value="akvamatik">ул. Ленина, 45 (Акваматик)</option>
+                                    <option value="koch24">пр. Мира, 128 (Koch24)</option>
+                                    <option value="chisto">ул. Гагарина, 67 (Chisto)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="sendImmediately" name="sendImmediately" checked>
+                                <span class="checkmark"></span>
+                                Отправить немедленно
+                            </label>
+                        </div>
+                        
+                        <div class="form-group" id="scheduleGroup" style="display: none;">
+                            <label for="scheduleTime">Запланировать отправку</label>
+                            <input type="datetime-local" id="scheduleTime" name="scheduleTime">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="cancelNotification">Отмена</button>
+                <button type="submit" class="btn-primary" id="sendNotification">Отправить уведомление</button>
+            </div>
+        </div>
     </div>
 
     <script src="admin-panel.js"></script>
